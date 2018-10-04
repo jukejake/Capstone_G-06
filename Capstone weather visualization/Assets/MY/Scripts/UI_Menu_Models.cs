@@ -5,7 +5,7 @@ public class UI_Menu_Models : MonoBehaviour {
 
 	#region Setup
 	void Start () {
-       InvokeRepeating("DelayedUpdate", 1.0f, 0.20f);
+       //InvokeRepeating("DelayedUpdate", 1.0f, 0.20f);
 	}
 	private void DelayedUpdate() {
 
@@ -33,14 +33,13 @@ public class UI_Menu_Models : MonoBehaviour {
 	}
 	public void Resize() {
 		int num = 0;
-		int Ypos = 200;
+		int Ypos = 0; //200
 		foreach (var item in gameObjects) {
 			num += 1;
 			if (item.activeSelf) {
 				if (num % 2 == 0) { Ypos -= 200; }
 				else if (num % 2 == 1) { Ypos -= 30; item.GetComponent<RectTransform>().localPosition = new Vector3(0, Ypos, 0); }
-				
-			}
+            }
 		}
 	}
 	#endregion

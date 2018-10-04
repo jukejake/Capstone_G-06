@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using Sirenix.OdinInspector;
 
 public class ChangeStuff : MonoBehaviour {
 
@@ -9,8 +10,9 @@ public class ChangeStuff : MonoBehaviour {
        InvokeRepeating("DelayedUpdate", 1.0f, 0.10f);
     }
     private void DelayedUpdate() {
-		SetRotation();
-	}
+        if (ToggleRotation) { SetRotation(); }
+        if (ToggleNozzle) { ChangeNozzleSize(); }
+    }
 	#endregion
 
 	#region Set Scale
@@ -37,15 +39,20 @@ public class ChangeStuff : MonoBehaviour {
 			obj.SetActive(NewToggleState);
 		}
     }
-	#endregion
+    #endregion
 
-	#region Set Rotation
-	private bool RotateLeft = false;
+    #region Set Rotation
+
+    [ToggleGroup("ToggleRotation")]
+    public bool ToggleRotation = false;
+    [ToggleGroup("ToggleRotation")]
+    public GameObject Obj;
+    [ToggleGroup("ToggleRotation")]
+    public float RotateBy = 1.0f;
+    private bool RotateLeft = false;
 	private bool RotateRight = false;
-	public float RotateBy = 1.0f;
 	private float RotateY = 0.0f;
 	private Vector3 Rotation;
-	public GameObject Obj;
 
 	public void SetObjToRot(GameObject obj) { Obj = obj; }
 	public void RotationLeft(bool mode) { RotateLeft = mode; }
@@ -57,5 +64,25 @@ public class ChangeStuff : MonoBehaviour {
 		Rotation = new Vector3(0.0f, RotateY, 0.0f);
 		Obj.transform.localRotation = Quaternion.Euler(Rotation);
 	}
-	#endregion
+    #endregion
+
+    #region Set Nozzle
+    [ToggleGroup("ToggleNozzle")]
+    public bool ToggleNozzle = false;
+    [ToggleGroup("ToggleNozzle")]
+    public GameObject FrontWall;
+    [ToggleGroup("ToggleNozzle")]
+    public GameObject BackWall;
+    [ToggleGroup("ToggleNozzle")]
+    public GameObject TopWall;
+    [ToggleGroup("ToggleNozzle")]
+    public float Movement = 10.0f;
+    [ToggleGroup("ToggleNozzle")]
+    public void SetNozzle(Slider UI) { Movement = UI.value; }
+    private void ChangeNozzleSize() {
+        FrontWall.transform.localPosition = new Vector3(0, 5,-0.5f-Movement);
+        BackWall.transform.localPosition  = new Vector3(0, 5, 0.5f+Movement);
+        TopWall.transform.localPosition   = new Vector3(0, 5.5f+Movement, 0);
+    }
+    #endregion
 }
