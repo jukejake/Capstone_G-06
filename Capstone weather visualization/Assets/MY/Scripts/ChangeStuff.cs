@@ -74,15 +74,36 @@ public class ChangeStuff : MonoBehaviour {
     [ToggleGroup("ToggleNozzle")]
     public GameObject BackWall;
     [ToggleGroup("ToggleNozzle")]
-    public GameObject TopWall;
+    public GameObject Canopy;
     [ToggleGroup("ToggleNozzle")]
-    public float Movement = 10.0f;
+    public int State = 1;
     [ToggleGroup("ToggleNozzle")]
-    public void SetNozzle(Slider UI) { Movement = UI.value; }
+    public void SetNozzle(Slider UI) { State = (int)UI.value; }
     private void ChangeNozzleSize() {
-        FrontWall.transform.localPosition = new Vector3(0, 5,-0.5f-Movement);
-        BackWall.transform.localPosition  = new Vector3(0, 5, 0.5f+Movement);
-        TopWall.transform.localPosition   = new Vector3(0, 5.5f+Movement, 0);
+        //7.0m^2
+        if (State == 0) {
+            FrontWall.transform.localPosition = new Vector3(0, 1.45f, -1.2f);
+            BackWall.transform.localPosition  = new Vector3(0, 1.45f,  1.2f);
+            Canopy.transform.localPosition    = new Vector3(0, 2.9f, 0);
+        }
+        //13.0m^2
+        else if (State == 1) { 
+            FrontWall.transform.localPosition = new Vector3(0, 1.45f, -2.25f);
+            BackWall.transform.localPosition  = new Vector3(0, 1.45f,  2.25f);
+            Canopy.transform.localPosition    = new Vector3(0, 2.9f, 0);
+        }
+        //14.5m^2
+        else if (State == 2) {
+            FrontWall.transform.localPosition = new Vector3(0, 1.45f, -2.5f);
+            BackWall.transform.localPosition  = new Vector3(0, 1.45f,  2.5f);
+            Canopy.transform.localPosition    = new Vector3(0, 2.9f, 0);
+        }
+        //22.0m^2
+        else if (State == 3) {
+            FrontWall.transform.localPosition = new Vector3(0, 1.45f, -2.5f);
+            BackWall.transform.localPosition  = new Vector3(0, 1.45f,  2.5f);
+            Canopy.transform.localPosition    = new Vector3(0, 4.4f, 0);
+        }
     }
     #endregion
 }
