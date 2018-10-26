@@ -45,12 +45,11 @@ public class XRAndroidWrapper {
   }
 
   private static AndroidJavaClass getXRAndroidClass() {
-    return new AndroidJavaClass("com.the8thwall.reality.app.xr.android.XRAndroid");
+    return new AndroidJavaClass("com.the8thwall.reality.app.xr.android.XREngine");
   }
 
   public void destroy() {
-    AndroidJavaClass xrAndroidClass =
-      new AndroidJavaClass("com.the8thwall.reality.app.xr.android.XRAndroid");
+    AndroidJavaClass xrAndroidClass = getXRAndroidClass();
     xrAndroidClass.CallStatic("destroy");
   }
 

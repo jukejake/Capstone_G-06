@@ -66,7 +66,11 @@ public class XRNativeBridge {
 // iOS native interfaces.
 #if (UNITY_IPHONE && !UNITY_EDITOR)
   [DllImport("__Internal")]
-  private static extern void c8XRIos_create(int renderingSystem);
+  private static extern void c8XRIos_create(
+      int renderingSystem,
+      System.IntPtr session,
+      System.IntPtr sessionConfig,
+      System.IntPtr sessionDelegate);
 
   [DllImport("__Internal")]
   private static extern void c8XRIos_configureXR(ref NativeByteArray config);
@@ -117,7 +121,22 @@ public class XRNativeBridge {
   [DllImport("__Internal")]
   private static extern IntPtr c8XRIos_getRenderEventFunc();
 
-  void XRCreate(int renderingSystem) { c8XRIos_create(renderingSystem); }
+  [DllImport("__Internal")]
+  private static extern System.IntPtr c8_getCustomARSession();
+
+  [DllImport("__Internal")]
+  private static extern System.IntPtr c8_getCustomARSessionConfig();
+
+  [DllImport("__Internal")]
+  private static extern System.IntPtr c8_getCustomARSessionDelegate();
+
+  void XRCreate(int renderingSystem) {
+    c8XRIos_create(
+      renderingSystem,
+      c8_getCustomARSession(),
+      c8_getCustomARSessionConfig(),
+      c8_getCustomARSessionDelegate());
+  }
   void XRConfigure(MessageBuilder configMessageBuilder) {
     NativeByteArray b = Serialize.allocNativeByteArrayAndWrite(configMessageBuilder);
     c8XRIos_configureXR(ref b);

@@ -26,16 +26,6 @@ public class XRVideoTextureController : MonoBehaviour {
     Renderer r = GetComponent<Renderer>();
     rMat = r.material;
     rMat.shader = xr.GetVideoTextureShader();
-    if (xr.ShouldUseRealityRGBATexture()) {
-      var tex = xr.GetRealityRGBATexture();
-      rMat.mainTexture = tex;
-      texAspect = tex.width * 1.0f / tex.height;
-    } else {
-      var ytex = xr.GetRealityYTexture();
-      rMat.SetTexture("_YTex", ytex);
-      rMat.SetTexture("_UVTex", xr.GetRealityUVTexture());
-      texAspect = ytex.width * 1.0f / ytex.height;
-    }
   }
 
   void Update() {
@@ -53,26 +43,36 @@ public class XRVideoTextureController : MonoBehaviour {
       isCBInit = true;
     }
 
+    if (xr.ShouldUseRealityRGBATexture()) {
+      var tex = xr.GetRealityRGBATexture();
+      if (tex == null) {
+        return;
+      }
+      rMat.mainTexture = tex;
+      texAspect = tex.width * 1.0f / tex.height;
+    } else {
+      var ytex = xr.GetRealityYTexture();
+      rMat.SetTexture("_YTex", ytex);
+      rMat.SetTexture("_UVTex", xr.GetRealityUVTexture());
+      texAspect = ytex.width * 1.0f / ytex.height;
+    }
+
     float scaleFactor = texAspect / xr.GetRealityTextureAspectRatio();
     float rotation = lastRotation;
     switch(xr.GetTextureRotation()) {
       case XRTextureRotation.R270:
         rotation = -90.0f;
         scaleFactor = texAspect * xr.GetRealityTextureAspectRatio();
-        rMat.SetInt("_ScreenOrientation", (int) ScreenOrientation.LandscapeRight);
         break;
       case XRTextureRotation.R0:
         rotation = 0.0f;
-        rMat.SetInt("_ScreenOrientation", (int) ScreenOrientation.Portrait);
         break;
       case XRTextureRotation.R90:
         rotation = 90.0f;
         scaleFactor = texAspect* xr.GetRealityTextureAspectRatio();
-        rMat.SetInt("_ScreenOrientation", (int) ScreenOrientation.LandscapeLeft);
         break;
       case XRTextureRotation.R180:
         rotation = 180.0f;
-        rMat.SetInt("_ScreenOrientation", (int) ScreenOrientation.PortraitUpsideDown);
         break;
       default:
         break;
@@ -89,18 +89,26 @@ public class XRVideoTextureController : MonoBehaviour {
       mWarp[0, 3] = (1 - scaleFactor) * .5f;
     }
 
-    Matrix4x4 m = Matrix4x4.TRS(
-      Vector3.zero,
-      Quaternion.Euler(0.0f, 0.0f, rotation),
-      Vector3.one);
+    Matrix4x4 rotate90 = Matrix4x4.zero;
+    rotate90[0, 1] = -1;
+    rotate90[0, 3] = 1;
+    rotate90[1, 0] = 1;
+    rotate90[2, 2] = 1;
+    rotate90[3, 3] = 1;
+
+    Matrix4x4 m = Matrix4x4.identity;
+    while (rotation < 0) {
+      rotation += 360;
+    }
+    while (rotation > 360) {
+      rotation -= 360;
+    }
+    while (rotation > 0) {
+      m = m * rotate90;
+      rotation -= 90;
+    }
 
     Matrix4x4 nm = m * mWarp;
-#if (UNITY_ANDROID && !UNITY_EDITOR)
-    // ARCore shader rotates internally.
-    if (xr.GetCapabilities().IsPositionTrackingRotationAndPosition()) {
-      nm = mWarp;
-    }
-#endif
 
     rMat.SetMatrix("_TextureWarp", nm);
   }

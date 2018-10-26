@@ -27,7 +27,8 @@ public class XRController : MonoBehaviour {
   private Vector3 origin = new Vector3(0, 0, 0);
   private Quaternion facing = new Quaternion(0, 0, 0, 1);
   private float scale = 1.0f;
-  private bool explicitlyPaused = false;
+  private bool pausedBySystem = false;
+  private bool pausedByCaller = false;
   private bool startedInUnity = false;
   private string overrideAppKey = null;
   private bool remoteConnected = false;
@@ -379,8 +380,12 @@ public class XRController : MonoBehaviour {
   #if (UNITY_IPHONE && !UNITY_EDITOR)
     return false;
   #elif (UNITY_ANDROID && !UNITY_EDITOR)
-    // ARCore devices still use RGBA texture.
-    return (xrEnvironment.getRealityImageShader() == XREnvironment.ImageShaderKind.ARCORE);
+    var r = GetCurrentReality();
+    var envTex = r.getRgbaTexture();
+    var ptr = (IntPtr) envTex.getPtr();
+    return
+      xrEnvironment.getRealityImageShader() == XREnvironment.ImageShaderKind.STANDARD_RGBA
+      || ptr != IntPtr.Zero;
   #elif (UNITY_EDITOR || UNITY_STANDALONE_OSX)
     return true;
   #else
@@ -392,13 +397,17 @@ public class XRController : MonoBehaviour {
    * Returns what the device's camera is capturing as an RGBA texture.
    */
   public Texture2D GetRealityRGBATexture() {
-    var appEnvironment = bridge.GetXRAppEnvironment();
-    var envTex = appEnvironment.getManagedCameraTextures().getRgbaTexture();
+    var envTex = GetRealityRGBATexData();
+
     if (realityRGBATexture != null
         && realityRGBATexture.height == envTex.getHeight()
         && realityRGBATexture.width == envTex.getWidth()) {
+      if ((IntPtr) envTex.getPtr() != IntPtr.Zero) {
+        realityRGBATexture.UpdateExternalTexture((IntPtr) envTex.getPtr());
+      }
       return realityRGBATexture;
     }
+
 
     // Create a texture
     IntPtr envTexPtr = (IntPtr)envTex.getPtr();
@@ -411,19 +420,25 @@ public class XRController : MonoBehaviour {
         false,
         envTexPtr);
     } else {
+      // If we are expecting STANDARD_RGBA, a texture will be passed back later. Don't create one
+      // here.
+      if (xrEnvironment.getRealityImageShader() == XREnvironment.ImageShaderKind.STANDARD_RGBA) {
+        return null;
+      }
       realityRGBATexture = new Texture2D(
         envTex.getWidth(),
         envTex.getHeight(),
         TextureFormat.RGBA32,
         false);
+
+      // Set point filtering just so we can see the pixels clearly
+      realityRGBATexture.filterMode = FilterMode.Point;
+      // Call Apply() so it's actually uploaded to the GPU
+      realityRGBATexture.Apply();
+
     }
 
     captureAspect = envTex.getWidth() * 1.0f / envTex.getHeight();
-
-    // Set point filtering just so we can see the pixels clearly
-    realityRGBATexture.filterMode = FilterMode.Point;
-    // Call Apply() so it's actually uploaded to the GPU
-    realityRGBATexture.Apply();
 
     if (envTexPtr == IntPtr.Zero) {
       // Pass texture pointer to the plugin only if it doesn't manage one itself.
@@ -435,6 +450,14 @@ public class XRController : MonoBehaviour {
     }
 
     return realityRGBATexture;
+  }
+
+  private c8.Texture.Reader GetRealityRGBATexData() {
+    var appEnvironment = bridge.GetXRAppEnvironment();
+    var r = GetCurrentReality();
+    return (IntPtr) r.getRgbaTexture().getPtr() != IntPtr.Zero
+      ? r.getRgbaTexture()
+      : appEnvironment.getManagedCameraTextures().getRgbaTexture();
   }
 
   /**
@@ -555,8 +578,8 @@ public class XRController : MonoBehaviour {
       return Shader.Find("Unlit/XRCameraYUVShader");
     }
     switch(xrEnvironment.getRealityImageShader()) {
-      case XREnvironment.ImageShaderKind.ARCORE:
-        return Shader.Find("Unlit/ARCoreCameraShader");
+      case XREnvironment.ImageShaderKind.STANDARD_RGBA:
+        return Shader.Find("Unlit/XRCameraRGBAShader");
       default:
         return (ShouldUseRealityRGBATexture()
             ? Shader.Find("Unlit/XRCameraRGBAShader")
@@ -569,8 +592,8 @@ public class XRController : MonoBehaviour {
    */
   public Shader GetVideoTextureShader() {
     switch(xrEnvironment.getRealityImageShader()) {
-      case XREnvironment.ImageShaderKind.ARCORE:
-        return Shader.Find("Unlit/ARCoreTextureShader");
+      case XREnvironment.ImageShaderKind.STANDARD_RGBA:
+        return Shader.Find("Unlit/XRTextureRGBAShader");
       default:
         return (ShouldUseRealityRGBATexture()
             ? Shader.Find("Unlit/XRTextureRGBAShader")
@@ -823,6 +846,7 @@ public class XRController : MonoBehaviour {
       configMask.setCamera(enableCamera);
       configMask.setSurfaces(enableSurfaces);
       configMask.setVerticalSurfaces(enableVerticalSurfaces);
+      configMask.setFeatureSet(true);
 
       config.getCameraConfiguration().setAutofocus(enableCameraAutofocus);
       config.setMobileAppKey(GetMobileAppKey());
@@ -923,6 +947,30 @@ public class XRController : MonoBehaviour {
     SetEngineMode();
   }
 
+  /**
+   * Pause the current XR session.  While paused, the camera feed is stopped and device motion is not tracked.
+   */
+  public void Pause() {
+    pausedByCaller = true;
+    PauseOrResumeEngine();
+  }
+
+  /**
+   * Resumes the XR session.
+   */
+  public void Resume() {
+    pausedByCaller = false;
+    pausedBySystem = false;  // Caller has explicitly requested XR to resume.
+    PauseOrResumeEngine();
+  }
+
+  /**
+   * Indicates whether or not the XR session is paused
+   */
+  public bool IsPaused() {
+    return pausedByCaller || pausedBySystem;
+  }
+
   // Awake is called first at app startup.
   void Awake() {
     running = false;
@@ -955,12 +1003,13 @@ public class XRController : MonoBehaviour {
   }
 
   void Update() {
-    if (!explicitlyPaused) {
-      RunIfPaused();
+    if (!IsPaused()) {
+      RunIfNotRunning();
     }
 
     updateNumber++;
 
+    // Continue to stream scene to remote, even when XR is paused.
     if (EnableRemote()) {
       bridge.SetEditorAppInfo(editorBridge.EditorAppInfo());
 
@@ -998,10 +1047,9 @@ public class XRController : MonoBehaviour {
     }
   }
 
-  void OnApplicationPause(bool isPaused) {
-    explicitlyPaused = isPaused;
-    if (!isPaused && startedInUnity) {
-      RunIfPaused();
+  private void PauseOrResumeEngine() {
+    if (!IsPaused() && startedInUnity) {
+      RunIfNotRunning();
       return;
     }
 
@@ -1010,6 +1058,11 @@ public class XRController : MonoBehaviour {
     }
     running = false;
     bridge.Pause();
+  }
+
+  void OnApplicationPause(bool isPaused) {
+    pausedBySystem = isPaused;
+    PauseOrResumeEngine();
   }
 
   void OnDisable() {
@@ -1040,7 +1093,7 @@ public class XRController : MonoBehaviour {
     }
   }
 
-  private void RunIfPaused() {
+  private void RunIfNotRunning() {
     if (running) {
       return;
     }
@@ -1164,6 +1217,9 @@ public class XRController : MonoBehaviour {
   }
 
   private bool ShouldIssuePluginEvent() {
+    #if (UNITY_ANDROID && !UNITY_EDITOR)
+    return !remoteOnly;
+    #else
     // Check that we have an RGBA texture and don't manage an RGBA texture.
     if (realityRGBATexture != null
       && xrEnvironment.getRealityImage().getRgbaTexture().getPtr() == 0) {
@@ -1177,6 +1233,7 @@ public class XRController : MonoBehaviour {
       return true;
     }
     return false;
+    #endif
   }
 
   private IEnumerator CallPluginAtEndOfFrames() {

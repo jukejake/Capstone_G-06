@@ -77,7 +77,11 @@ public class XRVideoController : MonoBehaviour {
     }
 
     if (xr.ShouldUseRealityRGBATexture()) {
-      xrMat.mainTexture = xr.GetRealityRGBATexture();
+      var tex = xr.GetRealityRGBATexture();
+      if (tex == null) {
+        return;
+      }
+      xrMat.mainTexture = tex;
     } else {
       xrMat.SetTexture("_YTex", xr.GetRealityYTexture());
       xrMat.SetTexture("_UVTex", xr.GetRealityUVTexture());
@@ -89,20 +93,16 @@ public class XRVideoController : MonoBehaviour {
       case XRTextureRotation.R270:
         rotation = -90.0f;
         scaleFactor = cam.aspect * xr.GetRealityTextureAspectRatio();
-        xrMat.SetInt("_ScreenOrientation", (int) ScreenOrientation.LandscapeRight);
         break;
       case XRTextureRotation.R0:
         rotation = 0.0f;
-        xrMat.SetInt("_ScreenOrientation", (int) ScreenOrientation.Portrait);
         break;
       case XRTextureRotation.R90:
         rotation = 90.0f;
         scaleFactor = cam.aspect * xr.GetRealityTextureAspectRatio();
-        xrMat.SetInt("_ScreenOrientation", (int) ScreenOrientation.LandscapeLeft);
         break;
       case XRTextureRotation.R180:
         rotation = 180.0f;
-        xrMat.SetInt("_ScreenOrientation", (int) ScreenOrientation.PortraitUpsideDown);
         break;
       default:
         break;
@@ -119,18 +119,26 @@ public class XRVideoController : MonoBehaviour {
       mWarp[0, 3] = (1 - scaleFactor) * .5f;
     }
 
-    Matrix4x4 m = Matrix4x4.TRS(
-      Vector3.zero,
-      Quaternion.Euler(0.0f, 0.0f, rotation),
-      Vector3.one);
+    Matrix4x4 rotate90 = Matrix4x4.zero;
+    rotate90[0, 1] = -1;
+    rotate90[0, 3] = 1;
+    rotate90[1, 0] = 1;
+    rotate90[2, 2] = 1;
+    rotate90[3, 3] = 1;
+
+    Matrix4x4 m = Matrix4x4.identity;
+    while (rotation < 0) {
+      rotation += 360;
+    }
+    while (rotation > 360) {
+      rotation -= 360;
+    }
+    while (rotation > 0) {
+      m = m * rotate90;
+      rotation -= 90;
+    }
 
     Matrix4x4 nm = m * mWarp;
-#if (UNITY_ANDROID && !UNITY_EDITOR)
-    // ARCore shader rotates internally.
-    if (xr.GetCapabilities().IsPositionTrackingRotationAndPosition()) {
-      nm = mWarp;
-    }
-#endif
 
     xrMat.SetMatrix("_TextureWarp", nm);
   }

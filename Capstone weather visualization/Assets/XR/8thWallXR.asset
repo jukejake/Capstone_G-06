@@ -16,13 +16,22 @@ MonoBehaviour:
   - beta
   channel: release
   installedChannel: release
-  version: 8.1.1.216
+  version: 9.0.13.670
   autoUpdate: 1
   autoUpdateSec: 3600
   updateTimeoutSec: 25
   downloadTimeoutSec: 600
   updateAvailable: 0
   releaseNotes:
+  - id: 9
+    notes: "## Release 9\n\n* New Features:\n  * All-new GPU-based pipeline delivers
+      up to 4x faster tracking performance with improved tracking stability.\n  *
+      High-resolution camera texture support (1080p).\n  * Custom ARSessionDelegate
+      feature allows ARKit-enabled devices to use the latest ARKit features.\n  *
+      Building against XCode 10 with support for iPhone XR, XS, and XS Max.\n  * ARKit
+      2.0 support.\n  * ARCore 1.5 support.\n  * Added support for ARCore camera auto-focus.\n
+      \ * Added Pause(), Resume() and IsPaused() functions to the XRController API.\n\n\n*
+      Fixes:\n  * Fixed a landscape-mode rendering issue on iPhone 5c."
   - id: 8.1
     notes: '## Release 8.1
 
@@ -84,13 +93,3 @@ MonoBehaviour:
       tablets.\n   * Fix ARCore aspect ratio.\n   * Updated default camera usage descriptions.\n
       \  * Fix tracking for x86 architectures.\n   * Improved compatibility with developer
       ProGuard configurations."
-  - id: 4
-    notes: "## Release 4\n* New Features:\n  * 6DoF camera motion for phones without
-      ARKit or ARCore.\n* Enhancements and Fixes:\n  * XRSurfaceController:\n    *
-      New: GetSurfaceWithId() - Ability to select surface with specific ID.\n    *
-      lockToFirstSurface: Fixed issue on phones without ARKit or ARCore.\n    * deformToSurface:
-      Fixed issue on phones without ARKit or ARCore.\n  * XRController:\n    * New:
-      Recenter() - Reset camera camera to original position on phones without ARKit
-      or ARCore.\n    * UpdateCameraProjectionMatrix() - Fixed issue on phones without
-      ARKit or ARCore.\n  * XREngine:\n    * Up to  3x improved performance on phones
-      without ARKit or ARCore.\n"
