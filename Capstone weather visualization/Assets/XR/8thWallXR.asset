@@ -16,13 +16,29 @@ MonoBehaviour:
   - beta
   channel: release
   installedChannel: release
-  version: 9.0.13.670
+  version: 9.1.4.670
   autoUpdate: 1
   autoUpdateSec: 3600
   updateTimeoutSec: 25
   downloadTimeoutSec: 600
   updateAvailable: 0
   releaseNotes:
+  - id: 9.1
+    notes: '## Release 9.1
+
+
+      New Features:
+
+      * Added support for Amazon Sumerian in 8th Wall Web
+
+      * Added ARCore Availability API
+
+      * Improved tracking stability and eliminated jitter
+
+
+      Fixes:
+
+      * Fixed issue with ProGuard obfuscation rules that could cause package conflicts'
   - id: 9
     notes: "## Release 9\n\n* New Features:\n  * All-new GPU-based pipeline delivers
       up to 4x faster tracking performance with improved tracking stability.\n  *
@@ -81,15 +97,3 @@ MonoBehaviour:
       for XRCapabilities\n  * Support for teams on console.8thwall.com\n* Enhancements
       and Fixes:\n  * Landscape mode support\n  * Fix camera display orientation on
       Nexus 5x\n  * Fix deformable surfaces for iOS"
-  - id: 5
-    notes: "## Release 5\n\n* New [8th Wall Console](https://console.8thwall.com)
-      - provides developer access to:\n  * Generate and manage App Keys.\n  * View
-      application analytics.\n  * Access downloads and documentation.\n* New Features:\n
-      \ * ARCore Preview 2 support.\n  * XRCapabilities API.\n  * OpenGL support on
-      iOS.\n  * Added support for Android phones without gyroscopes.\n* Enhancements
-      and Fixes:\n   * Performance improvements to rendering.\n   * Removed Android
-      Support Library dependency.\n   * Camera preview rendering performance improvements.\n
-      \  * Fix rendering on non-16x9 phones.\n   * Fix tracking orientation on Android
-      tablets.\n   * Fix ARCore aspect ratio.\n   * Updated default camera usage descriptions.\n
-      \  * Fix tracking for x86 architectures.\n   * Improved compatibility with developer
-      ProGuard configurations."

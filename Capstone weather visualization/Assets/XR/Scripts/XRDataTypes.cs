@@ -659,3 +659,43 @@ public struct XRDetectedImageTarget {
     this.height = height;
   }
 }
+
+/**
+ * Indicates the availability of ARCore on the current device.
+ */
+public enum ARCoreAvailability {
+    /**
+     * The device is non-Android, or unable to determine the availability of ARCore.
+     */
+    UNSPECIFIED,
+
+    /**
+     * The Android device is supported by ARCore, ARCore is installed, but the installed version of
+     * ARCore is too old.
+     */
+    SUPPORTED_APK_TOO_OLD,
+
+    /**
+     * The Android device is supported by ARCore, ARCore is installed, and is available for use.
+     */
+    SUPPORTED_INSTALLED,
+
+    /**
+     * The Android device is supported by ARCore, but ARCore is not installed on the device.
+     */
+    SUPPORTED_NOT_INSTALLED,
+
+    /**
+     * The Android device is not supported by ARCore.
+     */
+    UNSUPPORTED_DEVICE_NOT_CAPABLE,
+
+    /**
+     * The Android device does not have ARCore installed, and the query to check for availability
+     * has either:
+     *  1) failed with an error.
+     *  2) timed out.
+     *  3) not completed.
+     */
+    UNKNOWN
+}

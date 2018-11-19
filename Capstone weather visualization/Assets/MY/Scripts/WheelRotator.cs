@@ -7,8 +7,9 @@ public class WheelRotator : MonoBehaviour {
     #region Variables
     WheelController WC;
     private float RotateAmount;
-    public Transform[] LeftWheels;
-    public Transform[] RightWheels;
+    public Transform[] NegativeRot;
+	public Transform[] PositiveRot;
+	public bool RotY = false;
     #endregion
 
     #region Setup
@@ -24,12 +25,23 @@ public class WheelRotator : MonoBehaviour {
     }
 
     private void FixedUpdate() {
-        foreach (var wheel in LeftWheels) {
-            wheel.Rotate(Vector3.left, RotateAmount);
-        }
-        foreach (var wheel in RightWheels) {
-            wheel.Rotate(Vector3.right, RotateAmount);
-        }
+		if (RotY){
+			foreach (var wheel in NegativeRot) {
+				wheel.Rotate(Vector3.down, RotateAmount);
+			}
+			foreach (var wheel in PositiveRot) {
+			    wheel.Rotate(Vector3.up, RotateAmount);
+			}
+		}
+		else {
+			foreach (var wheel in NegativeRot) {
+				wheel.Rotate(Vector3.left, RotateAmount);
+			}
+			foreach (var wheel in PositiveRot) {
+				wheel.Rotate(Vector3.right, RotateAmount);
+			}
+		}
+        
     }
 
 

@@ -773,6 +773,37 @@ public class XRController : MonoBehaviour {
   }
 
   /**
+   * Returns the availability status of ARCore on Android devices. On non-Android devices,
+   * this will return ARCoreAvailability.UNSPECIFIED.
+   */
+  public static ARCoreAvailability GetARCoreAvailability() {
+    XREnvironment.Reader env = XRNativeBridge.GetXREnvironment();
+    ARCoreAvailability availabilty = ARCoreAvailability.UNSPECIFIED;
+    switch (env.getARCoreAvailability()) {
+      case XREnvironment.ARCoreAvailability.SUPPORTED_APK_TOO_OLD:
+        availabilty = ARCoreAvailability.SUPPORTED_APK_TOO_OLD;
+        break;
+      case XREnvironment.ARCoreAvailability.SUPPORTED_INSTALLED:
+        availabilty = ARCoreAvailability.SUPPORTED_INSTALLED;
+        break;
+      case XREnvironment.ARCoreAvailability.SUPPORTED_NOT_INSTALLED:
+        availabilty = ARCoreAvailability.SUPPORTED_NOT_INSTALLED;
+        break;
+      case XREnvironment.ARCoreAvailability.UNSUPPORTED_DEVICE_NOT_CAPABLE:
+        availabilty = ARCoreAvailability.UNSUPPORTED_DEVICE_NOT_CAPABLE;
+        break;
+      case XREnvironment.ARCoreAvailability.UNKNOWN:
+        availabilty = ARCoreAvailability.UNKNOWN;
+        break;
+      default:
+        availabilty = ARCoreAvailability.UNSPECIFIED;
+        break;
+    }
+
+    return availabilty;
+  }
+
+  /**
    * Static method that returns the AR capabilities available to the device, e.g. position tracking
    * and surface estimation.
    */
