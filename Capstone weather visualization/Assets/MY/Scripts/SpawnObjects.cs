@@ -12,9 +12,12 @@ public class SpawnObjects : SerializedMonoBehaviour {
 	public void SpawnObject(string key) {
 		GameObject t;
 		if (IDTable.TryGetValue(key, out t)) {
-			foreach (Transform child in this.transform) { Destroy(child.gameObject); }
+			Clear();
 			GameObject temp = Instantiate(t, this.transform.position, this.transform.rotation, this.transform);
 			temp.name = t.name;
 		}
+	}
+	public void Clear() {
+		foreach (Transform child in this.transform) { Destroy(child.gameObject); }
 	}
 }
