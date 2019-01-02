@@ -27,16 +27,16 @@ public class LightData : SerializedMonoBehaviour {
 
 	#region Set Intensity
 	private float OldIntensity = 1.0f;
-    private float NewIntensity = 1.0f;
+	private float NewIntensity = 1.0f;
 
-    public void SetIntensity(Slider obj) {
+	public void SetIntensity(Slider obj) {
 		NewIntensity = obj.value;
 		if (OldIntensity != NewIntensity) {
 			OldIntensity = NewIntensity;
 			Intensity = NewIntensity;
 			SetLights();
 		}
-    }
-    #endregion
+	}
+	#endregion
 
 }
