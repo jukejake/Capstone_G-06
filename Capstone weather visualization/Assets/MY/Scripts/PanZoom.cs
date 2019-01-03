@@ -83,7 +83,7 @@ public class PanZoom : MonoBehaviour {
 
 	#endregion
 
-	#region Pann & Zoom
+	#region Pan & Zoom
 
 	void PanCamera(Vector3 newPanPosition) {
 		Vector3 offset = camera.ScreenToViewportPoint(lastPanPosition - newPanPosition);

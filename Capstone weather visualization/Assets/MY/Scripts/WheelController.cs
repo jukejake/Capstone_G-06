@@ -16,12 +16,13 @@ public class WheelController : SerializedMonoBehaviour {
 
 	#region Setup
 	private void Awake() {
-		RotateAmount = (Speed / WheelSize);
+		RotateAmount = (Speed / (WheelSize*Mathf.PI));
 		InvokeRepeating("DelayedUpdate", 1.0f, 0.20f);
 	}
 	void DelayedUpdate() {
 		if (OldSpeed == Speed) { return; }
-		RotateAmount = (Speed / WheelSize);
+
+		RotateAmount = (Speed / (WheelSize*Mathf.PI));
 		SpeedText.text = Speed.ToString();
 		OldSpeed = Speed;
 	}

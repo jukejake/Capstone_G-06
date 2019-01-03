@@ -4,7 +4,7 @@ using Sirenix.OdinInspector;
 public class WheelRotator : SerializedMonoBehaviour {
 
 	#region Variables
-	WheelController WC;
+	private WheelController WC;
 	private float RotateAmount;
 	public Transform[] NegativeRot;
 	public Transform[] PositiveRot;
@@ -19,13 +19,13 @@ public class WheelRotator : SerializedMonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		WC = FindObjectOfType<WheelController>();
-		if (UseOwnSize) { RotateAmount = (WC.Speed / WheelSizeInMeters); }
+		if (UseOwnSize) { RotateAmount = (WC.Speed / (WheelSizeInMeters*Mathf.PI)); }
 		else { RotateAmount = WC.RotateAmount; }
 		InvokeRepeating("DelayedUpdate", 1.0f, 0.50f);
 	}
 	
 	void DelayedUpdate() {
-		if (UseOwnSize) { RotateAmount = (WC.Speed / WheelSizeInMeters); }
+		if (UseOwnSize) { RotateAmount = (WC.Speed / (WheelSizeInMeters*Mathf.PI)); }
 		else { RotateAmount = WC.RotateAmount; }
 	}
 
