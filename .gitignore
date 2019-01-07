@@ -1,27 +1,17 @@
 /[Ll]ibrary/
-/Library/
-Library/
+[Ll]ibrary/
 /[Tt]emp/
-/Temp/
-Temp/
+[Tt]emp/
 /[Oo]bj/
-/Obj/
-Obj/
+[Oo]bj/
 /[Bb]uild/
-/Build/
-Build/
+[Bb]uild/
 /[Bb]uilds/
-/Builds/
-Builds/
+[Bb]uilds/
 /[Ll]ocal[Cc]ache/
-/LocalCache/
-LocalCache/
-/[Uu]nityGenerated/
-/UnityGenerated/
-UnityGenerated/
-/[Aa]ssets/AssetStoreTools*
-/Assets/AssetStoreTools*
-Assets/AssetStoreTools*
+[Ll]ocal[Cc]ache/
+/[Uu]nity[Gg]enerated/
+[Uu]nity[Gg]enerated/
 
 # Visual Studio 2017 cache directory
 /.vs/
@@ -56,16 +46,6 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
-
-# OS generated
-.DS_Store
-.DS_Store?
-._*
-.Spotlight-V100
-.Trashes
-Icon?
-ehthumbs.db
-Thumbs.db
 
 # Really BIG files
 *.assets.resS
