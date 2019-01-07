@@ -28,6 +28,7 @@ public class WheelRotator : SerializedMonoBehaviour {
 		if (UseOwnSize) { RotateAmount = (WC.Speed / (WheelSizeInMeters*Mathf.PI)); }
 		else { RotateAmount = WC.RotateAmount; }
 	}
+	private void OnDestroy() { CancelInvoke("DelayedUpdate"); }
 
 	private void FixedUpdate() {
 		if (RotY){

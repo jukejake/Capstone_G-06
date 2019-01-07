@@ -26,12 +26,15 @@ public class WheelController : SerializedMonoBehaviour {
 		SpeedText.text = Speed.ToString();
 		OldSpeed = Speed;
 	}
+	private void OnDestroy() { CancelInvoke("DelayedUpdate"); }
+
 	public void SetSpeed(Slider obj) {
 		Speed = (int)obj.value;
 	}
 	public void SetSpeed(float value) {
 		Speed = (int)value;
 	}
+	
 	#endregion
 
 }
