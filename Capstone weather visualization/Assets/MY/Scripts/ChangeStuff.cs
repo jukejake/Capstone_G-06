@@ -1,24 +1,35 @@
-﻿using UnityEngine;
+﻿/*////
+//Written by Jacob Rosengren
+//Date: 2018~2019
+//BUSI 4995U Capstone
+//This is Demo code and needs to be redone.
+////*/
+
+using UnityEngine;
 using UnityEngine.UI;
 using Sirenix.OdinInspector;
 
-public class ChangeStuff : MonoBehaviour {
+public class ChangeStuff : SerializedMonoBehaviour {
 
 	#region Setup
-	// Use this for initialization
+	//Used for initialization.
 	private void Start () {
 	   InvokeRepeating("DelayedUpdate", 1.0f, 0.10f);
 	}
+	//Create a slower Update.
 	private void DelayedUpdate() {
 		if (ToggleRotation) { SetRotation(); }
 		if (ToggleNozzle) { ChangeNozzleSize(); }
 	}
+	//Cancel the Invoke when the object is destroyed.
+	private void OnDestroy() { CancelInvoke("DelayedUpdate"); }
+
 	#endregion
 
 	#region Set Scale
 	private float OldScale = 1.0f;
 	private float NewScale = 1.0f;
-
+	//Sets the local scale of an object based on a UI slider.
 	public void SetScale(GameObject obj) {
 		NewScale = this.GetComponent<Slider>().value;
 		if (OldScale != NewScale) {
@@ -31,7 +42,7 @@ public class ChangeStuff : MonoBehaviour {
 	#region Set Toggle
 	private bool OldToggleState = true;
 	private bool NewToggleState = true;
-
+	//Toggles the state of an object bassed on a UI toggle
 	public void SetToggle(GameObject obj) {
 		NewToggleState = this.GetComponent<Toggle>().isOn;
 		if (OldToggleState != NewToggleState) {
@@ -53,14 +64,21 @@ public class ChangeStuff : MonoBehaviour {
 	private bool RotateRight = false;
 	private float RotateY = 0.0f;
 	private Vector3 Rotation;
-
+	//Public function to switch the object to rotate.
 	public void SetObjToRot(GameObject obj) { Obj = obj; }
+	//Toggle turning left on.
 	public void RotationLeft(bool mode) { RotateLeft = mode; }
+	//Toggle turning right on.
 	public void RotationRight(bool mode) { RotateRight = mode; }
+	//Will rotate on DelayedUpdate, if ToggleRotation.
 	private void SetRotation() {
+		//If none are set to rotate, leave.
 		if (!RotateLeft && !RotateRight) { return; }
+		//Rotate Left
 		if (RotateLeft) { RotateY -= RotateBy; }
+		//Rotate Right
 		if (RotateRight) { RotateY += RotateBy; }
+		//Set Rotation
 		Rotation = new Vector3(0.0f, RotateY, 0.0f);
 		Obj.transform.localRotation = Quaternion.Euler(Rotation);
 	}
@@ -82,11 +100,15 @@ public class ChangeStuff : MonoBehaviour {
 	[ToggleGroup("ToggleNozzle")]
 	public int State = 0;
 	[ToggleGroup("ToggleNozzle")]
+	//Function to set the state of the Nozzle based on a slider.
 	public void SetNozzle(Slider UI) { State = (int)UI.value; }
+	//Will rotate on DelayedUpdate, if ToggleNozzle.
 	private void ChangeNozzleSize() {
 
+		//Set the position of the walls, and flow.
+		//Change the scale of the flow.
 		var _pss = Flow.GetComponent<ParticleSystem>().shape;
-		//7.0m^2
+		//(7.0m^2) = Size of the nozzle opening.
 		if (State == 0) {
 			FrontWall.transform.localPosition = new Vector3(0, 1.45f, -1.2f);
 			BackWall.transform.localPosition  = new Vector3(0, 1.45f,  1.2f);
@@ -97,7 +119,7 @@ public class ChangeStuff : MonoBehaviour {
 			FlowPlane.transform.localPosition = new Vector3(0, 0, 0);
 			FlowPlane.transform.localScale = new Vector3(0.2f, 1, 0.27f);
 		}
-		//13.0m^2
+		//(13.0m^2) = Size of the nozzle opening.
 		else if (State == 1) { 
 			FrontWall.transform.localPosition = new Vector3(0, 1.45f, -2.25f);
 			BackWall.transform.localPosition  = new Vector3(0, 1.45f,  2.25f);
@@ -108,13 +130,13 @@ public class ChangeStuff : MonoBehaviour {
 			FlowPlane.transform.localPosition = new Vector3(0, 0, 0);
 			FlowPlane.transform.localScale = new Vector3(0.425f, 1, 0.27f);
 		}
-		////14.5m^2
+		////(14.5m^2) = Size of the nozzle opening.
 		//else if (State == 2) {
 		//    FrontWall.transform.localPosition = new Vector3(0, 1.45f, -2.5f);
 		//    BackWall.transform.localPosition  = new Vector3(0, 1.45f,  2.5f);
 		//    Canopy.transform.localPosition    = new Vector3(0, 2.9f, 0);
 		//}
-		//22.0m^2
+		//(22.0m^2) = Size of the nozzle opening.
 		else if (State == 2) {
 			FrontWall.transform.localPosition = new Vector3(0, 1.45f, -2.5f);
 			BackWall.transform.localPosition  = new Vector3(0, 1.45f,  2.5f);

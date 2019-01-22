@@ -1,5 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿/*////
+//Written by Jacob Rosengren
+//Date: 2018~2019
+//BUSI 4995U Capstone
+//Demo code - needs to be updated or remade
+////*/
+
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -22,6 +27,7 @@ public class PanZoom : MonoBehaviour {
 
 	#region SetUp
 	void Awake() {
+		//Get the camera component
 		camera = GetComponent<Camera>();
 	}
 	#endregion
@@ -84,7 +90,7 @@ public class PanZoom : MonoBehaviour {
 	#endregion
 
 	#region Pan & Zoom
-
+	//Function that is called to rotate the camera 
 	void PanCamera(Vector3 newPanPosition) {
 		Vector3 offset = camera.ScreenToViewportPoint(lastPanPosition - newPanPosition);
 		transform.Rotate(Vector3.down, offset.x*PanSpeed);
@@ -93,7 +99,7 @@ public class PanZoom : MonoBehaviour {
 		if ((360.0f-BoundsY[0]) > transform.localRotation.eulerAngles.y && transform.localRotation.eulerAngles.y > 180.0f) { RotY = (360.0f-BoundsY[0]); }
 		transform.localRotation = Quaternion.Euler(5, RotY, 0);
 	}
-	
+	//Function that is called to narrow or expand the FOV of the camera 
 	void ZoomCamera(float offset, float speed) {
 	    if (offset == 0) {
 	        return;

@@ -1,4 +1,10 @@
-﻿using UnityEngine;
+﻿/*////
+//Written by Jacob Rosengren
+//Date: 2018~2019
+//BUSI 4995U Capstone
+////*/
+
+using UnityEngine;
 using UnityEngine.UI;
 
 public class UI_Menu_Models : MonoBehaviour {
@@ -12,16 +18,19 @@ public class UI_Menu_Models : MonoBehaviour {
 	#endregion
 
 	#region Functions
+	//Function to toggle just the button visibility
 	public void ToggleButtonVisibility() {
 		foreach (var item in ButtonObjects) {
 			item.SetActive(ToggleOn);
 		}
 	}
+	//Function to toggle the visibility of everything
 	public void ToggleAllVisibility() {
 		foreach (var item in gameObjects) {
 			item.SetActive(ToggleOn);
 		}
 	}
+	//Resize/Re-order the position of the objects in the UI
 	public void Resize() {
 		int num = 0;
 		int Ypos = 0; //200

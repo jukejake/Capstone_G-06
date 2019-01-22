@@ -1,4 +1,10 @@
-﻿using UnityEngine;
+﻿/*////
+//Written by Jacob Rosengren
+//Date: 2018~2019
+//BUSI 4995U Capstone
+////*/
+
+using UnityEngine;
 using Sirenix.OdinInspector;
 
 public class WheelRotator : SerializedMonoBehaviour {
@@ -16,33 +22,40 @@ public class WheelRotator : SerializedMonoBehaviour {
 	#endregion
 
 	#region Setup
-	// Use this for initialization
+	//Used for initialization.
 	void Start () {
 		WC = FindObjectOfType<WheelController>();
 		if (UseOwnSize) { RotateAmount = (WC.Speed / (WheelSizeInMeters*Mathf.PI)); }
 		else { RotateAmount = WC.RotateAmount; }
 		InvokeRepeating("DelayedUpdate", 1.0f, 0.50f);
 	}
-	
+	//Create a slower Update.
 	void DelayedUpdate() {
 		if (UseOwnSize) { RotateAmount = (WC.Speed / (WheelSizeInMeters*Mathf.PI)); }
 		else { RotateAmount = WC.RotateAmount; }
 	}
+	//Cancel the Invoke when the object is destroyed.
 	private void OnDestroy() { CancelInvoke("DelayedUpdate"); }
 
 	private void FixedUpdate() {
-		if (RotY){
+		//Rotate on the Y axis
+		if (RotY) {
+			//Negative rotation
 			foreach (var wheel in NegativeRot) {
 				wheel.Rotate(Vector3.down, RotateAmount);
 			}
+			//Positive rotation
 			foreach (var wheel in PositiveRot) {
 				wheel.Rotate(Vector3.up, RotateAmount);
 			}
 		}
+		//Rotate on the X & Z axis
 		else {
+			//Negative rotation
 			foreach (var wheel in NegativeRot) {
 				wheel.Rotate(Vector3.left, RotateAmount);
 			}
+			//Positive rotation
 			foreach (var wheel in PositiveRot) {
 				wheel.Rotate(Vector3.right, RotateAmount);
 			}

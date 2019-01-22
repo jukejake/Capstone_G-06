@@ -1,8 +1,15 @@
-﻿using System.Collections;
+﻿/*////
+//Written by Jacob Rosengren
+//Date: 2018~2019
+//BUSI 4995U Capstone
+//Not In Use
+////*/
+
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Windzone : MonoBehaviour {
+	//NOT IN USE
 
 	private List<Rigidbody> RigidbodiesInWindZoneList = new List<Rigidbody>();
     public Vector3 windDirection = Vector3.right;

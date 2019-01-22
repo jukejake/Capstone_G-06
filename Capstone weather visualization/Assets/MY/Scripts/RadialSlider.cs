@@ -1,4 +1,10 @@
-﻿using UnityEngine;
+﻿/*////
+//Written by Jacob Rosengren
+//Date: 2018~2019
+//BUSI 4995U Capstone
+////*/
+
+using UnityEngine;
 using System.Collections;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -32,22 +38,23 @@ public class RadialSlider: SerializedMonoBehaviour, IPointerEnterHandler, IPoint
 	#endregion
 
 	#region Functions
+	//When the mouse is over the UI, Track it.
 	public void OnPointerEnter(PointerEventData eventData) {
 		StartCoroutine("TrackPointer");            
 	}
-	
+	//When the mouse is not over the UI, Don't track it.
 	public void OnPointerExit(PointerEventData eventData) {
 		StopCoroutine("TrackPointer");
 	}
-
+	//If a mouse clicked the UI was detected.
 	public void OnPointerDown(PointerEventData eventData) {
 		isPointerDown = true;
 	}
-
+	//If a mouse clicked ended was detected.
 	public void OnPointerUp(PointerEventData eventData) {
 		isPointerDown = false;
 	}
-
+	//Track the mouse position
 	IEnumerator TrackPointer() {
 		var ray = GetComponentInParent<GraphicRaycaster>();
 		var input = FindObjectOfType<StandaloneInputModule>();

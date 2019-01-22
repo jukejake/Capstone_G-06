@@ -1,5 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿/*////
+//Written by Jacob Rosengren
+//Date: 2018~2019
+//BUSI 4995U Capstone
+////*/
+
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -20,6 +24,7 @@ public class SwitchCamera : MonoBehaviour {
 
 	#region Functions
 	private void Awake () {
+		//Find all the cameras and note the position and rotation.
 		ImageView = GetComponent<RawImage>();
 		MCPos = GameObject.Find("Cameras/Front Camera").transform.localPosition;
 		MCRot = GameObject.Find("Cameras/Front Camera").transform.localRotation;
@@ -27,7 +32,7 @@ public class SwitchCamera : MonoBehaviour {
 		TCRot = GameObject.Find("Cameras/Top View Camera").transform.localRotation;
 		TCFov = GameObject.Find("Cameras/Top View Camera").GetComponent<Camera>().fieldOfView;
 	}
-
+	//Function to switch the cameras view.
 	public void Switch() {
 		switch (CameraStat) {
 			//Switching from main camera to the second camera
