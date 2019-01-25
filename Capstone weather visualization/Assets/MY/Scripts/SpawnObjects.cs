@@ -29,12 +29,12 @@ public class SpawnObjects : SerializedMonoBehaviour {
 			temp.name = t.name;
 			//Set position of front Dynos.
 			var Cpos = temp.transform.position;
-			var CNewX = (FrontDynos.position.x - temp.transform.Find("Front Wheels").transform.position.x);
-			temp.transform.position = new Vector3(CNewX, Cpos.y, Cpos.z);
+			var CNewX = (FrontDynos.position - temp.transform.Find("Front Wheels").transform.position);
+			temp.transform.position = new Vector3(CNewX.x, Cpos.y, CNewX.z);
 			//Set position of back Dynos.
 			var Dpos = BackDynos.position;
-			var BW = temp.transform.Find("Back Wheels").transform.position.x;
-			BackDynos.position = new Vector3(BW, Dpos.y, Dpos.z);
+			var BW = temp.transform.Find("Back Wheels").transform.position;
+			BackDynos.position = new Vector3(BW.x, Dpos.y, BW.z);
 		}
 	}
 	//Function to clear all of the children on the Object
