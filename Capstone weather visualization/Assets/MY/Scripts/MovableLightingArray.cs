@@ -20,7 +20,25 @@ public class MovableLightingArray : SerializedMonoBehaviour {
 	public Dictionary<string, LightingState> LightingTable = new Dictionary<string, LightingState>();
 	#endregion
 
-	#region Functions
+	#region Public Functions 
+	public void Select_Light(string key) {
+		LightingState t;
+		if (LightingTable.TryGetValue(key, out t)) { t.Selected = true; }
+	}
+
+	public void Move_Front_Lights(int _d)	 { MoveDirection(_d); } //0 = Up, 1 = Down, 2 = Inward, 3 = Outward.
+	public void Move_Left_Lights(int _d)	 { MoveDirection(_d); } //0 = Up, 1 = Down, 2 = Inward, 3 = Outward.
+	public void Move_Middle_Lights(int _d)	 { MoveDirection(_d); } //0 = Up, 1 = Down, 2 = Inward, 3 = Outward.
+	public void Move_Right_Lights(int _d)	 { MoveDirection(_d); } //0 = Up, 1 = Down, 2 = Inward, 3 = Outward.
+	public void Move_Back_Lights(int _d)	 { MoveDirection(_d); } //0 = Up, 1 = Down, 2 = Inward, 3 = Outward.
+
+	public void Rotate_Front_Lights(bool _r) { RotateDirection(_r); } //True = Inwards, False = Outwards.
+	public void Rotate_Left_Lights(bool _r)	 { RotateDirection(_r); } //True = Inwards, False = Outwards.
+	public void Rotate_Right_Lights(bool _r) { RotateDirection(_r); } //True = Inwards, False = Outwards.
+	public void Rotate_Back_Lights(bool _r)	 { RotateDirection(_r); } //True = Inwards, False = Outwards.
+	#endregion
+
+	#region Private Functions
 	[Button]
 	private void MoveDirection(int _d) {
 		float deltaT = (Time.deltaTime * MoveSpeed);
@@ -226,7 +244,6 @@ public class MovableLightingArray : SerializedMonoBehaviour {
 			}
 		}
 	}
-	#endregion
 
 	public struct LightingState {
 		public bool Selected;
@@ -234,4 +251,5 @@ public class MovableLightingArray : SerializedMonoBehaviour {
 		public Vector2 RotCap;
 		public Vector3 MovementCap;
 	}
+	#endregion
 }
