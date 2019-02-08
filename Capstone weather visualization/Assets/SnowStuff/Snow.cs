@@ -10,9 +10,9 @@ public class Snow : MonoBehaviour
 
     private RaycastHit hit;
 
-    void Start()
+    void Awake()
     {
-        part = GetComponent<ParticleSystem>();
+        part = this.GetComponent<ParticleSystem>();
         collisionEvents = new List<ParticleCollisionEvent>();
     }
 
@@ -20,27 +20,27 @@ public class Snow : MonoBehaviour
     private void OnParticleCollision(GameObject other)
     {
         int numCollisionEvents = part.GetCollisionEvents(other, collisionEvents);
+        //if (numCollisionEvents <= 0) { return; }
 
-        SnowShaderBehavior script = other.GetComponent<SnowShaderBehavior>();
-        //if (null != script)
-        //    script.PaintOn(hit.textureCoord, splashTexture);
+        SnowShaderBehavior script;
+        if (other.GetComponent<SnowShaderBehavior>()) {
+            script = other.GetComponent<SnowShaderBehavior>();
 
-        Rigidbody rb = other.GetComponent<Rigidbody>();
-        int i = 0;
+            int i = 0;
 
-        while (i < numCollisionEvents)
-        {
-            if (null != script)
+            while (i < numCollisionEvents)
             {
-
-                if (Physics.Raycast(collisionEvents[i].intersection, Vector3.right, out hit))
+                if (script != null)
                 {
-                    Debug.Log(hit.transform.name);
-                    //MyShaderBehavior script = hit.collider.gameObject.GetComponent<MyShaderBehavior>();
-                    if (null != script)
+                    if (Physics.Raycast(collisionEvents[i].intersection, Vector3.right, out hit))
+                    {
+                        Debug.Log(hit.transform.name);
+                        //MyShaderBehavior script = hit.collider.gameObject.GetComponent<MyShaderBehavior>();
                         script.PaintOn(hit.textureCoord, splashTexture);
-                }
+                    }
 
+                }
+                i++;
             }
         }
     }
