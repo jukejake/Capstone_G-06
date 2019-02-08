@@ -18,15 +18,19 @@ public class FlowData : SerializedMonoBehaviour {
 	[HorizontalGroup("General/Start"), Range(0.01f, 0.2f), LabelWidth(70)]
 	public float StartSize = 0.1f; //Start size of particales.
 	[HorizontalGroup("General/Rate", Width = 0.15f), LabelWidth(30)]
-	public int Max = 500; //Max amount of particales.
+	public int MaxP = 500; //Max amount of particales.
 	[HorizontalGroup("General/Rate"), Range(0, 200), LabelWidth(40)]
 	public int Rate = 5; //Flow rate of particales.
-	[HorizontalGroup("General/Speed", Width = 0.3f), LabelWidth(100)]
+	[HorizontalGroup("General/Speed", Width = 0.25f), LabelWidth(100)]
 	public bool BasedOnSpeed = false; //Turn on speed based on a UI slider.
 	[HorizontalGroup("General/Speed"), Range(0.1f, 20.0f), LabelWidth(70)]
 	public float AirSpeed = 1.0f; //Speed based on a UI slider.
+	[HorizontalGroup("General/Speed", Width = 0.15f), LabelWidth(40)]
+	public float MaxS = 1.0f; //Speed based on a UI slider.
 	[BoxGroup("General")]
 	public MegaFlow _MegaFlow;
+	[BoxGroup("General")]
+	public bool BigFlowsOn = true;
 	[BoxGroup("General")]
 	public GameObject[] BigFlows;
 
@@ -36,6 +40,8 @@ public class FlowData : SerializedMonoBehaviour {
 	public float XScale = 0.3f; //X Size of particale emiter.
 	[BoxGroup("Small Flows"), Range(0.3f, 5.0f)]
 	public float YScale = 0.3f; //Y Size of particale emiter.
+	[BoxGroup("Small Flows")]
+	public bool SmallFlowsOn = true;
 	[BoxGroup("Small Flows")]
 	public GameObject[] SmallFlows;
 	#endregion
@@ -76,9 +82,23 @@ public class FlowData : SerializedMonoBehaviour {
 		//Find the WheelController to get the speed.
 		WC = FindObjectOfType<WheelController>();
 	}
+
+	private bool SwitchOn = false;
 	private void FixedUpdate() {
+		if (AirSpeed <= 0.1f && !SwitchOn) {
+			if (SmallFlowsOn) { foreach (var item in SmallFlows) { item.SetActive(SwitchOn); } }
+			if (BigFlowsOn) { foreach (var item in BigFlows) { item.SetActive(SwitchOn); } }
+			SwitchOn = true;
+		}
+		else if (AirSpeed > 0.1f && SwitchOn) {
+			if (SmallFlowsOn) { foreach (var item in SmallFlows) { item.SetActive(SwitchOn); } }
+			if (BigFlowsOn) { foreach (var item in BigFlows) { item.SetActive(SwitchOn); } }
+			SwitchOn = false;
+		}
+
+
 		if (BasedOnSpeed) {
-			_MegaFlow.Scale = AirSpeed = ((float)WC.Speed).Map(250,5);
+			_MegaFlow.Scale = AirSpeed = ((float)WC.Speed).Map(250, MaxS);
 		}
 	}
 
@@ -115,7 +135,7 @@ public class FlowData : SerializedMonoBehaviour {
 			var _psm = item.GetComponent<ParticleSystem>().main;
 			_psm.startSize = StartSize;
 			_psm.startLifetime = LifeTime;
-			_psm.maxParticles = Max;
+			_psm.maxParticles = MaxP;
 
 			var _pse = item.GetComponent<ParticleSystem.EmissionModule>();
 			_pse.rateOverTime = Rate;
@@ -143,7 +163,7 @@ public class FlowData : SerializedMonoBehaviour {
 			var _psm = item.GetComponent<ParticleSystem>().main;
 			_psm.startSize = StartSize;
 			_psm.startLifetime = LifeTime;
-			_psm.maxParticles = Max;
+			_psm.maxParticles = MaxP;
 
 			var _pse = item.GetComponent<ParticleSystem.EmissionModule>();
 			_pse.rateOverTime = Rate;
@@ -160,7 +180,7 @@ public class FlowData : SerializedMonoBehaviour {
 		}
 	}
 	[Button]
-	//One option to accsess the ParticleSystem that doesn't always work.
+	//One option to access the ParticleSystem that doesn't always work.
 	public void SetFlows2() {
 		_MegaFlow.Scale = AirSpeed;
 		//Set all the small flows
@@ -168,7 +188,7 @@ public class FlowData : SerializedMonoBehaviour {
 			var _psm = item.GetComponent<ParticleSystem>().main;
 			_psm.startSize = StartSize;
 			_psm.startLifetime = LifeTime;
-			_psm.maxParticles = Max;
+			_psm.maxParticles = MaxP;
 
 			var _pse = item.GetComponent<ParticleSystem>().emission;
 			_pse.rateOverTime = Rate;
@@ -196,7 +216,7 @@ public class FlowData : SerializedMonoBehaviour {
 			var _psm = item.GetComponent<ParticleSystem>().main;
 			_psm.startSize = StartSize;
 			_psm.startLifetime = LifeTime;
-			_psm.maxParticles = Max;
+			_psm.maxParticles = MaxP;
 			
 			var _pse = item.GetComponent<ParticleSystem>().emission;
 			_pse.rateOverTime = Rate;
