@@ -629,6 +629,7 @@ GameObject:
   - component: {fileID: 4518892611232714}
   - component: {fileID: 33890193094706242}
   - component: {fileID: 23416722217701188}
+  - component: {fileID: 941206071964759675}
   m_Layer: 0
   m_Name: Truck
   m_TagString: Untagged
@@ -701,6 +702,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &941206071964759675
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1257021105101364}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4300004, guid: e9d96ffec57c82c4face56ee1063eb87, type: 3}
 --- !u!1 &1258333710186644
 GameObject:
   m_ObjectHideFlags: 0
@@ -1036,6 +1051,7 @@ GameObject:
   - component: {fileID: 4129728393639716}
   - component: {fileID: 33933712747842778}
   - component: {fileID: 23877302462079082}
+  - component: {fileID: 8247145543849478128}
   m_Layer: 0
   m_Name: Trailer
   m_TagString: Untagged
@@ -1106,6 +1122,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &8247145543849478128
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1597388731451906}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4300054, guid: e9d96ffec57c82c4face56ee1063eb87, type: 3}
 --- !u!1 &1628062759368276
 GameObject:
   m_ObjectHideFlags: 0

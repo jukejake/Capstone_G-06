@@ -6,6 +6,7 @@ public class WeatherParticles : MonoBehaviour
 {
     [SerializeField]
     private List<GameObject> weatherList;
+    public MegaFlow _MegaFlow;
 
     // Use this for initialization
     void Awake()
@@ -19,7 +20,14 @@ public class WeatherParticles : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(_MegaFlow)
+        {
+            if(weatherList[1].activeSelf)
+            {
+                //weatherList[1].GetComponent<ParticleSystem>().
+            }
 
+        }
     }
 
     public void DisplayWeatherEffect(GameObject gameObject)
