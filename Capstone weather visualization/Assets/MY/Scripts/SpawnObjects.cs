@@ -78,6 +78,7 @@ public class SpawnObjects : SerializedMonoBehaviour {
 	[Button]
 	//Function to show a specific vehicle.
 	public void ShowVehicle(string key) {
+		HideAll();
 		SpawnItem t;
 		if (ShowTable.TryGetValue(key, out t)) {
 			t.Selected = true;

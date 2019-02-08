@@ -26,6 +26,9 @@ public class MovableLightingArray : SerializedMonoBehaviour {
 		if (LightingTable.TryGetValue(key, out t)) { t.Selected = true; }
 	}
 
+	public void Move_All_Lights(int _d)		 { MoveDirection(_d); } //0 = Up, 1 = Down, 2 = Inward, 3 = Outward.
+	public void Rotate_All_Lights(bool _r)	 { RotateDirection(_r); } //True = Inwards, False = Outwards.
+
 	public void Move_Front_Lights(int _d)	 { MoveDirection(_d); } //0 = Up, 1 = Down, 2 = Inward, 3 = Outward.
 	public void Move_Left_Lights(int _d)	 { MoveDirection(_d); } //0 = Up, 1 = Down, 2 = Inward, 3 = Outward.
 	public void Move_Middle_Lights(int _d)	 { MoveDirection(_d); } //0 = Up, 1 = Down, 2 = Inward, 3 = Outward.
