@@ -17,7 +17,7 @@ public class rotateController : MonoBehaviour
     private Vector3 _mouseReference;
     private Vector3 _mouseOffset;
     private Vector3 _rotation = Vector3.zero;
-    public bool _isRotating;
+    private bool _isRotating;
 
     public float zoomOutMin = 1.0f;
     public float zoomOutMax = 8.0f;
@@ -91,19 +91,24 @@ public class rotateController : MonoBehaviour
         Vector3 temp = new Vector3(0, 0, increment * zoomSensitivity);
         //Vector3 temp = new Vector3(0, 0, zoomCurrent);
         Camera.main.transform.Translate(temp);
-        
+
         if (Camera.main.transform.position.z < -zoomOutMax)
         {
             //Camera.main.transform.position = new Vector3(Camera.main.transform.position.x, Camera.main.transform.position.y, -zoomOutMax);
             Camera.main.transform.Translate(-temp);
         }
-        
+
         if (Camera.main.transform.position.z > -zoomOutMin)
         {
             //Camera.main.transform.position = new Vector3(Camera.main.transform.position.x, Camera.main.transform.position.y, -zoomOutMin);
             Camera.main.transform.Translate(-temp);
         }
         //Camera.main.transform.position = Vector3.zero - temp;
+    }
+
+    public void SetIsRotating(bool doesRotate)
+    {
+      _isRotating = doesRotate;
     }
 
 }

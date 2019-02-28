@@ -51,12 +51,12 @@ public class RadialSlider: SerializedMonoBehaviour, IPointerEnterHandler, IPoint
     void Start()
     {
         cameraRotController = GameObject.Find("RotateObject");                          // Get the controller from the game
-        rotationController = cameraRotController.GetComponent<rotateController>();      // Store the controller object (from the script) from the 
+        rotationController = cameraRotController.GetComponent<rotateController>();      // Store the controller object (from the script) from the
                                                                                             // camera controller object (which is stored in cameraRotController)
     }
     //When the mouse is over the UI, Track it.
     public void OnPointerEnter(PointerEventData eventData) {
-		StartCoroutine("TrackPointer");            
+		StartCoroutine("TrackPointer");
 	}
 	//When the mouse is not over the UI, Don't track it.
 	public void OnPointerExit(PointerEventData eventData) {
@@ -74,14 +74,14 @@ public class RadialSlider: SerializedMonoBehaviour, IPointerEnterHandler, IPoint
 	IEnumerator TrackPointer() {
 		var ray = GetComponentInParent<GraphicRaycaster>();
 		var input = FindObjectOfType<StandaloneInputModule>();
-		
+
 		if (ray != null && input != null) {
 			while (Application.isPlaying) {
 				// TODO: if mouse button down
 				if (isPointerDown) {
-					Vector2 localPos; 
-					
-					//Get mouse position  
+					Vector2 localPos;
+
+					//Get mouse position
 					RectTransformUtility.ScreenPointToLocalPointInRectangle(transform as RectTransform, Input.mousePosition, ray.eventCamera, out localPos);
 
 					//Calculate mouse position relative to the Start Angle
@@ -93,7 +93,7 @@ public class RadialSlider: SerializedMonoBehaviour, IPointerEnterHandler, IPoint
 
 					//Rotate the slider by the Start Angle
 					FillArea.gameObject.transform.localRotation = Quaternion.Euler(0, 0, -StartAngle);
-					
+
 					//Set the bar to the correct distance/angle (from 0~1)
 					FillArea.fillAmount = angle;
 
@@ -108,12 +108,12 @@ public class RadialSlider: SerializedMonoBehaviour, IPointerEnterHandler, IPoint
 					//Set the TextMeshPro text to the Value
 					if (SetFunction2 != null) { SetFunction2.text = ((int)Value).ToString(); }
 
-                    rotationController._isRotating = false;     // Don't allow the controller to rotate the camera if the user clicks the UI
+                    rotationController.SetIsRotating(false);     // Don't allow the controller to rotate the camera if the user clicks the UI
                 }
 				yield return 0;
-			}        
+			}
 		}
-		else { UnityEngine.Debug.LogWarning( "Could not find GraphicRaycaster and/or StandaloneInputModule" ); }      
+		else { UnityEngine.Debug.LogWarning( "Could not find GraphicRaycaster and/or StandaloneInputModule" ); }
 	}
 
 
