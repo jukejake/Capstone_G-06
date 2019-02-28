@@ -11,7 +11,7 @@ Material:
   m_Shader: {fileID: 4800000, guid: 226140307bf633b4e93007c7a44a1d39, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
+  m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
   stringTagMap: {}
@@ -55,6 +55,10 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _NormalTex:
+        m_Texture: {fileID: 2800000, guid: 0db3cf8f1f178234a892d01867cc61d7, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -76,6 +80,7 @@ Material:
         m_Scale: {x: 10, y: 10}
         m_Offset: {x: 0, y: 0}
     m_Floats:
+    - _Amount: 0.694
     - _BumpScale: 1
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
@@ -91,7 +96,7 @@ Material:
     - _SnowGlossiness: 0
     - _SnowLevel: 1
     - _SnowMetallic: 0
-    - _SnowRange: -1
+    - _SnowRange: 0.209
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _UVSec: 0

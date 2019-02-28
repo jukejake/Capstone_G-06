@@ -20,7 +20,6 @@ public class Snow : MonoBehaviour
     private void OnParticleCollision(GameObject other)
     {
         int numCollisionEvents = part.GetCollisionEvents(other, collisionEvents);
-        //if (numCollisionEvents <= 0) { return; }
 
         SnowShaderBehavior script;
         if (other.GetComponent<SnowShaderBehavior>()) {
@@ -35,10 +34,8 @@ public class Snow : MonoBehaviour
                     if (Physics.Raycast(collisionEvents[i].intersection, Vector3.right, out hit))
                     {
                         Debug.Log(hit.transform.name);
-                        //MyShaderBehavior script = hit.collider.gameObject.GetComponent<MyShaderBehavior>();
                         script.PaintOn(hit.textureCoord, splashTexture);
                     }
-
                 }
                 i++;
             }

@@ -13,8 +13,7 @@ public class SnowShaderBehavior : MonoBehaviour
     private Material m_material;
     private Texture2D m_texture;
     private bool isEnabled = false;
-   // private Snow snow;
-    private float totalSnow = -1.0f;
+    // private Snow snow;
 
 
     private void Awake()
@@ -22,7 +21,7 @@ public class SnowShaderBehavior : MonoBehaviour
         //snow = GameObject.FindGameObjectWithTag("SnowParticle").GetComponent<Snow>();
     }
 
-    void Start ()
+    void Start()
     {
         if (GetComponent<Renderer>())
         {
@@ -35,31 +34,33 @@ public class SnowShaderBehavior : MonoBehaviour
                     break;
                 }
             }
-            
+
             if (null != m_material)
             {
                 m_texture = new Texture2D(textureWidth, textureHeight);
-                for (int x = 0; x < textureWidth; ++x) { 
-                    for (int y = 0; y < textureHeight; ++y) { 
+                for (int x = 0; x < textureWidth; ++x)
+                {
+                    for (int y = 0; y < textureHeight; ++y)
+                    {
                         m_texture.SetPixel(x, y, c_color);
                     }
                 }
                 m_texture.Apply();
-
                 m_material.SetTexture("_DrawingTex", m_texture);
                 isEnabled = true;
             }
         }
-	}
+    }
 
     public void PaintOn(Vector2 textureCoord, Texture2D splashTexture)
     {
         if (isEnabled)
         {
-            
+
             int x = (int)(textureCoord.x * textureWidth) - (splashTexture.width / 2);
             int y = (int)(textureCoord.y * textureHeight) - (splashTexture.height / 2);
-            for (int i = 0; i < splashTexture.width; ++i) { 
+            for (int i = 0; i < splashTexture.width; ++i)
+            {
                 for (int j = 0; j < splashTexture.height; ++j)
                 {
                     int newX = x + i;
@@ -72,6 +73,7 @@ public class SnowShaderBehavior : MonoBehaviour
                         Color result = Color.Lerp(existingColor, targetColor, alpha);   // resulting color is an addition of splash texture to the texture based on alpha
                         result.a = 0.1f + existingColor.a;// existingColor.a + alpha;                             // but resulting alpha is a sum of alphas (adding transparent color should not make base color more transparent)
                         m_texture.SetPixel(newX, newY, result);
+                        // m_material.SetFloat("_Amount", result.a);
                     }
                 }
             }
