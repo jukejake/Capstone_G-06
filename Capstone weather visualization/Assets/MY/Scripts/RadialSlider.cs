@@ -3,6 +3,13 @@
 //Date: 2018~2019
 //BUSI 4995U Capstone
 ////*/
+///
+
+// =============================
+// Edited by Marco Valdez
+// Added: support for blocking camera
+// movement if using the slider
+// =============================
 
 using UnityEngine;
 using System.Collections;
@@ -35,11 +42,20 @@ public class RadialSlider: SerializedMonoBehaviour, IPointerEnterHandler, IPoint
 	public WheelController SetFunction;
 	[HorizontalGroup("Display Options/6"), LabelWidth(90)]
 	public TextMeshProUGUI SetFunction2;
-	#endregion
 
-	#region Functions
-	//When the mouse is over the UI, Track it.
-	public void OnPointerEnter(PointerEventData eventData) {
+    GameObject cameraRotController;         // Needed to access the camera rotation controller. Will store the controller object which contains the actual controller
+    rotateController rotationController;    // Will store the actual controller
+    #endregion
+
+    #region Functions
+    void Start()
+    {
+        cameraRotController = GameObject.Find("RotateObject");                          // Get the controller from the game
+        rotationController = cameraRotController.GetComponent<rotateController>();      // Store the controller object (from the script) from the 
+                                                                                            // camera controller object (which is stored in cameraRotController)
+    }
+    //When the mouse is over the UI, Track it.
+    public void OnPointerEnter(PointerEventData eventData) {
 		StartCoroutine("TrackPointer");            
 	}
 	//When the mouse is not over the UI, Don't track it.
@@ -91,7 +107,9 @@ public class RadialSlider: SerializedMonoBehaviour, IPointerEnterHandler, IPoint
 					if (SetFunction != null) { SetFunction.SetSpeed(Value); }
 					//Set the TextMeshPro text to the Value
 					if (SetFunction2 != null) { SetFunction2.text = ((int)Value).ToString(); }
-				}
+
+                    rotationController._isRotating = false;     // Don't allow the controller to rotate the camera if the user clicks the UI
+                }
 				yield return 0;
 			}        
 		}
