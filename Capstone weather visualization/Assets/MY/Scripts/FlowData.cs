@@ -4,6 +4,7 @@
 //BUSI 4995U Capstone
 ////*/
 
+using System.Collections.Generic;
 using UnityEngine;
 using Sirenix.OdinInspector;
 
@@ -30,9 +31,16 @@ public class FlowData : SerializedMonoBehaviour {
 	[BoxGroup("General")]
 	public MegaFlow _MegaFlow;
 	[BoxGroup("General")]
+	public int ActiveFlow; //0 = Smoke, 1 = Rain, 2 = Snow
+
+	[BoxGroup("BigFlows")]
 	public bool BigFlowsOn = true;
-	[BoxGroup("General")]
-	public GameObject[] BigFlows;
+	[BoxGroup("BigFlows")]
+	public GameObject BigSmokeFlow;
+	[BoxGroup("BigFlows")]
+	public GameObject BigRainFlow;
+	[BoxGroup("BigFlows")]
+	public GameObject BigSnowFlow;
 
 	private WheelController WC;
 
@@ -43,38 +51,11 @@ public class FlowData : SerializedMonoBehaviour {
 	[BoxGroup("Small Flows")]
 	public bool SmallFlowsOn = true;
 	[BoxGroup("Small Flows")]
-	public GameObject[] SmallFlows;
-	#endregion
-
-	#region Trail Variables
-	//General Variables
-	[ToggleGroup("Trails")]
-	public bool Trails = true;
-	private float T_LifeTime = 0.05f; //Life time of Trails.
-	private Material ParticleMaterial; //Material for the Particle.
-	private Material TrailMaterial; //Material for the Trail.
-
-	//Wind Variables
-	[HorizontalGroup("Trails/2", Width = 0.2f), LabelWidth(50)]
-	public float Wind_L = 0.05f;
-	[HorizontalGroup("Trails/2"), LabelWidth(60)]
-	public Material Wind_PM;
-	[HorizontalGroup("Trails/2"), LabelWidth(60)]
-	public Material Wind_TM;
-	//Rain Variables
-	[HorizontalGroup("Trails/3", Width = 0.2f), LabelWidth(50)]
-	public float Rain_L = 0.05f;
-	[HorizontalGroup("Trails/3"), LabelWidth(60)]
-	public Material Rain_PM;
-	[HorizontalGroup("Trails/3"), LabelWidth(60)]
-	public Material Rain_TM;
-	//Snow Variables
-	[HorizontalGroup("Trails/4", Width = 0.2f), LabelWidth(50)]
-	public float Snow_L = 0.05f;
-	[HorizontalGroup("Trails/4"), LabelWidth(60)]
-	public Material Snow_PM;
-	[HorizontalGroup("Trails/4"), LabelWidth(60)]
-	public Material Snow_TM;
+	public GameObject[] SmallSmokeFlows;
+	[BoxGroup("Small Flows")]
+	public GameObject[] SmallRainFlows;
+	[BoxGroup("Small Flows")]
+	public GameObject[] SmallSnowFlows;
 	#endregion
 
 	#region Set trail data
@@ -84,42 +65,53 @@ public class FlowData : SerializedMonoBehaviour {
 	}
 
 	private bool SwitchOn = false;
+
+	private void SwitchWeather(bool state) {
+		if (SmallFlowsOn) {
+				 if (ActiveFlow == 0) { foreach (var item in SmallSmokeFlows){ item.SetActive(state); } }
+			else if (ActiveFlow == 1) { foreach (var item in SmallRainFlows) { item.SetActive(state); } }
+			else if (ActiveFlow == 2) { foreach (var item in SmallSnowFlows) { item.SetActive(state); } }
+		}
+		if (BigFlowsOn) {
+				 if (ActiveFlow == 0) { BigSmokeFlow.SetActive(state);}
+			else if (ActiveFlow == 1) { BigRainFlow.SetActive(state); }
+			else if (ActiveFlow == 2) { BigSnowFlow.SetActive(state); }
+		}
+	}
+
 	private void FixedUpdate() {
 		if (AirSpeed <= 0.1f && !SwitchOn) {
-			if (SmallFlowsOn) { foreach (var item in SmallFlows) { item.SetActive(SwitchOn); } }
-			if (BigFlowsOn) { foreach (var item in BigFlows) { item.SetActive(SwitchOn); } }
+			SwitchWeather(SwitchOn);
 			SwitchOn = true;
 		}
 		else if (AirSpeed > 0.1f && SwitchOn) {
-			if (SmallFlowsOn) { foreach (var item in SmallFlows) { item.SetActive(SwitchOn); } }
-			if (BigFlowsOn) { foreach (var item in BigFlows) { item.SetActive(SwitchOn); } }
+			SwitchWeather(SwitchOn);
 			SwitchOn = false;
 		}
-
-
+		
 		if (BasedOnSpeed) {
 			_MegaFlow.Scale = AirSpeed = ((float)WC.Speed).Map(250, MaxS);
 		}
 	}
 
-	[ToggleGroup("Trails"), Button]
+	[Button]
 	//Function to remap the Materials to the desired weather
-	public void SetMaterials(int _m = 0) {
+	public void SetWeather(int _m = 0) {
 		switch (_m) {
 			case 0: //Wind
-				T_LifeTime = Wind_L;
-				if (Wind_PM != null) { ParticleMaterial = Wind_PM; }
-				if (Wind_TM != null) { TrailMaterial = Wind_TM; }
+				SwitchWeather(false);
+				ActiveFlow = 0;
+				SwitchWeather(true);
 				break;
 			case 1: //Rain
-				T_LifeTime = Rain_L;
-				if (Rain_PM != null) { ParticleMaterial = Rain_PM;}
-				if (Rain_TM != null) { TrailMaterial = Rain_TM; }
+				SwitchWeather(false);
+				ActiveFlow = 1;
+				SwitchWeather(true);
 				break;
 			case 2: //Snow
-				T_LifeTime = Snow_L;
-				if (Snow_PM != null) { ParticleMaterial = Snow_PM;}
-				if (Snow_TM != null) { TrailMaterial = Snow_TM; }
+				SwitchWeather(false);
+				ActiveFlow = 2;
+				SwitchWeather(true);
 				break;
 			default: //Do nothing
 				break;
@@ -131,7 +123,7 @@ public class FlowData : SerializedMonoBehaviour {
 	public void SetFlows1() {
 		_MegaFlow.Scale = AirSpeed;
 		//Set all the small flows
-		foreach (var item in SmallFlows) {
+		foreach (var item in SmallSmokeFlows) {
 			var _psm = item.GetComponent<ParticleSystem>().main;
 			_psm.startSize = StartSize;
 			_psm.startLifetime = LifeTime;
@@ -143,23 +135,12 @@ public class FlowData : SerializedMonoBehaviour {
 			var _pss = item.GetComponent<ParticleSystem.ShapeModule>();
 			_pss.scale = new Vector3(XScale, YScale, 1.0f);
 
-			var _pst = item.GetComponent<ParticleSystem.TrailModule>();
-			_pst.enabled = Trails;
-			_pst.lifetime = T_LifeTime;
-
-			if (ParticleMaterial != null && TrailMaterial != null) {
-				var _psr = item.GetComponent<ParticleSystemRenderer>();
-				_psr.material = ParticleMaterial;
-				_psr.trailMaterial = TrailMaterial;
-			}
-
 			var _Child = item.transform.GetChild(0);
 			if (_Child) {
 				_Child.localScale = new Vector3(XScale*0.1f, 1.0f, YScale*0.1f);
 			}
 		}
-		//Set all the big flows
-		foreach (var item in BigFlows) {
+		foreach (var item in SmallRainFlows) {
 			var _psm = item.GetComponent<ParticleSystem>().main;
 			_psm.startSize = StartSize;
 			_psm.startLifetime = LifeTime;
@@ -168,15 +149,58 @@ public class FlowData : SerializedMonoBehaviour {
 			var _pse = item.GetComponent<ParticleSystem.EmissionModule>();
 			_pse.rateOverTime = Rate;
 
-			var _pst = item.GetComponent<ParticleSystem.TrailModule>();
-			_pst.enabled = Trails;
-			_pst.lifetime = T_LifeTime;
+			var _pss = item.GetComponent<ParticleSystem.ShapeModule>();
+			_pss.scale = new Vector3(XScale, YScale, 1.0f);
 
-			if (ParticleMaterial != null && TrailMaterial != null) {
-				var _psr = item.GetComponent<ParticleSystemRenderer>();
-				_psr.material = ParticleMaterial;
-				_psr.trailMaterial = TrailMaterial;
+			var _Child = item.transform.GetChild(0);
+			if (_Child) {
+				_Child.localScale = new Vector3(XScale*0.1f, 1.0f, YScale*0.1f);
 			}
+		}
+		foreach (var item in SmallSnowFlows) {
+			var _psm = item.GetComponent<ParticleSystem>().main;
+			_psm.startSize = StartSize;
+			_psm.startLifetime = LifeTime;
+			_psm.maxParticles = MaxP;
+
+			var _pse = item.GetComponent<ParticleSystem.EmissionModule>();
+			_pse.rateOverTime = Rate;
+
+			var _pss = item.GetComponent<ParticleSystem.ShapeModule>();
+			_pss.scale = new Vector3(XScale, YScale, 1.0f);
+
+			var _Child = item.transform.GetChild(0);
+			if (_Child) {
+				_Child.localScale = new Vector3(XScale*0.1f, 1.0f, YScale*0.1f);
+			}
+		}
+		//Set all the big flows
+		{
+			var _psm = BigSmokeFlow.GetComponent<ParticleSystem>().main;
+			_psm.startSize = StartSize;
+			_psm.startLifetime = LifeTime;
+			_psm.maxParticles = MaxP;
+
+			var _pse = BigSmokeFlow.GetComponent<ParticleSystem.EmissionModule>();
+			_pse.rateOverTime = Rate;
+		}
+		{
+			var _psm = BigRainFlow.GetComponent<ParticleSystem>().main;
+			_psm.startSize = StartSize;
+			_psm.startLifetime = LifeTime;
+			_psm.maxParticles = MaxP;
+
+			var _pse = BigRainFlow.GetComponent<ParticleSystem.EmissionModule>();
+			_pse.rateOverTime = Rate;
+		}
+		{
+			var _psm = BigSnowFlow.GetComponent<ParticleSystem>().main;
+			_psm.startSize = StartSize;
+			_psm.startLifetime = LifeTime;
+			_psm.maxParticles = MaxP;
+
+			var _pse = BigSnowFlow.GetComponent<ParticleSystem.EmissionModule>();
+			_pse.rateOverTime = Rate;
 		}
 	}
 	[Button]
@@ -184,7 +208,7 @@ public class FlowData : SerializedMonoBehaviour {
 	public void SetFlows2() {
 		_MegaFlow.Scale = AirSpeed;
 		//Set all the small flows
-		foreach (var item in SmallFlows) {
+		foreach (var item in SmallSmokeFlows) {
 			var _psm = item.GetComponent<ParticleSystem>().main;
 			_psm.startSize = StartSize;
 			_psm.startLifetime = LifeTime;
@@ -196,15 +220,39 @@ public class FlowData : SerializedMonoBehaviour {
 			var _pss = item.GetComponent<ParticleSystem>().shape;
 			_pss.scale = new Vector3(XScale, YScale, 1.0f);
 
-			var _pst = item.GetComponent<ParticleSystem>().trails;
-			_pst.enabled = Trails;
-			_pst.lifetime = T_LifeTime;
-
-			if (ParticleMaterial != null && TrailMaterial != null) {
-				var _psr = item.GetComponent<ParticleSystemRenderer>();
-				_psr.material = ParticleMaterial;
-				_psr.trailMaterial = TrailMaterial;
+			var _Child = item.transform.GetChild(0);
+			if (_Child) {
+				_Child.localScale = new Vector3(XScale*0.1f, 1.0f, YScale*0.1f);
 			}
+		}
+		foreach (var item in SmallRainFlows)  {
+			var _psm = item.GetComponent<ParticleSystem>().main;
+			_psm.startSize = StartSize;
+			_psm.startLifetime = LifeTime;
+			_psm.maxParticles = MaxP;
+
+			var _pse = item.GetComponent<ParticleSystem>().emission;
+			_pse.rateOverTime = Rate;
+
+			var _pss = item.GetComponent<ParticleSystem>().shape;
+			_pss.scale = new Vector3(XScale, YScale, 1.0f);
+
+			var _Child = item.transform.GetChild(0);
+			if (_Child) {
+				_Child.localScale = new Vector3(XScale*0.1f, 1.0f, YScale*0.1f);
+			}
+		}
+		foreach (var item in SmallSnowFlows)  {
+			var _psm = item.GetComponent<ParticleSystem>().main;
+			_psm.startSize = StartSize;
+			_psm.startLifetime = LifeTime;
+			_psm.maxParticles = MaxP;
+
+			var _pse = item.GetComponent<ParticleSystem>().emission;
+			_pse.rateOverTime = Rate;
+
+			var _pss = item.GetComponent<ParticleSystem>().shape;
+			_pss.scale = new Vector3(XScale, YScale, 1.0f);
 
 			var _Child = item.transform.GetChild(0);
 			if (_Child) {
@@ -212,25 +260,34 @@ public class FlowData : SerializedMonoBehaviour {
 			}
 		}
 		//Set all the big flows
-		foreach (var item in BigFlows) {
-			var _psm = item.GetComponent<ParticleSystem>().main;
+		{
+			var _psm = BigSmokeFlow.GetComponent<ParticleSystem>().main;
 			_psm.startSize = StartSize;
 			_psm.startLifetime = LifeTime;
 			_psm.maxParticles = MaxP;
 			
-			var _pse = item.GetComponent<ParticleSystem>().emission;
+			var _pse = BigSmokeFlow.GetComponent<ParticleSystem>().emission;
 			_pse.rateOverTime = Rate;
-
-			var _pst = item.GetComponent<ParticleSystem>().trails;
-			_pst.enabled = Trails;
-			_pst.lifetime = T_LifeTime;
-
-			if (ParticleMaterial != null && TrailMaterial != null) {
-				var _psr = item.GetComponent<ParticleSystemRenderer>();
-				_psr.material = ParticleMaterial;
-				_psr.trailMaterial = TrailMaterial;
-			}
+		}
+		{
+			var _psm = BigRainFlow.GetComponent<ParticleSystem>().main;
+			_psm.startSize = StartSize;
+			_psm.startLifetime = LifeTime;
+			_psm.maxParticles = MaxP;
+			
+			var _pse = BigRainFlow.GetComponent<ParticleSystem>().emission;
+			_pse.rateOverTime = Rate;
+		}
+		{
+			var _psm = BigSnowFlow.GetComponent<ParticleSystem>().main;
+			_psm.startSize = StartSize;
+			_psm.startLifetime = LifeTime;
+			_psm.maxParticles = MaxP;
+			
+			var _pse = BigSnowFlow.GetComponent<ParticleSystem>().emission;
+			_pse.rateOverTime = Rate;
 		}
 	}
+
 	#endregion
 }

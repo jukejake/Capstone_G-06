@@ -64,7 +64,7 @@ public class rotateController : MonoBehaviour
         }
 
         zoom(Input.GetAxis("Mouse ScrollWheel"));
-        Debug.Log(Input.GetAxis("Mouse ScrollWheel"));
+        //Debug.Log(Input.GetAxis("Mouse ScrollWheel"));
     }
 
     void OnMouseDown()

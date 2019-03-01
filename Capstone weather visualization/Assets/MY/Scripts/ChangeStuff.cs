@@ -94,7 +94,11 @@ public class ChangeStuff : SerializedMonoBehaviour {
 	[ToggleGroup("ToggleNozzle")]
 	public GameObject Canopy;
 	[ToggleGroup("ToggleNozzle")]
-	public GameObject Flow;
+	public GameObject SmokeFlow;
+	[ToggleGroup("ToggleNozzle")]
+	public GameObject RainFlow;
+	[ToggleGroup("ToggleNozzle")]
+	public GameObject SnowFlow;
 	[ToggleGroup("ToggleNozzle")]
 	public GameObject FlowPlane;
 	[ToggleGroup("ToggleNozzle")]
@@ -107,16 +111,23 @@ public class ChangeStuff : SerializedMonoBehaviour {
 
 		//Set the position of the walls, and flow.
 		//Change the scale of the flow.
-		var _pss = Flow.GetComponent<ParticleSystem>().shape;
+		var _pss1 = SmokeFlow.GetComponent<ParticleSystem>().shape;
+		var _pss2 =  RainFlow.GetComponent<ParticleSystem>().shape;
+		var _pss3 =  SnowFlow.GetComponent<ParticleSystem>().shape;
 		//(7.0m^2) = Size of the nozzle opening.
 		if (State == 0) {
 			FrontWall.transform.localPosition = new Vector3(0, 1.45f, -1.2f);
 			BackWall.transform.localPosition  = new Vector3(0, 1.45f,  1.2f);
 			Canopy.transform.localPosition    = new Vector3(0, 2.9f, 0);
 
-			Flow.transform.localPosition = new Vector3(0, 1.4f, 0);
-			_pss.scale = new Vector3(2, 2.7f, 1.0f);
-			FlowPlane.transform.localPosition = new Vector3(0, 0, 0);
+			SmokeFlow.transform.localPosition = new Vector3(0, 1.4f, 0);
+			 RainFlow.transform.localPosition = new Vector3(0, 1.4f, 0);
+			 SnowFlow.transform.localPosition = new Vector3(0, 1.4f, 0);
+			_pss1.scale = new Vector3(2, 2.7f, 1.0f);
+			_pss2.scale = new Vector3(2, 2.7f, 1.0f);
+			_pss3.scale = new Vector3(2, 2.7f, 1.0f);
+
+			FlowPlane.transform.localPosition = new Vector3(0, 1.4f, 0);
 			FlowPlane.transform.localScale = new Vector3(0.2f, 1, 0.27f);
 		}
 		//(13.0m^2) = Size of the nozzle opening.
@@ -125,9 +136,14 @@ public class ChangeStuff : SerializedMonoBehaviour {
 			BackWall.transform.localPosition  = new Vector3(0, 1.45f,  2.25f);
 			Canopy.transform.localPosition    = new Vector3(0, 2.9f, 0);
 
-			Flow.transform.localPosition = new Vector3(0, 1.4f, 0);
-			_pss.scale = new Vector3(4.25f, 2.7f, 1.0f);
-			FlowPlane.transform.localPosition = new Vector3(0, 0, 0);
+			SmokeFlow.transform.localPosition = new Vector3(0, 1.4f, 0);
+			 RainFlow.transform.localPosition = new Vector3(0, 1.4f, 0);
+			 SnowFlow.transform.localPosition = new Vector3(0, 1.4f, 0);
+			_pss1.scale = new Vector3(4.25f, 2.7f, 1.0f);
+			_pss2.scale = new Vector3(4.25f, 2.7f, 1.0f);
+			_pss3.scale = new Vector3(4.25f, 2.7f, 1.0f);
+
+			FlowPlane.transform.localPosition = new Vector3(0, 1.4f, 0);
 			FlowPlane.transform.localScale = new Vector3(0.425f, 1, 0.27f);
 		}
 		////(14.5m^2) = Size of the nozzle opening.
@@ -142,9 +158,14 @@ public class ChangeStuff : SerializedMonoBehaviour {
 			BackWall.transform.localPosition  = new Vector3(0, 1.45f,  2.5f);
 			Canopy.transform.localPosition    = new Vector3(0, 4.4f, 0);
 
-			Flow.transform.localPosition = new Vector3(0, 2.16f, 0);
-			_pss.scale = new Vector3(4.75f, 4.25f, 1.0f);
-			FlowPlane.transform.localPosition = new Vector3(0, 0, 0);
+			SmokeFlow.transform.localPosition = new Vector3(0, 2.16f, 0);
+			 RainFlow.transform.localPosition = new Vector3(0, 2.16f, 0);
+			 SnowFlow.transform.localPosition = new Vector3(0, 2.16f, 0);
+			_pss1.scale = new Vector3(4.75f, 4.25f, 1.0f);
+			_pss2.scale = new Vector3(4.75f, 4.25f, 1.0f);
+			_pss3.scale = new Vector3(4.75f, 4.25f, 1.0f);
+
+			FlowPlane.transform.localPosition = new Vector3(0, 2.16f, 0);
 			FlowPlane.transform.localScale = new Vector3(0.475f, 1, 0.425f);
 		}
 	}
