@@ -13,16 +13,26 @@ public class rotateController : MonoBehaviour
 {
 
     #region ROTATE
-    public float rotation_sensitivity = 1f;
+    public float rotation_sensitivity_Y = 0.75f;
+    public float rotation_sensitivity_X = 0.2f;
+
     private Vector3 _mouseReference;
     private Vector3 _mouseOffset;
     private Vector3 _rotation = Vector3.zero;
     private bool _isRotating;
 
-    public float zoomOutMin = 1.0f;
-    public float zoomOutMax = 8.0f;
-    public float zoomSensitivity = 1.0f;
-    private float zoomCurrent = 2.0f;
+    public float zoomOutMin = 1.0f;         // Minimum distance from center object
+    public float zoomOutMax = 8.0f;         // Maximum distance from center object
+    public float zoomSensitivity = 1.0f;    // How sensitive the camera panning is to dragging (larger is more sensitive)
+
+
+    public float maxPanY = 20.0f;           // Maximum deviance from "level" in the Y axis (up)
+    public float minPanY = -20.0f;           // Maximum deviance from "level" in the Y axis (down)
+
+    public float maxPanX = 10.0f;           // Maximum deviance from "level" in the Y axis (up)
+    public float minPanX = -10.0f;           // Maximum deviance from "level" in the Y axis (down)
+
+    private float zoomCurrent = 2.0f;       // Current zoom
 
 
     #endregion
@@ -32,15 +42,19 @@ public class rotateController : MonoBehaviour
         if (_isRotating)
         {
             // offset
-            _mouseOffset = (Input.mousePosition - _mouseReference);
+            _mouseOffset = (Input.mousePosition - _mouseReference);   // Find difference in old mouse/touch position to new one
 
             // apply rotation
-            _rotation.y += (_mouseOffset.x + _mouseOffset.y) * rotation_sensitivity;
-            _rotation.y = Mathf.Clamp(_rotation.y, -20, 20);
+            //_rotation.y += (_mouseOffset.x + _mouseOffset.y) * rotation_sensitivity;
+            _rotation.y += (_mouseOffset.x) * rotation_sensitivity_Y;    // Rotate the scene/object on its Y axis (straight up and down) if you move the mouse horizontally (x)
+            _rotation.y = Mathf.Clamp(_rotation.y, minPanY, maxPanY);   // Clamp between -20, 20 (defaults)
+
+            _rotation.x -= (_mouseOffset.y) * rotation_sensitivity_X;     // Rotate scene on its X axis (left and right) if you move the mouse up/down
+            _rotation.x = Mathf.Clamp(_rotation.x, minPanX, maxPanX);   // Clamp between -10, 10 (defaults)
 
             // rotate
             //gameObject.transform.Rotate(_rotation);
-            transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, _rotation.y, transform.localEulerAngles.z);
+            transform.localEulerAngles = new Vector3(_rotation.x, _rotation.y, transform.localEulerAngles.z);   // Apply rotations
 
             // store new mouse position
             _mouseReference = Input.mousePosition;
@@ -109,6 +123,11 @@ public class rotateController : MonoBehaviour
     public void SetIsRotating(bool doesRotate)
     {
       _isRotating = doesRotate;
+    }
+
+    public void ResetCamera()
+    {
+      transform.localEulerAngles = new Vector3(0.0f, 0.0f, 0.0f);
     }
 
 }
