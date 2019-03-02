@@ -66,6 +66,7 @@ public class FlowData : SerializedMonoBehaviour {
 
 	private bool SwitchOn = false;
 
+
 	private void SwitchWeather(bool state) {
 		if (SmallFlowsOn) {
 				 if (ActiveFlow == 0) { foreach (var item in SmallSmokeFlows){ item.SetActive(state); } }
@@ -95,7 +96,24 @@ public class FlowData : SerializedMonoBehaviour {
 			_MegaFlow.Scale = AirSpeed = ((float)WC.Speed).Map(250, MaxS);
 		}
 	}
-
+	
+	[Button]
+	public void SwitchSize() {
+		if (SmallFlowsOn) {
+			SmallFlowsOn = false;
+			BigFlowsOn = true;
+				 if (ActiveFlow == 0) { foreach (var item in SmallSmokeFlows){ item.SetActive(false); } BigSmokeFlow.SetActive(true); }
+			else if (ActiveFlow == 1) { foreach (var item in SmallRainFlows) { item.SetActive(false); }  BigRainFlow.SetActive(true); }
+			else if (ActiveFlow == 2) { foreach (var item in SmallSnowFlows) { item.SetActive(false); }  BigSnowFlow.SetActive(true); }
+		}
+		else if (BigFlowsOn) {
+			BigFlowsOn = false;
+			SmallFlowsOn = true;
+				 if (ActiveFlow == 0) { BigSmokeFlow.SetActive(false); foreach (var item in SmallSmokeFlows){ item.SetActive(true); } }
+			else if (ActiveFlow == 1) {  BigRainFlow.SetActive(false); foreach (var item in SmallRainFlows) { item.SetActive(true); } }
+			else if (ActiveFlow == 2) {  BigSnowFlow.SetActive(false); foreach (var item in SmallSnowFlows) { item.SetActive(true); } }
+		}
+	}
 	[Button]
 	public void ClearWeather() {
 		SwitchWeather(false);
