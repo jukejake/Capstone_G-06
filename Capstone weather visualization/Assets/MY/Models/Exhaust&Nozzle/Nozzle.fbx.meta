@@ -34,7 +34,9 @@ ModelImporter:
     100056: Cube.028
     100058: Cube.029
     100060: Cube.030
-    100062: //RootNode
+    100062: InnerWindPlate
+    100064: InnerWindPlate.001
+    100066: //RootNode
     400000: Cube
     400002: Cube.001
     400004: Cube.002
@@ -66,11 +68,14 @@ ModelImporter:
     400056: Cube.028
     400058: Cube.029
     400060: Cube.030
-    400062: //RootNode
-    2100000: Material.003
-    2100002: Material
-    2100004: Material.001
-    2100006: Material.002
+    400062: InnerWindPlate
+    400064: InnerWindPlate.001
+    400066: //RootNode
+    2100000: No Name
+    2100002: Material.003
+    2100004: Material
+    2100006: Material.001
+    2100008: Material.002
     2300000: Cube
     2300002: Cube.001
     2300004: Cube.002
@@ -102,6 +107,8 @@ ModelImporter:
     2300056: Cube.028
     2300058: Cube.029
     2300060: Cube.030
+    2300062: InnerWindPlate
+    2300064: InnerWindPlate.001
     3300000: Cube
     3300002: Cube.001
     3300004: Cube.002
@@ -133,10 +140,13 @@ ModelImporter:
     3300056: Cube.028
     3300058: Cube.029
     3300060: Cube.030
-    4300000: Cube.030
-    4300002: Cube.017
-    4300004: Cube.011
-    4300006: Cube.023
+    3300062: InnerWindPlate
+    3300064: InnerWindPlate.001
+    4300000: InnerWindPlate.001
+    4300002: Cube.030
+    4300004: Cube.017
+    4300006: Cube.011
+    4300008: Cube.023
   externalObjects: {}
   materials:
     importMaterials: 1

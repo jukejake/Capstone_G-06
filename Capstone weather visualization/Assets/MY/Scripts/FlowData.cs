@@ -80,10 +80,12 @@ public class FlowData : SerializedMonoBehaviour {
 	}
 
 	private void FixedUpdate() {
+		//Set the desired weather when air speeds are high enough.
 		if (AirSpeed <= 0.1f && !SwitchOn) {
 			SwitchWeather(SwitchOn);
 			SwitchOn = true;
 		}
+		//Switch off the weather when air speeds are not high enough.
 		else if (AirSpeed > 0.1f && SwitchOn) {
 			SwitchWeather(SwitchOn);
 			SwitchOn = false;
@@ -95,30 +97,41 @@ public class FlowData : SerializedMonoBehaviour {
 	}
 
 	[Button]
-	//Function to remap the Materials to the desired weather
+	public void ClearWeather() {
+		SwitchWeather(false);
+	}
+	[Button]
+	//Function to set which particle system should be active
 	public void SetWeather(int _m = 0) {
+		SwitchWeather(false);
 		switch (_m) {
 			case 0: //Wind
-				SwitchWeather(false);
-				ActiveFlow = 0;
-				SwitchWeather(true);
+				if (ActiveFlow != 0) {
+					ActiveFlow = 0;
+					SwitchWeather(true);
+				}
+				else { ActiveFlow = -1; }
 				break;
 			case 1: //Rain
-				SwitchWeather(false);
-				ActiveFlow = 1;
-				SwitchWeather(true);
+				if (ActiveFlow != 1) {
+					ActiveFlow = 1;
+					SwitchWeather(true);
+				}
+				else { ActiveFlow = -1; }
 				break;
 			case 2: //Snow
-				SwitchWeather(false);
-				ActiveFlow = 2;
-				SwitchWeather(true);
+				if (ActiveFlow != 2) {
+					ActiveFlow = 2;
+					SwitchWeather(true);
+				}
+				else { ActiveFlow = -1; }
 				break;
 			default: //Do nothing
 				break;
 		}
 	}
-	
-	[Button]
+
+	[HorizontalGroup("Set Flows"), Button("Try 1: Set Flows")]
 	//One option to accsess the ParticleSystem that doesn't always work.
 	public void SetFlows1() {
 		_MegaFlow.Scale = AirSpeed;
@@ -203,7 +216,8 @@ public class FlowData : SerializedMonoBehaviour {
 			_pse.rateOverTime = Rate;
 		}
 	}
-	[Button]
+
+	[HorizontalGroup("Set Flows"), Button("Try 2: Set Flows")]
 	//One option to access the ParticleSystem that doesn't always work.
 	public void SetFlows2() {
 		_MegaFlow.Scale = AirSpeed;

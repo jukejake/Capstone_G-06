@@ -17,6 +17,7 @@ public class SpawnObjects : SerializedMonoBehaviour {
 	public Dictionary<string, GameObject> IDTable = new Dictionary<string, GameObject>();
 	public Transform FrontDynos;
 	public Transform BackDynos;
+	public Transform BackDynoCases;
 	#endregion
 
 	#region Instantiate Destroy Method
@@ -37,6 +38,7 @@ public class SpawnObjects : SerializedMonoBehaviour {
 			var Dpos = BackDynos.position;
 			var BW = temp.transform.Find("Back Wheels").transform.position;
 			BackDynos.position = new Vector3(BW.x, Dpos.y, BW.z);
+			BackDynoCases.position = new Vector3(BW.x, BackDynoCases.position.y, BW.z);
 		}
 	}
 	//Function to clear all of the children on the Object
@@ -49,6 +51,7 @@ public class SpawnObjects : SerializedMonoBehaviour {
 	public Dictionary<string, SpawnItem> ShowTable = new Dictionary<string, SpawnItem>();
 	private void Start() {
 		SpawnAll();
+		//Invoke("Clear", 0.50f);
 	}
 	//Function to show all vehicles.
 	public void SpawnAll() {
@@ -56,7 +59,6 @@ public class SpawnObjects : SerializedMonoBehaviour {
 			//Spawn the new car.
 			GameObject car = Instantiate(item.Value, this.transform.position, this.transform.rotation, this.transform);
 			car.name = item.Value.name;
-			car.SetActive(false);
 			//Set position of front Dynos.
 			if (car.transform.Find("Front Wheels")) { 
 				var Cpos = car.transform.position;
@@ -70,10 +72,12 @@ public class SpawnObjects : SerializedMonoBehaviour {
 				//Use world position; to get the right position.
 				BackDynos.position = new Vector3(BW.x, Dpos.y, BW.z);
 				//Use local position; as it is now in the correct position.
-				ShowTable.Add(item.Key, new SpawnItem(false, car, BackDynos.localPosition));
+				ShowTable.Add(item.Key, new SpawnItem(false, car, BackDynos.position)); //localPosition
 			}
 			else { ShowTable.Add(item.Key, new SpawnItem(false, car, Vector3.zero)); }
+			car.SetActive(false);
 		}
+		BackDynos.position = new Vector3(0, BackDynos.position.y, 0);
 	}
 	[Button]
 	//Function to show a specific vehicle.
@@ -85,7 +89,8 @@ public class SpawnObjects : SerializedMonoBehaviour {
 			//Un-hide the vehicle.
 			t.Vehicle.SetActive(true);
 			//Set position of back Dynos.
-			BackDynos.localPosition = t.BackDynoPos;
+			BackDynos.position = t.BackDynoPos; //localPosition
+			BackDynoCases.position = new Vector3(t.BackDynoPos.x, BackDynoCases.position.y, t.BackDynoPos.z);
 		}
 	}
 	[Button]
