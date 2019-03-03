@@ -60,7 +60,6 @@ public class WheelRotator : SerializedMonoBehaviour {
 				wheel.Rotate(Vector3.right, RotateAmount);
 			}
 		}
-		
 	}
 
 

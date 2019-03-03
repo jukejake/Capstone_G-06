@@ -18,6 +18,15 @@ public class WheelController : SerializedMonoBehaviour {
 	private float WheelSize = 0.6884924f; //27.106 inches to meters
 	public float RotateAmount { get; set; }
 	public TextMeshProUGUI SpeedText;
+
+	private bool UseTreadmill = false;
+	[ShowIf("UseTreadmill")]
+	public Renderer Treadmill;
+	[ShowIf("UseTreadmill")]
+	public float TreadmillSpeed = 0.2f;
+	private float offset = 0.0f;
+	[HideIf("UseTreadmill")]
+	public GameObject Dynos;
 	#endregion
 
 	#region Setup
@@ -37,6 +46,13 @@ public class WheelController : SerializedMonoBehaviour {
 	}
 	//Cancel the Invoke when the object is destroyed.
 	private void OnDestroy() { CancelInvoke("DelayedUpdate"); }
+	private void FixedUpdate() {
+		if (UseTreadmill != false) {
+			offset += Time.deltaTime * RotateAmount * TreadmillSpeed;
+			Treadmill.material.SetTextureOffset("_MainTex", new Vector2(0, -offset));
+		}
+	}
+
 
 	//Function to set the speed based on a UI slider.
 	public void SetSpeed(Slider obj) {
@@ -45,6 +61,20 @@ public class WheelController : SerializedMonoBehaviour {
 	//Function to set the speed based on a float value.
 	public void SetSpeed(float value) {
 		Speed = (int)value;
+	}
+
+	[Button]
+	public void SwitchRollers() {
+		if (!UseTreadmill) {
+			Dynos.SetActive(false);
+			Treadmill.gameObject.SetActive(true);
+			UseTreadmill = true;
+		}
+		else {
+			Dynos.SetActive(true);
+			Treadmill.gameObject.SetActive(false);
+			UseTreadmill = false;
+		}
 	}
 	
 	#endregion
