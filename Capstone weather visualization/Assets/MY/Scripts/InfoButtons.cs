@@ -34,10 +34,10 @@ public class InfoButtons : SerializedMonoBehaviour, IPointerClickHandler, IDragH
 
 	private bool Open = false;
 
-    #endregion
+	#endregion
 
-    #region Functions
-    private void Awake(){
+	#region Functions
+	private void Awake(){
 		RT = InfoBox.GetComponent<RectTransform>();
 	}
 
@@ -98,13 +98,13 @@ public class InfoButtons : SerializedMonoBehaviour, IPointerClickHandler, IDragH
 		else if (!Open && PressToOpen) { SetState(true); }
 
 
-        
-    }
+		
+	}
 	//If a mouse draged the UI was detected
 	public void OnDrag(PointerEventData eventData)
-    {
-       
-    }
+	{
+	   
+	}
 	//If a mouse entered the UI was detected
 	public void OnPointerEnter(PointerEventData eventData) {
 		if (!Open && HoverToOpen) { SetState(true); }

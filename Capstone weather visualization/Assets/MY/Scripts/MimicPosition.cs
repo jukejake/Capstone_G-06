@@ -1,4 +1,10 @@
-﻿using UnityEngine;
+﻿/*////
+//Written by Jacob Rosengren
+//Date: 2018~2019
+//BUSI 4995U Capstone
+////*/
+
+using UnityEngine;
 using Sirenix.OdinInspector;
 
 public class MimicPosition : SerializedMonoBehaviour {
