@@ -71,9 +71,10 @@ public class SnowShaderBehavior : MonoBehaviour
                     if (alpha > 0)
                     {
                         Color result = Color.Lerp(existingColor, targetColor, alpha);   // resulting color is an addition of splash texture to the texture based on alpha
-                        result.a = 0.1f + existingColor.a;// existingColor.a + alpha;                             // but resulting alpha is a sum of alphas (adding transparent color should not make base color more transparent)
+                        result.a = 0.2f + existingColor.a;// existingColor.a + alpha;                             // but resulting alpha is a sum of alphas (adding transparent color should not make base color more transparent)
                         m_texture.SetPixel(newX, newY, result);
                         // m_material.SetFloat("_Amount", result.a);
+                        m_material.SetFloat("_EnableSnow", 0.005f);
                     }
                 }
             }

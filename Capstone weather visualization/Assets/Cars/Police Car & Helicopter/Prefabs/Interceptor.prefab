@@ -167,6 +167,7 @@ GameObject:
   - component: {fileID: 2311394}
   - component: {fileID: 9594182}
   - component: {fileID: 6485234}
+  - component: {fileID: 1288943041913675098}
   m_Layer: 0
   m_Name: Interceptor
   m_TagString: Untagged
@@ -245,7 +246,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 115512}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 9000000, guid: d61b66c1a6f31a3448c7945603495569, type: 3}
   m_Controller: {fileID: 0}
   m_CullingMode: 0
@@ -269,7 +270,20 @@ MeshCollider:
   serializedVersion: 3
   m_Convex: 0
   m_CookingOptions: 14
-  m_Mesh: {fileID: 4300000, guid: 7ebd38507cc5db04181efedcf8f2b8fe, type: 3}
+  m_Mesh: {fileID: 4300000, guid: d61b66c1a6f31a3448c7945603495569, type: 3}
+--- !u!114 &1288943041913675098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 115512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce9866b2011b70245beb43ca6e186fa8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  snowRate: 0.1
 --- !u!1 &126268
 GameObject:
   m_ObjectHideFlags: 0

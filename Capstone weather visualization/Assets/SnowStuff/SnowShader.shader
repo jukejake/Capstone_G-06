@@ -5,13 +5,14 @@
 Shader "Custom/SnowShader" {
 	Properties {
 		[HideInInspector]_DrawingTex("Drawing texture", 2D) = "" {}
-
+		[HideInInspector]_EnableSnow("Float ", Range(0,1)) = 0.0
 		_Color ("Color", Color) = (1,1,1,1)
 		_MainTex ("Albedo (RGB)", 2D) = "white" {}
 		_SnowTex("Snow Texture", 2D) = "white" {}
 		_SnowColor("Snow Color", Color) = (1.0,1.0,1.0,1.0)
 		_SnowRange("Snow Range", Range(-1,1)) = 0.0
 		_Glossiness ("Smoothness", Range(0,1)) = 0.5
+
 	}
 	SubShader {
 		Tags { "RenderType"="Opaque" }
@@ -38,6 +39,8 @@ Shader "Custom/SnowShader" {
 		float _SnowRange;
 		float4 _SnowColor;
 
+		float _EnableSnow;
+
 		half _Glossiness;
 		fixed4 _Color;
 
@@ -55,7 +58,7 @@ Shader "Custom/SnowShader" {
 			//{
 			//	v.vertex.xyz += normalize(sn + v.normal) * _SnowRange;
 			//}
-			v.vertex.xyz += (v.normal * tex.rgb * 0.1);
+			//v.vertex.xyz += (v.normal * tex.rgb * _EnableSnow);
 			//v.vertex.xyz += tex.r * v.normal * oh.xyz;
 		}
 
