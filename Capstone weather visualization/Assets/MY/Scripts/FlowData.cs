@@ -43,9 +43,9 @@ public class FlowData : SerializedMonoBehaviour {
 	public GameObject BigSnowFlow;
 	
 
-	[BoxGroup("Small Flows"), Range(0.3f, 5.0f)]
+	[BoxGroup("Small Flows"), Range(0.1f, 5.0f)]
 	public float XScale = 0.3f; //X Size of particale emiter.
-	[BoxGroup("Small Flows"), Range(0.3f, 5.0f)]
+	[BoxGroup("Small Flows"), Range(0.1f, 5.0f)]
 	public float YScale = 0.3f; //Y Size of particale emiter.
 	[BoxGroup("Small Flows")]
 	public bool SmallFlowsOn = true;

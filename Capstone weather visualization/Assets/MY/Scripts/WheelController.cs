@@ -19,7 +19,8 @@ public class WheelController : SerializedMonoBehaviour {
 	public float RotateAmount { get; set; }
 	public TextMeshProUGUI SpeedText;
 
-	private bool UseTreadmill = false;
+	[HideInInspector]
+	public bool UseTreadmill;
 	[ShowIf("UseTreadmill")]
 	public Renderer Treadmill;
 	[ShowIf("UseTreadmill")]
@@ -33,11 +34,11 @@ public class WheelController : SerializedMonoBehaviour {
 	//Used for initialization.
 	private void Awake() {
 		RotateAmount = (Speed / (WheelSize*Mathf.PI));
-		if (UseTreadmill != false) { InvokeRepeating("TreadmillUpdate", 1.0f, 0.20f); }
+		if (UseTreadmill != false) { InvokeRepeating("TreadmillUpdate", 1.0f, 0.01f); }
 	}
 	//Create a Treadmill Update.
 	void TreadmillUpdate() {
-		offset += Time.deltaTime * RotateAmount * TreadmillSpeed;
+		offset += Time.deltaTime * RotateAmount * TreadmillSpeed; //
 		Treadmill.material.SetTextureOffset("_MainTex", new Vector2(0, -offset));
 	}
 	//Cancel the Invoke when the object is destroyed.
@@ -71,11 +72,13 @@ public class WheelController : SerializedMonoBehaviour {
 			Dynos.SetActive(false);
 			Treadmill.gameObject.SetActive(true);
 			UseTreadmill = true;
+			InvokeRepeating("TreadmillUpdate", 1.0f, 0.01f);
 		}
 		else {
 			Dynos.SetActive(true);
 			Treadmill.gameObject.SetActive(false);
 			UseTreadmill = false;
+			CancelInvoke("TreadmillUpdate");
 		}
 	}
 	
