@@ -41,21 +41,22 @@ public class RadialSlider: SerializedMonoBehaviour, IPointerEnterHandler, IPoint
 	[HorizontalGroup("Display Options/5"), LabelWidth(90)]
 	public WheelController SetFunction;
 	[HorizontalGroup("Display Options/6"), LabelWidth(90)]
-	public TextMeshProUGUI SetFunction2;
+	public FlowData SetFunction2;
+	[HorizontalGroup("Display Options/7"), LabelWidth(90)]
+	public TextMeshProUGUI SetText;
 
-    GameObject cameraRotController;         // Needed to access the camera rotation controller. Will store the controller object which contains the actual controller
-    rotateController rotationController;    // Will store the actual controller
-    #endregion
+	// Needed to access the camera rotation controller. Will store the controller object which contains the actual controller
+	rotateController rotationController;    // Will store the actual controller
+	#endregion
 
-    #region Functions
-    void Start()
-    {
-        cameraRotController = GameObject.Find("RotateObject");                          // Get the controller from the game
-        rotationController = cameraRotController.GetComponent<rotateController>();      // Store the controller object (from the script) from the
-                                                                                            // camera controller object (which is stored in cameraRotController)
-    }
-    //When the mouse is over the UI, Track it.
-    public void OnPointerEnter(PointerEventData eventData) {
+	#region Functions
+	void Start(){
+		if (GameObject.Find("RotateObject")) { 
+			rotationController = GameObject.Find("RotateObject").GetComponent<rotateController>();     // Get the controller from the game // Store the controller object (from the script) from the																				// camera controller object (which is stored in cameraRotController)
+		}
+	}
+	//When the mouse is over the UI, Track it.
+	public void OnPointerEnter(PointerEventData eventData) {
 		StartCoroutine("TrackPointer");
 	}
 	//When the mouse is not over the UI, Don't track it.
@@ -105,11 +106,13 @@ public class RadialSlider: SerializedMonoBehaviour, IPointerEnterHandler, IPoint
 
 					//Set the speed to the Value
 					if (SetFunction != null) { SetFunction.SetSpeed(Value); }
+					//Set the speed to the Value
+					if (SetFunction2 != null) { SetFunction2.SetSpeed(Value); }
 					//Set the TextMeshPro text to the Value
-					if (SetFunction2 != null) { SetFunction2.text = ((int)Value).ToString(); }
+					if (SetText != null) { SetText.text = ((int)Value).ToString(); }
 
-                    rotationController.SetIsRotating(false);     // Don't allow the controller to rotate the camera if the user clicks the UI
-                }
+					rotationController.SetIsRotating(false);     // Don't allow the controller to rotate the camera if the user clicks the UI
+				}
 				yield return 0;
 			}
 		}

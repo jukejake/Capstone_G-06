@@ -33,6 +33,7 @@ public class InfoButtons : SerializedMonoBehaviour, IPointerClickHandler, IDragH
 	public float ScaleFactor = 1.0f;
 
 	private bool Open = false;
+	private bool Done = true;
 
 	#endregion
 
@@ -43,25 +44,21 @@ public class InfoButtons : SerializedMonoBehaviour, IPointerClickHandler, IDragH
 
 
 	private void Update() {
+		if (Done) { return; }
+
 		//Timer
-		//Set to 0.
-		if (Open == false && Timer != 0.0f) { Timer = 0.0f; }
 		//Timer is active so increase Timer.
-		else if (Timer != 0.0f && Timer < CloseIn) { Timer += Time.deltaTime; }
+		if (Timer != 0.0f && Timer < CloseIn) { Timer += Time.deltaTime; }
+		//Set to 0.
+		else if (Open == false && Timer != 0.0f) { Timer = 0.0f; }
 		//Timer is done so set to 0.
-		else if (Timer >= CloseIn) { SetState(false); Timer = 0.0f; }
+		else if (Timer >= CloseIn) { Open = false; Timer = 0.0f; }
 
 		//Scaler
 		//When opening, increase size.
 		if (Open) { IncreaseScale(); }
 		//When closing, decrease size.
 		else if (!Open) { DecreaseScale(); }
-	}
-
-	private void SetState(bool value) {
-		Open = value;
-		//if (Open) { InfoBox.SetActive(true); }
-		//else { InfoBox.SetActive(false); }
 	}
 	//Expand the UI from 0 to 1.
 	private void IncreaseScale() {
@@ -73,8 +70,9 @@ public class InfoButtons : SerializedMonoBehaviour, IPointerClickHandler, IDragH
 			RT.localScale = RectSize;
 		}
 		//cap at 1
-		else if (RectSize.x > 1.0f) {
+		else if (RectSize.x >= 1.0f) {
 			RT.localScale = Vector3.one;
+			Done = true;
 		}
 	}
 	//Srink the UI from 1 to 0.
@@ -87,31 +85,25 @@ public class InfoButtons : SerializedMonoBehaviour, IPointerClickHandler, IDragH
 			RT.localScale = RectSize;
 		}
 		//cap at 0
-		else if (RectSize.x < 0.0f) {
+		else if (RectSize.x <= 0.0f) {
 			RT.localScale = Vector3.zero;
-			//InfoBox.SetActive(false);
+			Done = true;
 		}
 	}
 	//If a mouse clicked the UI was detected
 	public void OnPointerClick(PointerEventData eventData) {
-			 if (Open && PressToClose) { SetState(false); }
-		else if (!Open && PressToOpen) { SetState(true); }
-
-
-		
+			 if (Open && PressToClose) { Open = false; Done = false; }
+		else if (!Open && PressToOpen) { Open = true; Done = false; }
 	}
 	//If a mouse draged the UI was detected
-	public void OnDrag(PointerEventData eventData)
-	{
-	   
-	}
+	public void OnDrag(PointerEventData eventData) { }
 	//If a mouse entered the UI was detected
 	public void OnPointerEnter(PointerEventData eventData) {
-		if (!Open && HoverToOpen) { SetState(true); }
+		if (!Open && HoverToOpen) { Open = true; Done = false; }
 	}
 	//If a mouse left the UI was detected
 	public void OnPointerExit(PointerEventData eventData) {
-		if (Open && HoverOffToClose && !AutoClose) { SetState(false); }
+		if (Open && HoverOffToClose && !AutoClose) { Open = false; Done = false; }
 		else if (Open && AutoClose) { Timer += Time.deltaTime; }
 	}
 	#endregion

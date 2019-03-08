@@ -26,11 +26,11 @@ public class MovableLightingArray : SerializedMonoBehaviour {
 	#region Public Functions 
 
 	private void Update() {
-		if (Rotating != 0) {
-			RotateDirection(Rotating);
-		}
 		if (Moving != 0) {
 			MoveDirection(Moving);
+		}
+		if (Rotating != 0) {
+			RotateDirection(Rotating);
 		}
 	}
 

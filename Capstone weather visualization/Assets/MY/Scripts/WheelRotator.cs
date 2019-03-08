@@ -27,17 +27,19 @@ public class WheelRotator : SerializedMonoBehaviour {
 		WC = FindObjectOfType<WheelController>();
 		if (UseOwnSize) { RotateAmount = (WC.Speed / (WheelSizeInMeters*Mathf.PI)); }
 		else { RotateAmount = WC.RotateAmount; }
-		InvokeRepeating("DelayedUpdate", 1.0f, 0.50f);
+		//InvokeRepeating("DelayedUpdate", 1.0f, 0.50f);
 	}
-	//Create a slower Update.
-	void DelayedUpdate() {
-		if (UseOwnSize) { RotateAmount = (WC.Speed / (WheelSizeInMeters*Mathf.PI)); }
-		else { RotateAmount = WC.RotateAmount; }
-	}
-	//Cancel the Invoke when the object is destroyed.
-	private void OnDestroy() { CancelInvoke("DelayedUpdate"); }
+	////Create a slower Update.
+	//void DelayedUpdate() {
+	//	if (!UseOwnSize) { RotateAmount = WC.RotateAmount; }
+	//	else { RotateAmount = (WC.Speed / (WheelSizeInMeters * Mathf.PI)); }
+	//}
+	////Cancel the Invoke when the object is destroyed.
+	//private void OnDestroy() { CancelInvoke("DelayedUpdate"); }
 
 	private void FixedUpdate() {
+		if (!UseOwnSize) { RotateAmount = WC.RotateAmount;  }
+		else { RotateAmount = (WC.Speed / (WheelSizeInMeters * Mathf.PI)); }
 		//Rotate on the Y axis
 		if (RotY) {
 			//Negative rotation

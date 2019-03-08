@@ -18,6 +18,7 @@ public class ShowButton : SerializedMonoBehaviour {
 	private RectTransform RT;
 	private Vector3 RectSize = Vector3.zero;
 	private bool Open = false;
+	private bool Done = true;
 	#endregion
 
 	#region Functions
@@ -26,11 +27,14 @@ public class ShowButton : SerializedMonoBehaviour {
 	}
 
 	public void ToggleOpen () {
+		Done = false;
 		if (Open) { Open = false; }
 		else if (!Open) { Open = true; ToggleObject.SetActive(true); }
 	}
 
 	private void Update () {
+
+		if (Done) { return; }
 		//When opening, increase size.
 		if (Open) { IncreaseScale(); }
 		//When closing, decrease size.
@@ -46,8 +50,9 @@ public class ShowButton : SerializedMonoBehaviour {
 			RT.localScale = RectSize;
 		}
 		//cap at 1
-		else if (RectSize.x > 1.0f) {
+		else if (RectSize.x >= 1.0f) {
 			RT.localScale = Vector3.one;
+			Done = true;
 		}
 	}
 	//Srink the UI from 1 to 0.
@@ -60,9 +65,10 @@ public class ShowButton : SerializedMonoBehaviour {
 			RT.localScale = RectSize;
 		}
 		//cap at 0
-		else if (RectSize.x < 0.0f) {
+		else if (RectSize.x <= 0.0f) {
 			RT.localScale = Vector3.zero;
 			ToggleObject.SetActive(false);
+			Done = true;
 		}
 	}
 	#endregion

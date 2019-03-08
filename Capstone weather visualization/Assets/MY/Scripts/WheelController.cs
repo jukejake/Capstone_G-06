@@ -33,34 +33,36 @@ public class WheelController : SerializedMonoBehaviour {
 	//Used for initialization.
 	private void Awake() {
 		RotateAmount = (Speed / (WheelSize*Mathf.PI));
-		InvokeRepeating("DelayedUpdate", 1.0f, 0.20f);
+		if (UseTreadmill != false) { InvokeRepeating("TreadmillUpdate", 1.0f, 0.20f); }
 	}
-	//Create a slower Update.
-	void DelayedUpdate() {
-		//If the speed is different, re-calculate the speed.
-		if (OldSpeed == Speed) { return; }
-
-		RotateAmount = (Speed / (WheelSize*Mathf.PI));
-		SpeedText.text = Speed.ToString();
-		OldSpeed = Speed;
+	//Create a Treadmill Update.
+	void TreadmillUpdate() {
+		offset += Time.deltaTime * RotateAmount * TreadmillSpeed;
+		Treadmill.material.SetTextureOffset("_MainTex", new Vector2(0, -offset));
 	}
 	//Cancel the Invoke when the object is destroyed.
-	private void OnDestroy() { CancelInvoke("DelayedUpdate"); }
-	private void FixedUpdate() {
-		if (UseTreadmill != false) {
-			offset += Time.deltaTime * RotateAmount * TreadmillSpeed;
-			Treadmill.material.SetTextureOffset("_MainTex", new Vector2(0, -offset));
-		}
-	}
+	private void OnDestroy() { CancelInvoke("TreadmillUpdate"); }
 
 
 	//Function to set the speed based on a UI slider.
 	public void SetSpeed(Slider obj) {
 		Speed = (int)obj.value;
+		//If the speed is different, re-calculate the speed.
+		if (OldSpeed == Speed) { return; }
+
+		RotateAmount = (Speed / (WheelSize * Mathf.PI));
+		SpeedText.text = Speed.ToString();
+		OldSpeed = Speed;
 	}
 	//Function to set the speed based on a float value.
 	public void SetSpeed(float value) {
 		Speed = (int)value;
+		//If the speed is different, re-calculate the speed.
+		if (OldSpeed == Speed) { return; }
+
+		RotateAmount = (Speed / (WheelSize * Mathf.PI));
+		SpeedText.text = Speed.ToString();
+		OldSpeed = Speed;
 	}
 
 	[Button]

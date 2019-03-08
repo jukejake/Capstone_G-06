@@ -13,16 +13,11 @@ public class ChangeStuff : SerializedMonoBehaviour {
 
 	#region Setup
 	//Used for initialization.
-	private void Start () {
-	   InvokeRepeating("DelayedUpdate", 1.0f, 0.10f);
-	}
-	//Create a slower Update.
-	private void DelayedUpdate() {
+	private void Start () { }
+
+	private void FixedUpdate() {
 		if (ToggleRotation) { SetRotation(); }
-		if (ToggleNozzle) { ChangeNozzleSize(); }
 	}
-	//Cancel the Invoke when the object is destroyed.
-	private void OnDestroy() { CancelInvoke("DelayedUpdate"); }
 
 	#endregion
 
@@ -118,7 +113,10 @@ public class ChangeStuff : SerializedMonoBehaviour {
 	[ToggleGroup("ToggleNozzle")]
 	public int State = 0;
 	//Function to set the state of the Nozzle based on a slider.
-	public void SetNozzle(Slider UI) { State = (int)UI.value; }
+	public void SetNozzle(Slider UI) {
+		State = (int)UI.value;
+		ChangeNozzleSize();
+	}
 	//Will rotate on DelayedUpdate, if ToggleNozzle.
 	private void ChangeNozzleSize() {
 

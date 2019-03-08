@@ -41,8 +41,7 @@ public class FlowData : SerializedMonoBehaviour {
 	public GameObject BigRainFlow;
 	[BoxGroup("BigFlows")]
 	public GameObject BigSnowFlow;
-
-	private WheelController WC;
+	
 
 	[BoxGroup("Small Flows"), Range(0.3f, 5.0f)]
 	public float XScale = 0.3f; //X Size of particale emiter.
@@ -59,12 +58,8 @@ public class FlowData : SerializedMonoBehaviour {
 	#endregion
 
 	#region Set trail data
-	private void Start() {
-		//Find the WheelController to get the speed.
-		WC = FindObjectOfType<WheelController>();
-	}
 
-	private bool SwitchOn = false;
+	private bool SwitchOn = true;
 
 
 	private void SwitchWeather(bool state) {
@@ -80,7 +75,11 @@ public class FlowData : SerializedMonoBehaviour {
 		}
 	}
 
-	private void FixedUpdate() {
+	public void SetSpeed(float value) {
+		
+		if (BasedOnSpeed) {
+			_MegaFlow.Scale = AirSpeed = (value).Map(250, MaxS);
+		}
 		//Set the desired weather when air speeds are high enough.
 		if (AirSpeed <= 0.1f && !SwitchOn) {
 			SwitchWeather(SwitchOn);
@@ -90,10 +89,6 @@ public class FlowData : SerializedMonoBehaviour {
 		else if (AirSpeed > 0.1f && SwitchOn) {
 			SwitchWeather(SwitchOn);
 			SwitchOn = false;
-		}
-		
-		if (BasedOnSpeed) {
-			_MegaFlow.Scale = AirSpeed = ((float)WC.Speed).Map(250, MaxS);
 		}
 	}
 	

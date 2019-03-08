@@ -26,11 +26,7 @@ public class MimicPosition : SerializedMonoBehaviour {
 	#endregion
 
 	#region Functions
-	void Start() {
-		
-	}
-	
-	void Update() {
+	private void FixedUpdate() {
 		Vector3 temp = this.transform.position;
 		if (MimicY) { temp.y = ObjectToMimic.position.y+YOffset; }
 		if (MimicX) { temp.x = ObjectToMimic.position.x+XOffset; }
