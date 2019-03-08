@@ -75,6 +75,7 @@ GameObject:
   - component: {fileID: 33688886873348372}
   - component: {fileID: 23643572968935652}
   - component: {fileID: 64551444576429108}
+  - component: {fileID: 9171813315285498262}
   m_Layer: 0
   m_Name: Classic_16_Window_LF
   m_TagString: Untagged
@@ -152,9 +153,22 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Convex: 1
+  m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: 4300026, guid: 000e268602069ee41b503cc210240ef7, type: 3}
+--- !u!114 &9171813315285498262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1035761443724534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce9866b2011b70245beb43ca6e186fa8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  snowRate: 0.1
 --- !u!1 &1074658707520032
 GameObject:
   m_ObjectHideFlags: 0
@@ -757,6 +771,7 @@ GameObject:
   - component: {fileID: 33478842442994644}
   - component: {fileID: 23500070616847914}
   - component: {fileID: 64454906625499352}
+  - component: {fileID: 4711567490888649559}
   m_Layer: 0
   m_Name: Classic_16_LightGlass_L
   m_TagString: Untagged
@@ -834,9 +849,22 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Convex: 1
+  m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: 4300030, guid: 000e268602069ee41b503cc210240ef7, type: 3}
+--- !u!114 &4711567490888649559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1123011596377556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce9866b2011b70245beb43ca6e186fa8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  snowRate: 0.1
 --- !u!1 &1156174967596770
 GameObject:
   m_ObjectHideFlags: 0
@@ -1223,6 +1251,7 @@ GameObject:
   - component: {fileID: 33971338835566380}
   - component: {fileID: 23832148492402684}
   - component: {fileID: 64048916015553440}
+  - component: {fileID: 3022566674454211818}
   m_Layer: 0
   m_Name: Classic_16_Window_RF
   m_TagString: Untagged
@@ -1300,9 +1329,22 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Convex: 1
+  m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: 4300018, guid: 000e268602069ee41b503cc210240ef7, type: 3}
+--- !u!114 &3022566674454211818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1453592035299864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce9866b2011b70245beb43ca6e186fa8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  snowRate: 0.1
 --- !u!1 &1455391344111040
 GameObject:
   m_ObjectHideFlags: 0
@@ -1315,6 +1357,7 @@ GameObject:
   - component: {fileID: 33965113514717608}
   - component: {fileID: 23430544746460216}
   - component: {fileID: 64864590396663542}
+  - component: {fileID: 3046180768693082904}
   m_Layer: 0
   m_Name: Classic_16_Taillights
   m_TagString: Untagged
@@ -1393,9 +1436,22 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Convex: 1
+  m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: 4300002, guid: 000e268602069ee41b503cc210240ef7, type: 3}
+--- !u!114 &3046180768693082904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1455391344111040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce9866b2011b70245beb43ca6e186fa8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  snowRate: 0.1
 --- !u!1 &1478073456081166
 GameObject:
   m_ObjectHideFlags: 0
@@ -1515,6 +1571,7 @@ GameObject:
   - component: {fileID: 33867228067951394}
   - component: {fileID: 23558413336096214}
   - component: {fileID: 64610904721918078}
+  - component: {fileID: 5361862192472749035}
   m_Layer: 0
   m_Name: Classic_16_LightGlass_R
   m_TagString: Untagged
@@ -1592,9 +1649,22 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Convex: 1
+  m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: 4300028, guid: 000e268602069ee41b503cc210240ef7, type: 3}
+--- !u!114 &5361862192472749035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1483036081213968}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce9866b2011b70245beb43ca6e186fa8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  snowRate: 0.1
 --- !u!1 &1491593031858394
 GameObject:
   m_ObjectHideFlags: 0
@@ -1607,6 +1677,7 @@ GameObject:
   - component: {fileID: 33073998131948470}
   - component: {fileID: 23386919923895734}
   - component: {fileID: 64427801293791732}
+  - component: {fileID: 8734729986660249868}
   m_Layer: 0
   m_Name: Classic_16_Window_F
   m_TagString: Untagged
@@ -1684,9 +1755,22 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Convex: 1
+  m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: 4300016, guid: 000e268602069ee41b503cc210240ef7, type: 3}
+--- !u!114 &8734729986660249868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1491593031858394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce9866b2011b70245beb43ca6e186fa8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  snowRate: 0.1
 --- !u!1 &1552738843876150
 GameObject:
   m_ObjectHideFlags: 0
@@ -2647,6 +2731,7 @@ GameObject:
   - component: {fileID: 33347956980095922}
   - component: {fileID: 23017001508082412}
   - component: {fileID: 64863189940561122}
+  - component: {fileID: 1100990437977685579}
   m_Layer: 0
   m_Name: Classic_16_Window_B
   m_TagString: Untagged
@@ -2724,9 +2809,22 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Convex: 1
+  m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: 4300022, guid: 000e268602069ee41b503cc210240ef7, type: 3}
+--- !u!114 &1100990437977685579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1730805541707868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce9866b2011b70245beb43ca6e186fa8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  snowRate: 0.1
 --- !u!1 &1763585939273750
 GameObject:
   m_ObjectHideFlags: 0
@@ -3030,6 +3128,7 @@ GameObject:
   - component: {fileID: 33245343671617328}
   - component: {fileID: 23510519498514590}
   - component: {fileID: 64937684191307650}
+  - component: {fileID: 1682619143824502526}
   m_Layer: 0
   m_Name: Classic_16_Window_RB
   m_TagString: Untagged
@@ -3107,9 +3206,22 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Convex: 1
+  m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: 4300020, guid: 000e268602069ee41b503cc210240ef7, type: 3}
+--- !u!114 &1682619143824502526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1858927643558910}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce9866b2011b70245beb43ca6e186fa8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  snowRate: 0.1
 --- !u!1 &1871551156314206
 GameObject:
   m_ObjectHideFlags: 0
@@ -3377,6 +3489,7 @@ GameObject:
   - component: {fileID: 33872554834033750}
   - component: {fileID: 23381747101196716}
   - component: {fileID: 64971478866902804}
+  - component: {fileID: 7219348769764355064}
   m_Layer: 0
   m_Name: Classic_16_Window_LB
   m_TagString: Untagged
@@ -3454,9 +3567,22 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Convex: 1
+  m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: 4300024, guid: 000e268602069ee41b503cc210240ef7, type: 3}
+--- !u!114 &7219348769764355064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1938366150107882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce9866b2011b70245beb43ca6e186fa8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  snowRate: 0.1
 --- !u!1 &1940230610819638
 GameObject:
   m_ObjectHideFlags: 0

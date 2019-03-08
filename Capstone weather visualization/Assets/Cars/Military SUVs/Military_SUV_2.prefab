@@ -2202,6 +2202,7 @@ GameObject:
   - component: {fileID: 33298580542181606}
   - component: {fileID: 23519481982870502}
   - component: {fileID: 64421673057916678}
+  - component: {fileID: 3376907266962168302}
   m_Layer: 0
   m_Name: Glass
   m_TagString: Untagged
@@ -2279,9 +2280,22 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Convex: 1
+  m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: 4300122, guid: 23886f33cc35d03468cfb87452f1b427, type: 3}
+--- !u!114 &3376907266962168302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1473961176769774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce9866b2011b70245beb43ca6e186fa8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  snowRate: 0.1
 --- !u!1 &1491488113559640
 GameObject:
   m_ObjectHideFlags: 0

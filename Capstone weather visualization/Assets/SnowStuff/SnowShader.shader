@@ -15,9 +15,11 @@ Shader "Custom/SnowShader" {
 
 	}
 	SubShader {
-		Tags { "RenderType"="Opaque" }
+		Tags { "RenderType"="Opaque"}
+
 		LOD 300
 		
+			
 		CGPROGRAM
 		// Physically based Standard lighting model, and enable shadows on all light types
 		#pragma surface surf Standard fullforwardshadows
@@ -44,20 +46,13 @@ Shader "Custom/SnowShader" {
 		half _Glossiness;
 		fixed4 _Color;
 
-		//float4 vert(float4 v:POSITION) : SV_POSITION{
-		//	return UnityObjectToClipPos(v);
-		//}
-
 		void vert(inout appdata_full v)
 		{
 			//Convert the normal to world coortinates
 			float3 snormal = normalize(float3(-2, 1, 0).xyz);
 			float3 sn = mul((float3x3)unity_WorldToObject, snormal).xyz;
 			float4 tex = tex2Dlod(_DrawingTex, float4(v.texcoord.xy, 0, 0));
-			//if (dot(v.normal, sn) >= lerp(1, -1, (_SnowRange * 2) / 3))
-			//{
-			//	v.vertex.xyz += normalize(sn + v.normal) * _SnowRange;
-			//}
+
 			//v.vertex.xyz += (v.normal * tex.rgb * _EnableSnow);
 			//v.vertex.xyz += tex.r * v.normal * oh.xyz;
 		}
@@ -68,26 +63,81 @@ Shader "Custom/SnowShader" {
 			float4 mainData = tex2D(_MainTex, IN.uv_MainTex) * _Color;
 			float4 snowData = tex2D(_SnowTex, IN.uv_SnowTex);
 			fixed4 c = lerp(mainData, drawData, drawData.a);
-
-			//if (dot(WorldNormalVector(IN, o.Normal), float3(-2,1,0).xyz) >= lerp(1, -1, _SnowRange))
-			//{
-			//	o.Albedo = _SnowColor.rgb + c.rgb;
-			//
-			//}
-			//else
-			//{
-				o.Albedo = c.rgb;
-			//	o.Normal = UnpackNormal(tex2D(_NormalTex, IN.uv_NormalTex));
-			//}
+			o.Albedo = c.rgb;
 
 			c.a = drawData.a + mainData.a + snowData.a;
 
 			// Metallic and smoothness come from slider variables
 			o.Smoothness = _Glossiness;
 			o.Alpha = c.a;
-			//o.Normal = UnpackNormal(tex2D(_NormalTex, IN.uv_NormalTex));
 		}
 		ENDCG
 	}
 	FallBack "Diffuse"
+
+	SubShader
+	{
+		Tags { "Queue" = "Transparent" "RenderType" = "Transparent"  }
+
+		LOD 300
+			ZWrite Off
+		Cull Back
+		Lighting On
+		Blend SrcAlpha OneMinusSrcAlpha
+
+		CGPROGRAM
+		// Physically based Standard lighting model, and enable shadows on all light types
+		#pragma surface surf Standard fullforwardshadows
+		#pragma vertex vert
+		// Use shader model 3.0 target, to get nicer looking lighting
+		#pragma target 3.0
+		sampler2D _DrawingTex;
+		sampler2D _MainTex;
+		sampler2D _SnowTex;
+		sampler2D _NormalTex;
+
+		struct Input
+		{
+			float2 uv_DrawingTex;
+			float2 uv_MainTex;
+			float2 uv_SnowTex;
+		};
+		
+		float _SnowRange;
+		float4 _SnowColor;
+		
+		float _EnableSnow;
+		
+		half _Glossiness;
+		fixed4 _Color;
+		void vert(inout appdata_full v)
+		{
+			//Convert the normal to world coortinates
+			float3 snormal = normalize(float3(-2, 1, 0).xyz);
+			float3 sn = mul((float3x3)unity_WorldToObject, snormal).xyz;
+			float4 tex = tex2Dlod(_DrawingTex, float4(v.texcoord.xy, 0, 0));
+
+			//v.vertex.xyz += (v.normal * tex.rgb * _EnableSnow);
+			//v.vertex.xyz += tex.r * v.normal * oh.xyz;
+		}
+
+		void surf(Input IN, inout SurfaceOutputStandard o)
+		{
+			float4 drawData = tex2D(_DrawingTex, IN.uv_DrawingTex);
+			
+			float4 mainData = tex2D(_MainTex, IN.uv_MainTex) * _Color;
+			float4 snowData = tex2D(_SnowTex, IN.uv_SnowTex);
+			fixed4 c = lerp(mainData, drawData, drawData.a);
+			o.Albedo = c.rgb;
+			
+			c.a = drawData.a + mainData.a + snowData.a;
+
+			// Metallic and smoothness come from slider variables
+			o.Smoothness = _Glossiness;
+			o.Alpha = c.a;
+		}
+
+		ENDCG
+	}
+	FallBack "Transparent"
 }

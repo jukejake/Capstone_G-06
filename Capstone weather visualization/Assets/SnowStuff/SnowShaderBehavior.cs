@@ -33,6 +33,11 @@ public class SnowShaderBehavior : MonoBehaviour
                     m_material = material;
                     break;
                 }
+                else if(material.shader.name == "Custom/SnowShaderTransparent")
+                {
+                    m_material = material;
+                    break;
+                }
             }
 
             if (null != m_material)
