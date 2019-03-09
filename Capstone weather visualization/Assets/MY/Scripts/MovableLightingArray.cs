@@ -14,6 +14,9 @@ public class MovableLightingArray : SerializedMonoBehaviour {
 	#region Variables
 	public float MoveSpeed = 1.0f;
 	public float RotSpeed = 10.0f;
+	[InfoBox("Needs to reload after switching to the menu.")]
+	public GameObject ConnectersPrefab;
+	private GameObject LoadedConnecters;
 	[InfoBox("Rot Cap is expected to be between -90 and 90.")]
 	[InfoBox("Might need to ONLY have one Rotation active at a time.")]
 	[InfoBox("Movement Cap Y is expected to be negative.")]
@@ -45,11 +48,21 @@ public class MovableLightingArray : SerializedMonoBehaviour {
 
 	public void Move_All_Lights(int _d)		 { Moving = _d; } //4 = Up, 1 = Down, 2 = Inward, 3 = Outward.
 	public void Rotate_All_Lights(int _r)	 { Rotating = _r; } //1 = Inwards, 2 = Outwards.
+
+	public void ReloadConnecters() {
+		Destroy(LoadedConnecters);
+		LoadedConnecters = Instantiate<GameObject>(ConnectersPrefab, this.transform);
+		var temp = LoadedConnecters.GetComponent<LightingArrayConnecters>();
+		temp.CF = this.transform.GetChild(1).Find("Cube.Front").transform;
+		temp.CL = this.transform.GetChild(2).Find("Cube.Left").transform;
+		temp.CM = this.transform.GetChild(3).Find("Cube.Middle").transform;
+		temp.CR = this.transform.GetChild(4).Find("Cube.Right").transform;
+		temp.CB = this.transform.GetChild(5).Find("Cube.Back").transform;
+	}
 	#endregion
 
 	#region Private Functions
-
-	[Button]
+	
 	private void MoveDirection(int _d) {
 		float deltaT = (Time.deltaTime * MoveSpeed);
 		//Go through all the lights to see which ones are selected.
@@ -163,7 +176,7 @@ public class MovableLightingArray : SerializedMonoBehaviour {
 			}
 		}
 	}
-	[Button]
+	
 	private void RotateDirection(int _r) {
 		float deltaT = (Time.deltaTime * RotSpeed);
 		//Go through all the lights to see which ones are selected.
@@ -258,10 +271,15 @@ public class MovableLightingArray : SerializedMonoBehaviour {
 	}
 
 	public struct LightingState {
+		[LabelWidth(60)]
 		public bool Selected;
+		[LabelWidth(40)]
 		public GameObject Light;
+		[LabelWidth(55)]
 		public Vector2 RotCap;
+		[LabelWidth(95)]
 		public Vector3 MovementCap;
+		[LabelWidth(50)]
 		public Vector3 OGpos;
 	}
 	#endregion

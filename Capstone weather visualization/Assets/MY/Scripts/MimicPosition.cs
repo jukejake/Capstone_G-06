@@ -6,7 +6,7 @@
 
 using UnityEngine;
 using Sirenix.OdinInspector;
-
+[RequireComponent(typeof(Transform))]
 public class MimicPosition : SerializedMonoBehaviour {
 
 	#region Variables
