@@ -20,7 +20,7 @@ public class FanRotation : MonoBehaviour {
 	}
 	
 	private void Update () {
-		this.transform.Rotate(Vector3.forward, RotateAmount);
+		this.transform.Rotate(Vector3.left, RotateAmount);
 	}
 	#endregion
 }
