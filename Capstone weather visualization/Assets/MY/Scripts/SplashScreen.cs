@@ -22,13 +22,17 @@ public class SplashScreen : MonoBehaviour {
 	}
 
 	private void FixedUpdate() {
-		TimeLeft -= Time.fixedDeltaTime;
+
 		//Need to check if a person is using it or not.
-		if (TimeLeft < 0.0f) {
-			//Switch to splash screen
-			TimeLeft = Counter;
-			BSD.SwitchScene();
+		if (!Input.anyKey && Input.touchCount == 0) {
+			TimeLeft -= Time.fixedDeltaTime;
+			if (TimeLeft < 0.0f) {
+				//Switch to splash screen
+				TimeLeft = Counter;
+				BSD.SwitchScene();
+			}
 		}
+		else { TimeLeft = Counter; }
 	}
 
 	private void OnBecameVisible() {
