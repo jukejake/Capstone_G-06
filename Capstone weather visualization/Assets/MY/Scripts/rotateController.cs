@@ -6,11 +6,13 @@
 
 using UnityEngine;
 using System.Collections;
+using TouchScript.Gestures.TransformGestures;
 
 //[RequireComponent(typeof(MeshRenderer))]
 
 public class rotateController : MonoBehaviour
 {
+    public ScreenTransformGesture TwoFingerMoveGesture;
 
     #region ROTATE
     public float rotation_sensitivity_Y = 0.75f;
@@ -130,6 +132,22 @@ public class rotateController : MonoBehaviour
     public void ResetCamera()
     {
       transform.localEulerAngles = new Vector3(0.0f, 0.0f, 0.0f);
+    }
+
+    private void OnEnable()
+    {
+        TwoFingerMoveGesture.Transformed += twoFingerTransformHandler;
+    }
+
+    private void OnDisable()
+    {
+        TwoFingerMoveGesture.Transformed -= twoFingerTransformHandler;
+    }
+
+    private void twoFingerTransformHandler(object sender, System.EventArgs e)
+    {
+        Camera.main.transform.localPosition += Vector3.forward * (TwoFingerMoveGesture.DeltaScale - 1f);
+        Camera.main.transform.localPosition = new Vector3(Camera.main.transform.localPosition.x, Camera.main.transform.localPosition.y, Mathf.Clamp(Camera.main.transform.localPosition.z, -0.4f, -0.3f));
     }
 
 }

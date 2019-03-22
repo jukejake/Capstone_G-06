@@ -85,7 +85,8 @@ public class GetRadialSlider : MonoBehaviour, IPointerEnterHandler, IPointerExit
 					//Calculate mouse position relative to the Start Angle
 					var theta = Mathf.Deg2Rad*StartAngle;
 					localPos = new Vector2( ((localPos.x * Mathf.Cos(theta)) - (localPos.y * Mathf.Sin(theta))), ((localPos.x * Mathf.Sin(theta)) + (localPos.y * Mathf.Cos(theta))) );
-
+                   // localPos.y = Mathf.Clamp(localPos.y, 0, 300);
+                    Debug.Log(localPos);
 					//Calculate the angle (from 0~1) of the slider based on mouse position
 					angle = Mathf.Clamp(((Mathf.Atan2(-localPos.y, localPos.x)*180.0f/Mathf.PI+180.0f)/360.0f), (Clamp.x/360.0f), (Clamp.y/360.0f));
 

@@ -12,6 +12,7 @@ public class SnowShaderBehavior : MonoBehaviour
 
     private Material m_material;
     private Texture2D m_texture;
+    public Texture2D m_displacementTexture;
     private bool isEnabled = false;
     // private Snow snow;
 
@@ -33,7 +34,12 @@ public class SnowShaderBehavior : MonoBehaviour
                     m_material = material;
                     break;
                 }
-                else if(material.shader.name == "Custom/SnowShaderTransparent")
+                else if (material.shader.name == "Custom/SnowShaderTransparent")
+                {
+                    m_material = material;
+                    break;
+                }
+                else if (material.shader.name == "Tessellation")
                 {
                     m_material = material;
                     break;
@@ -43,15 +49,27 @@ public class SnowShaderBehavior : MonoBehaviour
             if (null != m_material)
             {
                 m_texture = new Texture2D(textureWidth, textureHeight);
+                m_displacementTexture = new Texture2D(textureWidth, textureHeight);
+                Graphics.CopyTexture(m_texture, m_displacementTexture);
                 for (int x = 0; x < textureWidth; ++x)
                 {
                     for (int y = 0; y < textureHeight; ++y)
                     {
                         m_texture.SetPixel(x, y, c_color);
+                        m_displacementTexture.SetPixel(x, y, new Color(0, 0, 0, 0));
                     }
                 }
+                m_displacementTexture.Apply();
                 m_texture.Apply();
+
+
                 m_material.SetTexture("_DrawingTex", m_texture);
+
+                if (m_material.shader.name == "Tessellation")
+                {
+                    m_material.SetTexture("_DispTex", m_displacementTexture);
+                }
+
                 isEnabled = true;
             }
         }
@@ -76,14 +94,15 @@ public class SnowShaderBehavior : MonoBehaviour
                     if (alpha > 0)
                     {
                         Color result = Color.Lerp(existingColor, targetColor, alpha);   // resulting color is an addition of splash texture to the texture based on alpha
-                        result.a = 0.2f + existingColor.a;// existingColor.a + alpha;                             // but resulting alpha is a sum of alphas (adding transparent color should not make base color more transparent)
+
+                        result.a = 0.2f + existingColor.a;                           // but resulting alpha is a sum of alphas (adding transparent color should not make base color more transparent)
+                        m_displacementTexture.SetPixel(x, y, new Color(.2f, .2f, .2f, 1f));
                         m_texture.SetPixel(newX, newY, result);
-                        // m_material.SetFloat("_Amount", result.a);
-                        m_material.SetFloat("_EnableSnow", 0.005f);
                     }
                 }
             }
             m_texture.Apply();
+            m_displacementTexture.Apply();
         }
     }
 }
