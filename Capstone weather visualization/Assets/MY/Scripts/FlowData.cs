@@ -179,6 +179,28 @@ public class FlowData : SerializedMonoBehaviour {
 		var B_pse3 = BigSnowFlow.GetComponent<ParticleSystem>().emission;
 		B_pse3.rateOverTime = (rate * 2);
 	}
+    public void SetLifeTime(float rate) {
+		_MegaFlow.Scale = AirSpeed;
+		//Set all the small flows
+		foreach (var item in SmallSmokeFlows) {
+			var _psm = item.GetComponent<ParticleSystem>().main;
+            _psm.startLifetime = rate;
+		}
+		foreach (var item in SmallRainFlows) {
+			var _psm = item.GetComponent<ParticleSystem>().main;
+            _psm.startLifetime = rate;
+		}
+		foreach (var item in SmallSnowFlows) {
+			var _psm = item.GetComponent<ParticleSystem>().main;
+            _psm.startLifetime = rate;
+        }
+        var B_psm1 = BigSmokeFlow.GetComponent<ParticleSystem>().main;
+        B_psm1.startLifetime = rate;
+        var B_psm2 = BigSmokeFlow.GetComponent<ParticleSystem>().main;
+        B_psm2.startLifetime = rate;
+        var B_psm3 = BigSmokeFlow.GetComponent<ParticleSystem>().main;
+        B_psm3.startLifetime = rate;
+	}
 	[Button]
 	public void SetSmallSmokeFlows() {
 		_MegaFlow.Scale = AirSpeed;
