@@ -18,10 +18,13 @@ public class GetRadialSlider : MonoBehaviour, IPointerEnterHandler, IPointerExit
 	private float Speed = 250.0f;
 	public float StartAngle = 0.0f;
 	public Vector2 Clamp = new Vector2(0.0f, 360.0f);
-	public Vector2 Emission = new Vector2(50.0f, 500.0f);
+    public Vector2 MinMaxVal = new Vector2(0.0f, 1.0f);
+    public Vector2 Emission = new Vector2(50.0f, 500.0f);
+
+    public Vector2 StartLife = new Vector2(0.0f, 60.0f);
 
 
-	public WheelController SetFunction;
+    public WheelController SetFunction;
 	public FlowData SetFunction2;
 
 	public AdultLink.SpeedBar bar;
@@ -38,8 +41,10 @@ public class GetRadialSlider : MonoBehaviour, IPointerEnterHandler, IPointerExit
 			if (SetFunction2 != null) {
 				SetFunction2.SetSpeed(bar.fillPercentage * Speed);
 				SetFunction2.SetEmissionRate(Emission.x + (bar.fillPercentage * Emission.y));
-			}
-		}
+                SetFunction2.SetLifeTime(StartLife.x + ((1 - bar.fillPercentage) * StartLife.y));
+            }
+            if (bar.fillPercentage < MinMaxVal.x) { bar.fillPercentage = 0; }
+        }
 		else if (bar.fillPercentage < (Percentage - ErrorRange)) {
 			bar.status = AdultLink.Status.accel;
 			//Set the speed to the Value
@@ -47,8 +52,10 @@ public class GetRadialSlider : MonoBehaviour, IPointerEnterHandler, IPointerExit
 			if (SetFunction2 != null) {
 				SetFunction2.SetSpeed(bar.fillPercentage * Speed);
 				SetFunction2.SetEmissionRate(Emission.x + (bar.fillPercentage * Emission.y));
-			}
-		}
+                SetFunction2.SetLifeTime(StartLife.x + ((1 - bar.fillPercentage) * StartLife.y));
+            }
+            if (bar.fillPercentage > MinMaxVal.y) { bar.fillPercentage = 1; }
+        }
 		else { bar.status = AdultLink.Status.idle; }
 
 	}
@@ -85,8 +92,8 @@ public class GetRadialSlider : MonoBehaviour, IPointerEnterHandler, IPointerExit
 					//Calculate mouse position relative to the Start Angle
 					var theta = Mathf.Deg2Rad*StartAngle;
 					localPos = new Vector2( ((localPos.x * Mathf.Cos(theta)) - (localPos.y * Mathf.Sin(theta))), ((localPos.x * Mathf.Sin(theta)) + (localPos.y * Mathf.Cos(theta))) );
-                   // localPos.y = Mathf.Clamp(localPos.y, 0, 300);
-                    Debug.Log(localPos);
+                    localPos.y = Mathf.Clamp(localPos.y, 0, Clamp.y);
+                    //Debug.Log(localPos);
 					//Calculate the angle (from 0~1) of the slider based on mouse position
 					angle = Mathf.Clamp(((Mathf.Atan2(-localPos.y, localPos.x)*180.0f/Mathf.PI+180.0f)/360.0f), (Clamp.x/360.0f), (Clamp.y/360.0f));
 

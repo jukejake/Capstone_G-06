@@ -39,67 +39,73 @@ public class rotateController : MonoBehaviour
 	public BoxCollider2D _object;
 
 
-	#endregion
+    #endregion
 
-	//void Update()
- //   {
- //       if (_isRotating)
- //       {
- //           // offset
- //           _mouseOffset = (Input.mousePosition - _mouseReference);   // Find difference in old mouse/touch position to new one
+    void Update()
+    {
+        if (_isRotating)
+        {
+            // offset
+            _mouseOffset = (Input.mousePosition - _mouseReference);   // Find difference in old mouse/touch position to new one
 
- //           // apply rotation
- //           //_rotation.y += (_mouseOffset.x + _mouseOffset.y) * rotation_sensitivity;
- //           _rotation.y += (_mouseOffset.x) * rotation_sensitivity_Y;    // Rotate the scene/object on its Y axis (straight up and down) if you move the mouse horizontally (x)
- //           _rotation.y = Mathf.Clamp(_rotation.y, minPanY, maxPanY);   // Clamp between -20, 20 (defaults)
+            // apply rotation
+            //_rotation.y += (_mouseOffset.x + _mouseOffset.y) * rotation_sensitivity;
+            _rotation.y += (_mouseOffset.x) * rotation_sensitivity_Y;    // Rotate the scene/object on its Y axis (straight up and down) if you move the mouse horizontally (x)
+            _rotation.y = Mathf.Clamp(_rotation.y, minPanY, maxPanY);   // Clamp between -20, 20 (defaults)
 
- //           _rotation.x -= (_mouseOffset.y) * rotation_sensitivity_X;     // Rotate scene on its X axis (left and right) if you move the mouse up/down
- //           _rotation.x = Mathf.Clamp(_rotation.x, minPanX, maxPanX);   // Clamp between -10, 10 (defaults)
+            _rotation.x -= (_mouseOffset.y) * rotation_sensitivity_X;     // Rotate scene on its X axis (left and right) if you move the mouse up/down
+            _rotation.x = Mathf.Clamp(_rotation.x, minPanX, maxPanX);   // Clamp between -10, 10 (defaults)
 
- //           // rotate
- //           //gameObject.transform.Rotate(_rotation);
- //           transform.localEulerAngles = new Vector3(_rotation.x, _rotation.y, transform.localEulerAngles.z);   // Apply rotations
+            // rotate
+            //gameObject.transform.Rotate(_rotation);
+            transform.localEulerAngles = new Vector3(_rotation.x, _rotation.y, transform.localEulerAngles.z);   // Apply rotations
 
- //           // store new mouse position
- //           _mouseReference = Input.mousePosition;
- //       }
+            // store new mouse position
+            _mouseReference = Input.mousePosition;
+        }
 
- //       if (Input.touchCount == 2)
- //       {
- //           _isRotating = false;
- //           Touch touch0 = Input.GetTouch(0);
- //           Touch touch1 = Input.GetTouch(1);
+        if (Input.touchCount > 1)
+        {
+            Debug.Log("It works");
+            _isRotating = false;
+            Touch touch0 = Input.GetTouch(0);
+            Touch touch1 = Input.GetTouch(1);
 
- //           Vector2 lastTouch0Pos = touch0.position - touch0.deltaPosition;
- //           Vector2 lastTouch1Pos = touch1.position - touch1.deltaPosition;
+            Vector2 lastTouch0Pos = touch0.position - touch0.deltaPosition;
+            Vector2 lastTouch1Pos = touch1.position - touch1.deltaPosition;
 
- //           float previousMagnitude = (lastTouch0Pos - lastTouch1Pos).magnitude;
- //           float currentMagnitude = (touch0.position - touch1.position).magnitude;
+            float previousMagnitude = (lastTouch0Pos - lastTouch1Pos).magnitude;
+            float currentMagnitude = (touch0.position - touch1.position).magnitude;
 
- //           float difference = currentMagnitude - previousMagnitude;
+            float difference = currentMagnitude - previousMagnitude;
 
- //           zoom(difference * 0.01f * zoomSensitivity);
- //       }
+            zoom(difference * 0.01f * zoomSensitivity);
+        }
 
- //       zoom(Input.GetAxis("Mouse ScrollWheel"));
- //       //Debug.Log(Input.GetAxis("Mouse ScrollWheel"));
- //   }
+        zoom(Input.GetAxis("Mouse ScrollWheel"));
+        //Debug.Log(Input.GetAxis("Mouse ScrollWheel"));
+        //Debug.Log(Input.touchCount);
+    }
 
- //   void OnMouseDown()
- //   {
- //       if ((Input.touchCount == 1) || Input.GetMouseButton(0))
- //       // rotating flag
- //       _isRotating = true;
+    void OnMouseDown()
+    {
+        if ((Input.touchCount == 1) || Input.GetMouseButton(0))
+        {
+            // rotating flag
+            _isRotating = true;
+        }
+       // else
+           // _isRotating = false;
 
- //       // store mouse position
- //       _mouseReference = Input.mousePosition;
- //   }
+        // store mouse position
+        _mouseReference = Input.mousePosition;
+    }
 
- //   void OnMouseUp()
- //   {
- //       // rotating flag
- //       _isRotating = false;
- //   }
+    void OnMouseUp()
+    {
+        // rotating flag
+        _isRotating = false;
+    }
 
     void zoom(float increment)
     {
