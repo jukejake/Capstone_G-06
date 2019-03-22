@@ -23,19 +23,12 @@ public class RadialSlider_UI_Pack: MonoBehaviour, IPointerEnterHandler, IPointer
 	float indicatorRotationZ;
 	float angle;
 
-	void Start ()
-	{
-		if (saveValue == true)
-		{
-			currentValue = PlayerPrefs.GetFloat (sliderID + "RadialValue");
-		}
+	void Start () {
+		if (saveValue == true) { currentValue = PlayerPrefs.GetFloat (sliderID + "RadialValue"); }
 			
 		valueText.text = currentValue.ToString();
 
-		if (isPercent == true)
-		{
-			valueText.text = valueText.text + "%";
-		}
+		if (isPercent == true) 	{ valueText.text = valueText.text + "%"; }
 
 		baseSlider.value = currentValue / maxValue;
 		sliderImage.fillAmount = currentValue / maxValue;
@@ -43,32 +36,19 @@ public class RadialSlider_UI_Pack: MonoBehaviour, IPointerEnterHandler, IPointer
 		indicatorPivot.transform.localEulerAngles = new Vector3 (180, 0, indicatorRotationZ);
 	}
 
-	public void OnPointerEnter( PointerEventData eventData )
-	{
-		StartCoroutine( "TrackPointer" );            
-	}
+	public void OnPointerEnter( PointerEventData eventData ) { StartCoroutine( "TrackPointer" ); }
 
-	public void OnPointerDown(PointerEventData eventData)
-	{
-		isPointerDown= true;
-	}
+	public void OnPointerDown(PointerEventData eventData) { isPointerDown= true; }
 
-	public void OnPointerUp(PointerEventData eventData)
-	{
-		isPointerDown= false;
-	}
+	public void OnPointerUp(PointerEventData eventData) { isPointerDown= false; }
 		
-	IEnumerator TrackPointer()
-	{
+	IEnumerator TrackPointer() {
 		var ray = GetComponentInParent<GraphicRaycaster>();
 		var input = FindObjectOfType<StandaloneInputModule>();
 		
-		if (ray != null && input != null) 
-		{
-			while (Application.isPlaying) 
-			{                    
-				if (isPointerDown) 
-				{
+		if (ray != null && input != null) {
+			while (Application.isPlaying)  {
+				if (isPointerDown) {
 					Vector2 localPos;
 					RectTransformUtility.ScreenPointToLocalPointInRectangle (transform as RectTransform, Input.mousePosition, ray.eventCamera, out localPos);
 						
@@ -81,28 +61,14 @@ public class RadialSlider_UI_Pack: MonoBehaviour, IPointerEnterHandler, IPointer
 					currentValue = Mathf.Round(sliderImage.fillAmount * maxValue) / 1f;
 					baseSlider.value = currentValue / maxValue;
 
-					if (isPercent == true)
-					{
-						valueText.text = ((int)(currentValue) + "%").ToString ();
-					} 
+					if (isPercent == true) { valueText.text = ((int)(currentValue) + "%").ToString (); }
+					else { valueText.text = ((int)(currentValue)).ToString (); }
 
-					else 
-					{
-						valueText.text = ((int)(currentValue)).ToString ();
-					}
-
-					if (saveValue == true)
-					{
-						PlayerPrefs.SetFloat (sliderID + "RadialValue", currentValue);
-					}
-                }
+					if (saveValue == true) { PlayerPrefs.SetFloat (sliderID + "RadialValue", currentValue); }
+				}
 				yield return 0;
 			}        
-		} 
-
-		else 
-		{
-			Debug.LogWarning("Could not find GraphicRaycaster or StandaloneInputModule");    
-		}	    
+		}
+		else  { Debug.LogWarning("Could not find GraphicRaycaster or StandaloneInputModule"); }	    
 	}
 }

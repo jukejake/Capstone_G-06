@@ -57,10 +57,15 @@ public class FlowData : SerializedMonoBehaviour {
 	public GameObject[] SmallSnowFlows;
 	#endregion
 
-	#region Set trail data
+	#region Functions
 
 	private bool SwitchOn = true;
 
+	private void Start() {
+		//AirSpeed = 0;
+		//SwitchOn = true;
+		//SetSpeed(0);
+	}
 
 	private void SwitchWeather(bool state) {
 		if (SmallFlowsOn) {
@@ -121,6 +126,8 @@ public class FlowData : SerializedMonoBehaviour {
 			case 0: //Wind
 				if (ActiveFlow != 0) {
 					ActiveFlow = 0;
+					SmallFlowsOn = true;
+					BigFlowsOn = false;
 					SwitchWeather(true);
 				}
 				else { ActiveFlow = -1; }
@@ -128,6 +135,8 @@ public class FlowData : SerializedMonoBehaviour {
 			case 1: //Rain
 				if (ActiveFlow != 1) {
 					ActiveFlow = 1;
+					SmallFlowsOn = false;
+					BigFlowsOn = true;
 					SwitchWeather(true);
 				}
 				else { ActiveFlow = -1; }
@@ -135,6 +144,8 @@ public class FlowData : SerializedMonoBehaviour {
 			case 2: //Snow
 				if (ActiveFlow != 2) {
 					ActiveFlow = 2;
+					SmallFlowsOn = false;
+					BigFlowsOn = true;
 					SwitchWeather(true);
 				}
 				else { ActiveFlow = -1; }
@@ -144,98 +155,34 @@ public class FlowData : SerializedMonoBehaviour {
 		}
 	}
 
-	[HorizontalGroup("Set Flows"), Button("Try 1: Set Flows")]
-	//One option to accsess the ParticleSystem that doesn't always work.
-	public void SetFlows1() {
+
+
+	public void SetEmissionRate(float rate) {
 		_MegaFlow.Scale = AirSpeed;
 		//Set all the small flows
 		foreach (var item in SmallSmokeFlows) {
-			var _psm = item.GetComponent<ParticleSystem>().main;
-			_psm.startSize = StartSize;
-			_psm.startLifetime = LifeTime;
-			_psm.maxParticles = MaxP;
-
-			var _pse = item.GetComponent<ParticleSystem.EmissionModule>();
-			_pse.rateOverTime = Rate;
-
-			var _pss = item.GetComponent<ParticleSystem.ShapeModule>();
-			_pss.scale = new Vector3(XScale, YScale, 1.0f);
-
-			var _Child = item.transform.GetChild(0);
-			if (_Child) {
-				_Child.localScale = new Vector3(XScale*0.1f, 1.0f, YScale*0.1f);
-			}
+			var _pse = item.GetComponent<ParticleSystem>().emission;
+			_pse.rateOverTime = rate;
 		}
 		foreach (var item in SmallRainFlows) {
-			var _psm = item.GetComponent<ParticleSystem>().main;
-			_psm.startSize = StartSize;
-			_psm.startLifetime = LifeTime;
-			_psm.maxParticles = MaxP;
-
-			var _pse = item.GetComponent<ParticleSystem.EmissionModule>();
-			_pse.rateOverTime = Rate;
-
-			var _pss = item.GetComponent<ParticleSystem.ShapeModule>();
-			_pss.scale = new Vector3(XScale, YScale, 1.0f);
-
-			var _Child = item.transform.GetChild(0);
-			if (_Child) {
-				_Child.localScale = new Vector3(XScale*0.1f, 1.0f, YScale*0.1f);
-			}
+			var _pse = item.GetComponent<ParticleSystem>().emission;
+			_pse.rateOverTime = rate;
 		}
 		foreach (var item in SmallSnowFlows) {
-			var _psm = item.GetComponent<ParticleSystem>().main;
-			_psm.startSize = StartSize;
-			_psm.startLifetime = LifeTime;
-			_psm.maxParticles = MaxP;
-
-			var _pse = item.GetComponent<ParticleSystem.EmissionModule>();
-			_pse.rateOverTime = Rate;
-
-			var _pss = item.GetComponent<ParticleSystem.ShapeModule>();
-			_pss.scale = new Vector3(XScale, YScale, 1.0f);
-
-			var _Child = item.transform.GetChild(0);
-			if (_Child) {
-				_Child.localScale = new Vector3(XScale*0.1f, 1.0f, YScale*0.1f);
-			}
+			var _pse = item.GetComponent<ParticleSystem>().emission;
+			_pse.rateOverTime = rate;
 		}
-		//Set all the big flows
-		{
-			var _psm = BigSmokeFlow.GetComponent<ParticleSystem>().main;
-			_psm.startSize = StartSize;
-			_psm.startLifetime = LifeTime;
-			_psm.maxParticles = MaxP;
-
-			var _pse = BigSmokeFlow.GetComponent<ParticleSystem.EmissionModule>();
-			_pse.rateOverTime = Rate;
-		}
-		{
-			var _psm = BigRainFlow.GetComponent<ParticleSystem>().main;
-			_psm.startSize = StartSize;
-			_psm.startLifetime = LifeTime;
-			_psm.maxParticles = MaxP;
-
-			var _pse = BigRainFlow.GetComponent<ParticleSystem.EmissionModule>();
-			_pse.rateOverTime = Rate;
-		}
-		{
-			var _psm = BigSnowFlow.GetComponent<ParticleSystem>().main;
-			_psm.startSize = StartSize;
-			_psm.startLifetime = LifeTime;
-			_psm.maxParticles = MaxP;
-
-			var _pse = BigSnowFlow.GetComponent<ParticleSystem.EmissionModule>();
-			_pse.rateOverTime = Rate;
-		}
+		var B_pse1 = BigSmokeFlow.GetComponent<ParticleSystem>().emission;
+		B_pse1.rateOverTime = (rate * 2);
+		var B_pse2 = BigRainFlow.GetComponent<ParticleSystem>().emission;
+		B_pse2.rateOverTime = (rate * 2);
+		var B_pse3 = BigSnowFlow.GetComponent<ParticleSystem>().emission;
+		B_pse3.rateOverTime = (rate * 2);
 	}
-
-	[HorizontalGroup("Set Flows"), Button("Try 2: Set Flows")]
-	//One option to access the ParticleSystem that doesn't always work.
-	public void SetFlows2() {
+	[Button]
+	public void SetSmallSmokeFlows() {
 		_MegaFlow.Scale = AirSpeed;
-		//Set all the small flows
-		foreach (var item in SmallSmokeFlows) {
+		foreach (var item in SmallSmokeFlows)  {
 			var _psm = item.GetComponent<ParticleSystem>().main;
 			_psm.startSize = StartSize;
 			_psm.startLifetime = LifeTime;
@@ -252,6 +199,10 @@ public class FlowData : SerializedMonoBehaviour {
 				_Child.localScale = new Vector3(XScale*0.1f, 1.0f, YScale*0.1f);
 			}
 		}
+	}
+	[Button]
+	public void SetSmallRainFlows() {
+		_MegaFlow.Scale = AirSpeed;
 		foreach (var item in SmallRainFlows)  {
 			var _psm = item.GetComponent<ParticleSystem>().main;
 			_psm.startSize = StartSize;
@@ -269,6 +220,10 @@ public class FlowData : SerializedMonoBehaviour {
 				_Child.localScale = new Vector3(XScale*0.1f, 1.0f, YScale*0.1f);
 			}
 		}
+	}
+	[Button]
+	public void SetSmallSnowFlows() {
+		_MegaFlow.Scale = AirSpeed;
 		foreach (var item in SmallSnowFlows)  {
 			var _psm = item.GetComponent<ParticleSystem>().main;
 			_psm.startSize = StartSize;
@@ -286,35 +241,40 @@ public class FlowData : SerializedMonoBehaviour {
 				_Child.localScale = new Vector3(XScale*0.1f, 1.0f, YScale*0.1f);
 			}
 		}
-		//Set all the big flows
-		{
-			var _psm = BigSmokeFlow.GetComponent<ParticleSystem>().main;
-			_psm.startSize = StartSize;
-			_psm.startLifetime = LifeTime;
-			_psm.maxParticles = MaxP;
-			
-			var _pse = BigSmokeFlow.GetComponent<ParticleSystem>().emission;
-			_pse.rateOverTime = Rate;
-		}
-		{
-			var _psm = BigRainFlow.GetComponent<ParticleSystem>().main;
-			_psm.startSize = StartSize;
-			_psm.startLifetime = LifeTime;
-			_psm.maxParticles = MaxP;
-			
-			var _pse = BigRainFlow.GetComponent<ParticleSystem>().emission;
-			_pse.rateOverTime = Rate;
-		}
-		{
-			var _psm = BigSnowFlow.GetComponent<ParticleSystem>().main;
-			_psm.startSize = StartSize;
-			_psm.startLifetime = LifeTime;
-			_psm.maxParticles = MaxP;
-			
-			var _pse = BigSnowFlow.GetComponent<ParticleSystem>().emission;
-			_pse.rateOverTime = Rate;
-		}
 	}
+	[Button]
+	public void SetBigSmokeFlow() {
+		_MegaFlow.Scale = AirSpeed;
+		var _psm = BigSmokeFlow.GetComponent<ParticleSystem>().main;
+		_psm.startSize = StartSize;
+		_psm.startLifetime = LifeTime;
+		_psm.maxParticles = MaxP;
 
+		var _pse = BigSmokeFlow.GetComponent<ParticleSystem>().emission;
+		_pse.rateOverTime = Rate;
+	}
+	[Button]
+	public void SetBigRainFlow() {
+		_MegaFlow.Scale = AirSpeed;
+		var _psm = BigRainFlow.GetComponent<ParticleSystem>().main;
+		_psm.startSize = StartSize;
+		_psm.startLifetime = LifeTime;
+		_psm.maxParticles = MaxP;
+
+		var _pse = BigRainFlow.GetComponent<ParticleSystem>().emission;
+		_pse.rateOverTime = Rate;
+	}
+	[Button]
+	public void SetBigSnowFlow() {
+		_MegaFlow.Scale = AirSpeed;
+		//Set all the small flows
+		var _psm = BigSnowFlow.GetComponent<ParticleSystem>().main;
+		_psm.startSize = StartSize;
+		_psm.startLifetime = LifeTime;
+		_psm.maxParticles = MaxP;
+
+		var _pse = BigSnowFlow.GetComponent<ParticleSystem>().emission;
+		_pse.rateOverTime = Rate;
+	}
 	#endregion
 }
