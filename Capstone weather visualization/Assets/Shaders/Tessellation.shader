@@ -1,4 +1,9 @@
-﻿Shader "Tessellation" {
+﻿/*
+	Written by Aaron Macaulay for:
+	UOIT Capston: BUSI 4995
+*/
+
+Shader "Tessellation" {
 	Properties{
 		[HideInInspector]_DrawingTex("Drawing texture", 2D) = "" {}
 		_Tess("Tessellation", Range(1,32)) = 4
@@ -7,6 +12,8 @@
 		_Displacement("Displacement", Range(0, 1.0)) = 0.3
 		_Color("Color", color) = (1,1,1,0)
 		_SpecColor("Spec color", color) = (0.5,0.5,0.5,0.5)
+		//_Metallic("Metallic", Range(0,1)) = 0.5
+		//_Glossiness("Smoothness", Range(0,1)) = 0.5
 	}
 		SubShader{
 			Tags { "RenderType" = "Opaque" }
@@ -40,6 +47,9 @@
 		float _Y;
 		float _Z;
 
+		//half _Metallic;
+		//half _Glossiness;
+
 		void disp(inout appdata v)
 		{
 			float d = tex2Dlod(_DispTex, float4(v.texcoord.xy,0,0)).r * _Displacement;
@@ -64,6 +74,9 @@
 			o.Albedo = c.rgb;
 
 			c.a = mainData.a;
+
+			//o.Smoothness = _Glossiness;
+			//o.Metallic = _Metallic;
 
 			o.Alpha = c.a;
 		}

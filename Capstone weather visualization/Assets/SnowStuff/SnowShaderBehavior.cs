@@ -1,10 +1,14 @@
-﻿using System.Collections;
+﻿/*
+    Written by Aaron Macaulay for:
+    UOIT Capston: BUSI 4995
+*/
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class SnowShaderBehavior : MonoBehaviour
 {
-    public float snowRate = 0.1f;
+    public int snowSize = 1;
 
     private const int textureHeight = 256;
     private const int textureWidth = 256;
@@ -15,6 +19,7 @@ public class SnowShaderBehavior : MonoBehaviour
     public Texture2D m_displacementTexture;
     private bool isEnabled = false;
     // private Snow snow;
+
 
 
     private void Awake()
@@ -79,9 +84,10 @@ public class SnowShaderBehavior : MonoBehaviour
     {
         if (isEnabled)
         {
-
-            int x = (int)(textureCoord.x * textureWidth) - (splashTexture.width / 2);
-            int y = (int)(textureCoord.y * textureHeight) - (splashTexture.height / 2);
+            //splashTexture.Resize(splashTexture.width + snowSize, splashTexture.height + snowSize);
+            
+            int x = (int)(textureCoord.x * textureWidth * snowSize) - (splashTexture.width / 2);
+            int y = (int)(textureCoord.y * textureHeight * snowSize) - (splashTexture.height / 2);
             for (int i = 0; i < splashTexture.width; ++i)
             {
                 for (int j = 0; j < splashTexture.height; ++j)
@@ -102,7 +108,8 @@ public class SnowShaderBehavior : MonoBehaviour
                 }
             }
             m_texture.Apply();
-            m_displacementTexture.Apply();
+            if (m_material.shader.name == "Tessellation")
+                m_displacementTexture.Apply();
         }
     }
 }

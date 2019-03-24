@@ -94,7 +94,7 @@ Material:
     - _Arcrange: 180
     - _BGwidth: 0.023
     - _Backgroundborderopacity: 1
-    - _Backgroundborderradialwidth: 0.05
+    - _Backgroundborderradialwidth: 0.013
     - _Backgroundbordertangentwidth: 0
     - _Backgroundborderwidth: 0.0405
     - _Backgroundopacity: 1
@@ -109,7 +109,7 @@ Material:
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _Fillpercentage: 0
-    - _Globalopacity: 0.8
+    - _Globalopacity: 1
     - _Globaltransp: 1
     - _Globaltransparency: 1
     - _GlossMapScale: 1
@@ -130,7 +130,7 @@ Material:
     - _MainbarBorderWidth: 0.033
     - _Mainbarborderopacity: 1
     - _Mainborderradialwidth: 0
-    - _Mainbordertangentwidth: 0.17
+    - _Mainbordertangentwidth: 0.057
     - _Mainscrollrotate: 1
     - _Maintexcontrast: 0.5
     - _Maintexopacity: 1

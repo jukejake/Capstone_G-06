@@ -1,4 +1,9 @@
-﻿using System.Collections;
+﻿/*
+    Written by Aaron Macaulay for:
+    UOIT Capstone: BUSI 4995
+*/
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 

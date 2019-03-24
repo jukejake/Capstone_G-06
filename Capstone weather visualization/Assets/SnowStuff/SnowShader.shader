@@ -1,6 +1,7 @@
-﻿// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
-
-// Upgrade NOTE: replaced '_World2Object' with 'unity_WorldToObject'
+﻿/*
+	Written by Aaron Macaulay for:
+	UOIT Capston: BUSI 4995
+*/
 
 Shader "Custom/SnowShader" {
 	Properties {
@@ -9,8 +10,7 @@ Shader "Custom/SnowShader" {
 		_Color ("Color", Color) = (1,1,1,1)
 		_MainTex ("Albedo (RGB)", 2D) = "white" {}
 		_SnowTex("Snow Texture", 2D) = "white" {}
-		_SnowColor("Snow Color", Color) = (1.0,1.0,1.0,1.0)
-		_SnowRange("Snow Range", Range(-1,1)) = 0.0
+		_Metallic("Metallic", Range(0,1)) = 0.5
 		_Glossiness ("Smoothness", Range(0,1)) = 0.5
 
 	}
@@ -44,6 +44,7 @@ Shader "Custom/SnowShader" {
 		float _EnableSnow;
 
 		half _Glossiness;
+		half _Metallic;
 		fixed4 _Color;
 
 		void vert(inout appdata_full v)
@@ -69,6 +70,7 @@ Shader "Custom/SnowShader" {
 
 			// Metallic and smoothness come from slider variables
 			o.Smoothness = _Glossiness;
+			o.Metallic = _Metallic;
 			o.Alpha = c.a;
 		}
 		ENDCG

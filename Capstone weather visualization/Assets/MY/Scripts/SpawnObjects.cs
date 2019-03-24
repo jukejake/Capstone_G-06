@@ -80,13 +80,19 @@ public class SpawnObjects : SerializedMonoBehaviour {
 				temp.name = t.name;
 				//Set position of front Dynos.
 				var Cpos = temp.transform.position;
-				var CNewX = (FrontDynos.position - temp.transform.Find("Front Wheels").transform.position);
-				temp.transform.position = new Vector3(CNewX.x, Cpos.y, CNewX.z);
+                if (temp.transform.Find("Front Wheels"))
+                {
+                    var CNewX = (FrontDynos.position - temp.transform.Find("Front Wheels").transform.position);
+                    temp.transform.position = new Vector3(CNewX.x, Cpos.y, CNewX.z);
+                }
 				//Set position of back Dynos.
 				var Dpos = BackDynos.position;
-				var BW = temp.transform.Find("Back Wheels").transform.position;
-				BackDynos.position = new Vector3(BW.x, Dpos.y, BW.z);
-				BackDynoCases.position = new Vector3(BW.x, BackDynoCases.position.y, BW.z);
+                if (temp.transform.Find("Back Wheels"))
+                {
+                    var BW = temp.transform.Find("Back Wheels").transform.position;
+                    BackDynos.position = new Vector3(BW.x, Dpos.y, BW.z);
+                    BackDynoCases.position = new Vector3(BW.x, BackDynoCases.position.y, BW.z);
+                }
 			}
 		}
 		//Hide Un-hide Method
