@@ -1,0 +1,695 @@
+fileFormatVersion: 2
+guid: 61058977ff393f6499b57189df54ecec
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Ammonia_001
+    100004: Ammonia_004
+    100006: Anti Freeze_001
+    100008: Anti Freeze_002
+    100010: Anti Freeze_003
+    100012: Anti Freeze_004
+    100014: Anti Freeze_005
+    100016: Baking Soda#1_001
+    100018: Baking Soda#1_002
+    100020: Baking Soda#1_003
+    100022: Baking Soda_001
+    100024: Baking Soda_002
+    100026: Baking Soda_003
+    100028: Baking Soda_004
+    100030: Baking Soda_005
+    100032: Baking Soda_006
+    100034: Boardup_001
+    100036: Boardup_002
+    100038: Boardup_003
+    100040: Boardup_004
+    100042: Boardup_005
+    100044: Boardup_006
+    100046: Bulkhead small_001
+    100048: Bulkhead small_002
+    100050: Bulkhead small_003
+    100052: Bulkhead small_004
+    100054: Bulkhead small_005
+    100056: Bulkhead small_006
+    100058: Bulkhead small_007
+    100060: Bunk Bed_001
+    100062: Bunk Bed_002
+    100064: Bunk Bed_003
+    100066: Bunk Bed_004
+    100068: Bunsen Burner_001
+    100070: Component#2_001
+    100072: Couch_001
+    100074: countertp_blender_half_001
+    100076: countertp_blender_half_003
+    100078: DoorKnob_001
+    100080: DoorKnob_002
+    100082: DoorKnob_003
+    100084: DoorKnob_004
+    100086: DoorKnob_005
+    100088: DoorKnob_006
+    100090: DoorKnob_007
+    100092: DoorKnob_008
+    100094: DoorKnob_009
+    100096: DoorKnob_010
+    100098: Group_001
+    100100: Group_002
+    100102: Group_003
+    100104: Group_004
+    100106: Group_005
+    100108: Group_006
+    100110: Group_007
+    100112: Group_008
+    100114: Group_009
+    100116: Group_010
+    100118: Group_011
+    100120: Group_012
+    100122: Group_013
+    100124: Group_014
+    100126: Group_015
+    100128: Group_017
+    100130: Group_018
+    100132: Group_019
+    100134: Jar#1_001
+    100136: Jar#1_002
+    100138: Jar#1_003
+    100140: Jar#1_004
+    100142: Jar#1_005
+    100144: Jar#2_001
+    100146: Jar#2_002
+    100148: Jar#2_003
+    100150: Jar#2_004
+    100152: Jar#2_005
+    100154: Jar#2_006
+    100156: Jar#2_007
+    100158: Jar#2_008
+    100160: Jar#2_009
+    100162: Jar#2_010
+    100164: Jar#2_011
+    100166: Jar#2_012
+    100168: Jar#2_013
+    100170: Jar#2_014
+    100172: Jar#2_015
+    100174: Jar#2_016
+    100176: Jar#2_017
+    100178: Jar#2_018
+    100180: Jar#2_019
+    100182: Jar#2_020
+    100184: Jar_001
+    100186: Jar_002
+    100188: Jar_003
+    100190: Jar_004
+    100192: Jar_005
+    100194: Jar_006
+    100196: Jar_007
+    100198: Jar_008
+    100200: Layer0_001
+    100202: Pipe short nipple_001
+    100204: Propane Tank_001
+    100206: Roof_001
+    400000: //RootNode
+    400002: Ammonia_001
+    400004: Ammonia_004
+    400006: Anti Freeze_001
+    400008: Anti Freeze_002
+    400010: Anti Freeze_003
+    400012: Anti Freeze_004
+    400014: Anti Freeze_005
+    400016: Baking Soda#1_001
+    400018: Baking Soda#1_002
+    400020: Baking Soda#1_003
+    400022: Baking Soda_001
+    400024: Baking Soda_002
+    400026: Baking Soda_003
+    400028: Baking Soda_004
+    400030: Baking Soda_005
+    400032: Baking Soda_006
+    400034: Boardup_001
+    400036: Boardup_002
+    400038: Boardup_003
+    400040: Boardup_004
+    400042: Boardup_005
+    400044: Boardup_006
+    400046: Bulkhead small_001
+    400048: Bulkhead small_002
+    400050: Bulkhead small_003
+    400052: Bulkhead small_004
+    400054: Bulkhead small_005
+    400056: Bulkhead small_006
+    400058: Bulkhead small_007
+    400060: Bunk Bed_001
+    400062: Bunk Bed_002
+    400064: Bunk Bed_003
+    400066: Bunk Bed_004
+    400068: Bunsen Burner_001
+    400070: Component#2_001
+    400072: Couch_001
+    400074: countertp_blender_half_001
+    400076: countertp_blender_half_003
+    400078: DoorKnob_001
+    400080: DoorKnob_002
+    400082: DoorKnob_003
+    400084: DoorKnob_004
+    400086: DoorKnob_005
+    400088: DoorKnob_006
+    400090: DoorKnob_007
+    400092: DoorKnob_008
+    400094: DoorKnob_009
+    400096: DoorKnob_010
+    400098: Group_001
+    400100: Group_002
+    400102: Group_003
+    400104: Group_004
+    400106: Group_005
+    400108: Group_006
+    400110: Group_007
+    400112: Group_008
+    400114: Group_009
+    400116: Group_010
+    400118: Group_011
+    400120: Group_012
+    400122: Group_013
+    400124: Group_014
+    400126: Group_015
+    400128: Group_017
+    400130: Group_018
+    400132: Group_019
+    400134: Jar#1_001
+    400136: Jar#1_002
+    400138: Jar#1_003
+    400140: Jar#1_004
+    400142: Jar#1_005
+    400144: Jar#2_001
+    400146: Jar#2_002
+    400148: Jar#2_003
+    400150: Jar#2_004
+    400152: Jar#2_005
+    400154: Jar#2_006
+    400156: Jar#2_007
+    400158: Jar#2_008
+    400160: Jar#2_009
+    400162: Jar#2_010
+    400164: Jar#2_011
+    400166: Jar#2_012
+    400168: Jar#2_013
+    400170: Jar#2_014
+    400172: Jar#2_015
+    400174: Jar#2_016
+    400176: Jar#2_017
+    400178: Jar#2_018
+    400180: Jar#2_019
+    400182: Jar#2_020
+    400184: Jar_001
+    400186: Jar_002
+    400188: Jar_003
+    400190: Jar_004
+    400192: Jar_005
+    400194: Jar_006
+    400196: Jar_007
+    400198: Jar_008
+    400200: Layer0_001
+    400202: Pipe short nipple_001
+    400204: Propane Tank_001
+    400206: Roof_001
+    2100000: dbl_Boardup_001
+    2100002: dbl_Boardup_002
+    2100004: dbl_Roof_004
+    2100006: dbl_Layer0_016
+    2100008: dbl_Layer0_018
+    2100010: dbl_Couch_001
+    2100012: dbl_Couch_002
+    2100014: dbl_Couch_003
+    2100016: dbl_Couch_004
+    2100018: dbl_Couch_005
+    2100020: dbl_Couch_006
+    2100022: dbl_Couch_007
+    2100024: dbl_Couch_008
+    2100026: dbl_Layer0_035
+    2100028: dbl_Layer0_011
+    2100030: dbl_Couch_009
+    2100032: dbl_Couch_010
+    2100034: dbl_Couch_011
+    2100036: dbl_Bunk Bed_001
+    2100038: dbl_Layer0_029
+    2100040: No Name
+    2100042: dbl_Ammonia_001
+    2100044: dbl_Group_006
+    2100046: dbl_Ammonia_002
+    2100048: dbl_Anti Freeze_001
+    2100050: dbl_Anti Freeze_002
+    2100052: dbl_Baking Soda#1_001
+    2100054: dbl_Baking Soda#1_002
+    2100056: dbl_Baking Soda#1_003
+    2100058: dbl_Baking Soda#1_004
+    2100060: dbl_Baking Soda#1_005
+    2100062: dbl_Baking Soda#1_006
+    2100064: dbl_Baking Soda#1_007
+    2100066: dbl_Baking Soda_001
+    2100068: dbl_Baking Soda_002
+    2100070: dbl_Baking Soda_003
+    2100072: dbl_Layer0_024
+    2100074: dbl_Baking Soda_004
+    2100076: dbl_Layer0_027
+    2100078: dbl_countertp_blender_half_001
+    2100080: dbl_countertp_blender_half_002
+    2100082: dbl_countertp_blender_half_003
+    2100084: dbl_countertp_blender_half_004
+    2100086: dbl_Jar_001
+    2100088: dbl_Jar_002
+    2100090: dbl_Jar_003
+    2100092: dbl_Jar_004
+    2100094: dbl_Group_008
+    2100096: dbl_Group_009
+    2100098: dbl_Group_010
+    2100100: dbl_Group_007
+    2100102: dbl_Group_004
+    2100104: dbl_Group_005
+    2100106: dbl_Group_002
+    2100108: dbl_Group_003
+    2100110: dbl_Layer0_003
+    2100112: dbl_Roof_001
+    2100114: dbl_Layer0_010
+    2100116: dbl_Layer0_001
+    2100118: dbl_Roof_002
+    2100120: dbl_Layer0_006
+    2100122: dbl_Roof_003
+    2100124: dbl_Layer0_002
+    2100126: dbl_Layer0_013
+    2100128: dbl_Layer0_004
+    2100130: dbl_Layer0_005
+    2100132: dbl_Layer0_007
+    2100134: dbl_Layer0_008
+    2100136: dbl_Layer0_009
+    2100138: dbl_Layer0_012
+    2100140: dbl_Layer0_014
+    2100142: dbl_Layer0_015
+    2100144: dbl_Layer0_017
+    2100146: dbl_Layer0_019
+    2100148: dbl_Layer0_020
+    2100150: dbl_Layer0_021
+    2100152: dbl_Layer0_022
+    2100154: dbl_Layer0_023
+    2100156: dbl_Layer0_025
+    2100158: dbl_Layer0_026
+    2100160: dbl_Layer0_028
+    2100162: dbl_Layer0_030
+    2100164: dbl_Layer0_031
+    2100166: dbl_Layer0_032
+    2100168: dbl_Layer0_033
+    2100170: dbl_Layer0_034
+    2100172: dbl_Layer0_036
+    2300000: Ammonia_001
+    2300002: Ammonia_004
+    2300004: Anti Freeze_001
+    2300006: Anti Freeze_002
+    2300008: Anti Freeze_003
+    2300010: Anti Freeze_004
+    2300012: Anti Freeze_005
+    2300014: Baking Soda#1_001
+    2300016: Baking Soda#1_002
+    2300018: Baking Soda#1_003
+    2300020: Baking Soda_001
+    2300022: Baking Soda_002
+    2300024: Baking Soda_003
+    2300026: Baking Soda_004
+    2300028: Baking Soda_005
+    2300030: Baking Soda_006
+    2300032: Boardup_001
+    2300034: Boardup_002
+    2300036: Boardup_003
+    2300038: Boardup_004
+    2300040: Boardup_005
+    2300042: Boardup_006
+    2300044: Bulkhead small_001
+    2300046: Bulkhead small_002
+    2300048: Bulkhead small_003
+    2300050: Bulkhead small_004
+    2300052: Bulkhead small_005
+    2300054: Bulkhead small_006
+    2300056: Bulkhead small_007
+    2300058: Bunk Bed_001
+    2300060: Bunk Bed_002
+    2300062: Bunk Bed_003
+    2300064: Bunk Bed_004
+    2300066: Bunsen Burner_001
+    2300068: Component#2_001
+    2300070: Couch_001
+    2300072: countertp_blender_half_001
+    2300074: countertp_blender_half_003
+    2300076: DoorKnob_001
+    2300078: DoorKnob_002
+    2300080: DoorKnob_003
+    2300082: DoorKnob_004
+    2300084: DoorKnob_005
+    2300086: DoorKnob_006
+    2300088: DoorKnob_007
+    2300090: DoorKnob_008
+    2300092: DoorKnob_009
+    2300094: DoorKnob_010
+    2300096: Group_001
+    2300098: Group_002
+    2300100: Group_003
+    2300102: Group_004
+    2300104: Group_005
+    2300106: Group_006
+    2300108: Group_007
+    2300110: Group_008
+    2300112: Group_009
+    2300114: Group_010
+    2300116: Group_011
+    2300118: Group_012
+    2300120: Group_013
+    2300122: Group_014
+    2300124: Group_015
+    2300126: Group_017
+    2300128: Group_018
+    2300130: Group_019
+    2300132: Jar#1_001
+    2300134: Jar#1_002
+    2300136: Jar#1_003
+    2300138: Jar#1_004
+    2300140: Jar#1_005
+    2300142: Jar#2_001
+    2300144: Jar#2_002
+    2300146: Jar#2_003
+    2300148: Jar#2_004
+    2300150: Jar#2_005
+    2300152: Jar#2_006
+    2300154: Jar#2_007
+    2300156: Jar#2_008
+    2300158: Jar#2_009
+    2300160: Jar#2_010
+    2300162: Jar#2_011
+    2300164: Jar#2_012
+    2300166: Jar#2_013
+    2300168: Jar#2_014
+    2300170: Jar#2_015
+    2300172: Jar#2_016
+    2300174: Jar#2_017
+    2300176: Jar#2_018
+    2300178: Jar#2_019
+    2300180: Jar#2_020
+    2300182: Jar_001
+    2300184: Jar_002
+    2300186: Jar_003
+    2300188: Jar_004
+    2300190: Jar_005
+    2300192: Jar_006
+    2300194: Jar_007
+    2300196: Jar_008
+    2300198: Layer0_001
+    2300200: Pipe short nipple_001
+    2300202: Propane Tank_001
+    2300204: Roof_001
+    3300000: Ammonia_001
+    3300002: Ammonia_004
+    3300004: Anti Freeze_001
+    3300006: Anti Freeze_002
+    3300008: Anti Freeze_003
+    3300010: Anti Freeze_004
+    3300012: Anti Freeze_005
+    3300014: Baking Soda#1_001
+    3300016: Baking Soda#1_002
+    3300018: Baking Soda#1_003
+    3300020: Baking Soda_001
+    3300022: Baking Soda_002
+    3300024: Baking Soda_003
+    3300026: Baking Soda_004
+    3300028: Baking Soda_005
+    3300030: Baking Soda_006
+    3300032: Boardup_001
+    3300034: Boardup_002
+    3300036: Boardup_003
+    3300038: Boardup_004
+    3300040: Boardup_005
+    3300042: Boardup_006
+    3300044: Bulkhead small_001
+    3300046: Bulkhead small_002
+    3300048: Bulkhead small_003
+    3300050: Bulkhead small_004
+    3300052: Bulkhead small_005
+    3300054: Bulkhead small_006
+    3300056: Bulkhead small_007
+    3300058: Bunk Bed_001
+    3300060: Bunk Bed_002
+    3300062: Bunk Bed_003
+    3300064: Bunk Bed_004
+    3300066: Bunsen Burner_001
+    3300068: Component#2_001
+    3300070: Couch_001
+    3300072: countertp_blender_half_001
+    3300074: countertp_blender_half_003
+    3300076: DoorKnob_001
+    3300078: DoorKnob_002
+    3300080: DoorKnob_003
+    3300082: DoorKnob_004
+    3300084: DoorKnob_005
+    3300086: DoorKnob_006
+    3300088: DoorKnob_007
+    3300090: DoorKnob_008
+    3300092: DoorKnob_009
+    3300094: DoorKnob_010
+    3300096: Group_001
+    3300098: Group_002
+    3300100: Group_003
+    3300102: Group_004
+    3300104: Group_005
+    3300106: Group_006
+    3300108: Group_007
+    3300110: Group_008
+    3300112: Group_009
+    3300114: Group_010
+    3300116: Group_011
+    3300118: Group_012
+    3300120: Group_013
+    3300122: Group_014
+    3300124: Group_015
+    3300126: Group_017
+    3300128: Group_018
+    3300130: Group_019
+    3300132: Jar#1_001
+    3300134: Jar#1_002
+    3300136: Jar#1_003
+    3300138: Jar#1_004
+    3300140: Jar#1_005
+    3300142: Jar#2_001
+    3300144: Jar#2_002
+    3300146: Jar#2_003
+    3300148: Jar#2_004
+    3300150: Jar#2_005
+    3300152: Jar#2_006
+    3300154: Jar#2_007
+    3300156: Jar#2_008
+    3300158: Jar#2_009
+    3300160: Jar#2_010
+    3300162: Jar#2_011
+    3300164: Jar#2_012
+    3300166: Jar#2_013
+    3300168: Jar#2_014
+    3300170: Jar#2_015
+    3300172: Jar#2_016
+    3300174: Jar#2_017
+    3300176: Jar#2_018
+    3300178: Jar#2_019
+    3300180: Jar#2_020
+    3300182: Jar_001
+    3300184: Jar_002
+    3300186: Jar_003
+    3300188: Jar_004
+    3300190: Jar_005
+    3300192: Jar_006
+    3300194: Jar_007
+    3300196: Jar_008
+    3300198: Layer0_001
+    3300200: Pipe short nipple_001
+    3300202: Propane Tank_001
+    3300204: Roof_001
+    4300000: Boardup_006
+    4300002: Couch_001
+    4300004: Bunk Bed_004
+    4300006: Bunk Bed_003
+    4300008: Bunk Bed_002
+    4300010: Bunk Bed_001
+    4300012: Boardup_005
+    4300014: Boardup_004
+    4300016: Boardup_003
+    4300018: Boardup_002
+    4300020: Boardup_001
+    4300022: Group_019
+    4300024: Ammonia_004
+    4300026: Group_018
+    4300028: Ammonia_001
+    4300030: Anti Freeze_005
+    4300032: Anti Freeze_004
+    4300034: Anti Freeze_003
+    4300036: Anti Freeze_002
+    4300038: Anti Freeze_001
+    4300040: Baking Soda#1_003
+    4300042: Baking Soda#1_002
+    4300044: Baking Soda#1_001
+    4300046: Baking Soda_006
+    4300048: Baking Soda_005
+    4300050: Baking Soda_004
+    4300052: Baking Soda_003
+    4300054: Baking Soda_002
+    4300056: Baking Soda_001
+    4300058: countertp_blender_half_003
+    4300060: countertp_blender_half_001
+    4300062: Bulkhead small_007
+    4300064: Bulkhead small_006
+    4300066: Pipe short nipple_001
+    4300068: Bulkhead small_005
+    4300070: Bulkhead small_004
+    4300072: Bulkhead small_003
+    4300074: Bulkhead small_002
+    4300076: Bulkhead small_001
+    4300078: Propane Tank_001
+    4300080: Component#2_001
+    4300082: Bunsen Burner_001
+    4300084: Jar#1_005
+    4300086: Jar_008
+    4300088: Jar_007
+    4300090: Jar#2_020
+    4300092: Jar#2_019
+    4300094: Jar#2_018
+    4300096: Jar#2_017
+    4300098: Jar#2_016
+    4300100: Jar#2_015
+    4300102: Jar#2_014
+    4300104: Jar#2_013
+    4300106: Jar#2_012
+    4300108: Jar#2_011
+    4300110: Jar#2_010
+    4300112: Jar#2_009
+    4300114: Jar#2_008
+    4300116: Jar#2_007
+    4300118: Jar#2_006
+    4300120: Jar#2_005
+    4300122: Jar#2_004
+    4300124: Jar#2_003
+    4300126: Jar#2_002
+    4300128: Jar#2_001
+    4300130: Jar#1_004
+    4300132: Jar#1_003
+    4300134: Jar_006
+    4300136: Jar_005
+    4300138: Jar#1_002
+    4300140: Jar#1_001
+    4300142: Jar_004
+    4300144: Jar_003
+    4300146: Jar_002
+    4300148: Jar_001
+    4300150: DoorKnob_010
+    4300152: DoorKnob_009
+    4300154: DoorKnob_008
+    4300156: DoorKnob_007
+    4300158: DoorKnob_006
+    4300160: DoorKnob_005
+    4300162: DoorKnob_004
+    4300164: DoorKnob_003
+    4300166: DoorKnob_002
+    4300168: DoorKnob_001
+    4300170: Group_017
+    4300172: Group_015
+    4300174: Group_014
+    4300176: Group_013
+    4300178: Group_012
+    4300180: Group_011
+    4300182: Group_010
+    4300184: Group_009
+    4300186: Group_008
+    4300188: Group_007
+    4300190: Group_006
+    4300192: Group_005
+    4300194: Group_004
+    4300196: Group_003
+    4300198: Group_002
+    4300200: Group_001
+    4300202: Roof_001
+    4300204: Layer0_001
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

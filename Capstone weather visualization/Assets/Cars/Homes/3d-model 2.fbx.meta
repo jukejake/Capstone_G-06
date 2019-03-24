@@ -1,0 +1,2150 @@
+fileFormatVersion: 2
+guid: bee85c67f73629641b63774b353ec247
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: .li3dsubmesh_001
+    100002: .li3dsubmesh_002
+    100004: .li3dsubmesh_003
+    100006: .li3dsubmesh_004
+    100008: .li3dsubmesh_005
+    100010: .li3dsubmesh_006
+    100012: .li3dsubmesh_007
+    100014: .li3dsubmesh_008
+    100016: .li3dsubmesh_009
+    100018: .li3dsubmesh_010
+    100020: .li3dsubmesh_011
+    100022: .li3dsubmesh_012
+    100024: .li3dsubmesh_013
+    100026: .li3dsubmesh_014
+    100028: .li3dsubmesh_015
+    100030: .li3dsubmesh_016
+    100032: .li3dsubmesh_017
+    100034: .li3dsubmesh_018
+    100036: .li3dsubmesh_019
+    100038: .li3dsubmesh_020
+    100040: .li3dsubmesh_021
+    100042: .li3dsubmesh_022
+    100044: .li3dsubmesh_023
+    100046: .li3dsubmesh_024
+    100048: .li3dsubmesh_025
+    100050: .li3dsubmesh_026
+    100052: .li3dsubmesh_027
+    100054: .li3dsubmesh_028
+    100056: .li3dsubmesh_029
+    100058: .li3dsubmesh_030
+    100060: .li3dsubmesh_031
+    100062: .li3dsubmesh_032
+    100064: .li3dsubmesh_033
+    100066: .li3dsubmesh_034
+    100068: .li3dsubmesh_035
+    100070: .li3dsubmesh_036
+    100072: .li3dsubmesh_037
+    100074: .li3dsubmesh_038
+    100076: .li3dsubmesh_039
+    100078: .li3dsubmesh_040
+    100080: .li3dsubmesh_041
+    100082: .li3dsubmesh_042
+    100084: .li3dsubmesh_043
+    100086: .li3dsubmesh_044
+    100088: .li3dsubmesh_045
+    100090: .li3dsubmesh_046
+    100092: .li3dsubmesh_047
+    100094: .li3dsubmesh_048
+    100096: .li3dsubmesh_049
+    100098: .li3dsubmesh_050
+    100100: .li3dsubmesh_051
+    100102: .li3dsubmesh_052
+    100104: .li3dsubmesh_053
+    100106: .li3dsubmesh_054
+    100108: .li3dsubmesh_055
+    100110: .li3dsubmesh_056
+    100112: .li3dsubmesh_057
+    100114: .li3dsubmesh_058
+    100116: .li3dsubmesh_059
+    100118: .li3dsubmesh_060
+    100120: .li3dsubmesh_061
+    100122: .li3dsubmesh_062
+    100124: .li3dsubmesh_063
+    100126: .li3dsubmesh_064
+    100128: .li3dsubmesh_065
+    100130: .li3dsubmesh_066
+    100132: .li3dsubmesh_067
+    100134: .li3dsubmesh_068
+    100136: .li3dsubmesh_069
+    100138: .li3dsubmesh_070
+    100140: .li3dsubmesh_071
+    100142: .li3dsubmesh_072
+    100144: .li3dsubmesh_073
+    100146: .li3dsubmesh_074
+    100148: .li3dsubmesh_075
+    100150: .li3dsubmesh_076
+    100152: .li3dsubmesh_077
+    100154: .li3dsubmesh_078
+    100156: .li3dsubmesh_079
+    100158: .li3dsubmesh_080
+    100160: .li3dsubmesh_081
+    100162: .li3dsubmesh_082
+    100164: .li3dsubmesh_083
+    100166: .li3dsubmesh_084
+    100168: .li3dsubmesh_085
+    100170: .li3dsubmesh_086
+    100172: .li3dsubmesh_087
+    100174: .li3dsubmesh_088
+    100176: .li3dsubmesh_089
+    100178: .li3dsubmesh_090
+    100180: .li3dsubmesh_091
+    100182: .li3dsubmesh_092
+    100184: .li3dsubmesh_093
+    100186: .li3dsubmesh_094
+    100188: .li3dsubmesh_095
+    100190: .li3dsubmesh_096
+    100192: .li3dsubmesh_097
+    100194: .li3dsubmesh_098
+    100196: .li3dsubmesh_099
+    100198: .li3dsubmesh_100
+    100200: .li3dsubmesh_101
+    100202: .li3dsubmesh_102
+    100204: .li3dsubmesh_103
+    100206: .li3dsubmesh_104
+    100208: .li3dsubmesh_105
+    100210: .li3dsubmesh_106
+    100212: .li3dsubmesh_107
+    100214: .li3dsubmesh_108
+    100216: .li3dsubmesh_109
+    100218: .li3dsubmesh_110
+    100220: .li3dsubmesh_111
+    100222: .li3dsubmesh_112
+    100224: .li3dsubmesh_113
+    100226: .li3dsubmesh_114
+    100228: .li3dsubmesh_115
+    100230: .li3dsubmesh_116
+    100232: .li3dsubmesh_117
+    100234: .li3dsubmesh_118
+    100236: .li3dsubmesh_119
+    100238: .li3dsubmesh_120
+    100240: .li3dsubmesh_121
+    100242: .li3dsubmesh_122
+    100244: .li3dsubmesh_123
+    100246: .li3dsubmesh_124
+    100248: .li3dsubmesh_125
+    100250: .li3dsubmesh_126
+    100252: .li3dsubmesh_127
+    100254: .li3dsubmesh_128
+    100256: .li3dsubmesh_129
+    100258: .li3dsubmesh_130
+    100260: .li3dsubmesh_131
+    100262: .li3dsubmesh_132
+    100264: .li3dsubmesh_133
+    100266: .li3dsubmesh_134
+    100268: .li3dsubmesh_135
+    100270: .li3dsubmesh_136
+    100272: .li3dsubmesh_137
+    100274: .li3dsubmesh_138
+    100276: .li3dsubmesh_139
+    100278: .li3dsubmesh_140
+    100280: .li3dsubmesh_141
+    100282: .li3dsubmesh_142
+    100284: .li3dsubmesh_143
+    100286: .li3dsubmesh_144
+    100288: .li3dsubmesh_145
+    100290: .li3dsubmesh_146
+    100292: .li3dsubmesh_147
+    100294: .li3dsubmesh_148
+    100296: .li3dsubmesh_149
+    100298: .li3dsubmesh_150
+    100300: .li3dsubmesh_151
+    100302: .li3dsubmesh_152
+    100304: .li3dsubmesh_153
+    100306: .li3dsubmesh_154
+    100308: .li3dsubmesh_155
+    100310: .li3dsubmesh_156
+    100312: .li3dsubmesh_157
+    100314: .li3dsubmesh_158
+    100316: .li3dsubmesh_159
+    100318: .li3dsubmesh_160
+    100320: .li3dsubmesh_161
+    100322: .li3dsubmesh_162
+    100324: .li3dsubmesh_163
+    100326: .li3dsubmesh_164
+    100328: .li3dsubmesh_165
+    100330: .li3dsubmesh_166
+    100332: .li3dsubmesh_167
+    100334: .li3dsubmesh_168
+    100336: .li3dsubmesh_169
+    100338: .li3dsubmesh_170
+    100340: .li3dsubmesh_171
+    100342: .li3dsubmesh_172
+    100344: .li3dsubmesh_173
+    100346: .li3dsubmesh_174
+    100348: .li3dsubmesh_175
+    100350: .li3dsubmesh_176
+    100352: .li3dsubmesh_177
+    100354: .li3dsubmesh_178
+    100356: .li3dsubmesh_179
+    100358: .li3dsubmesh_180
+    100360: .li3dsubmesh_181
+    100362: .li3dsubmesh_182
+    100364: .li3dsubmesh_183
+    100366: .li3dsubmesh_184
+    100368: .li3dsubmesh_185
+    100370: .li3dsubmesh_186
+    100372: .li3dsubmesh_187
+    100374: .li3dsubmesh_188
+    100376: .li3dsubmesh_189
+    100378: .li3dsubmesh_190
+    100380: .li3dsubmesh_191
+    100382: .li3dsubmesh_192
+    100384: .li3dsubmesh_193
+    100386: .li3dsubmesh_194
+    100388: .li3dsubmesh_195
+    100390: .li3dsubmesh_196
+    100392: .li3dsubmesh_197
+    100394: .li3dsubmesh_198
+    100396: .li3dsubmesh_199
+    100398: .li3dsubmesh_200
+    100400: .li3dsubmesh_201
+    100402: .li3dsubmesh_202
+    100404: .li3dsubmesh_203
+    100406: .li3dsubmesh_204
+    100408: .li3dsubmesh_205
+    100410: .li3dsubmesh_206
+    100412: .li3dsubmesh_207
+    100414: .li3dsubmesh_208
+    100416: .li3dsubmesh_209
+    100418: .li3dsubmesh_210
+    100420: .li3dsubmesh_211
+    100422: .li3dsubmesh_212
+    100424: .li3dsubmesh_213
+    100426: .li3dsubmesh_214
+    100428: .li3dsubmesh_215
+    100430: .li3dsubmesh_216
+    100432: .li3dsubmesh_217
+    100434: .li3dsubmesh_218
+    100436: .li3dsubmesh_219
+    100438: .li3dsubmesh_220
+    100440: .li3dsubmesh_221
+    100442: .li3dsubmesh_222
+    100444: .li3dsubmesh_223
+    100446: .li3dsubmesh_225
+    100448: .li3dsubmesh_227
+    100450: .li3dsubmesh_228
+    100452: .li3dsubmesh_229
+    100454: .li3dsubmesh_230
+    100456: .li3dsubmesh_231
+    100458: .li3dsubmesh_232
+    100460: .li3dsubmesh_233
+    100462: .li3dsubmesh_234
+    100464: .li3dsubmesh_235
+    100466: .li3dsubmesh_236
+    100468: .li3dsubmesh_237
+    100470: .li3dsubmesh_238
+    100472: .li3dsubmesh_239
+    100474: .li3dsubmesh_240
+    100476: .li3dsubmesh_241
+    100478: .li3dsubmesh_242
+    100480: .li3dsubmesh_243
+    100482: .li3dsubmesh_244
+    100484: .li3dsubmesh_245
+    100486: .li3dsubmesh_246
+    100488: .li3dsubmesh_247
+    100490: .li3dsubmesh_248
+    100492: .li3dsubmesh_249
+    100494: .li3dsubmesh_250
+    100496: .li3dsubmesh_251
+    100498: .li3dsubmesh_252
+    100500: .li3dsubmesh_253
+    100502: .li3dsubmesh_254
+    100504: .li3dsubmesh_255
+    100506: .li3dsubmesh_256
+    100508: .li3dsubmesh_257
+    100510: .li3dsubmesh_258
+    100512: .li3dsubmesh_259
+    100514: .li3dsubmesh_260
+    100516: .li3dsubmesh_261
+    100518: .li3dsubmesh_262
+    100520: .li3dsubmesh_263
+    100522: .li3dsubmesh_264
+    100524: .li3dsubmesh_265
+    100526: .li3dsubmesh_266
+    100528: .li3dsubmesh_267
+    100530: .li3dsubmesh_268
+    100532: .li3dsubmesh_269
+    100534: .li3dsubmesh_270
+    100536: .li3dsubmesh_271
+    100538: .li3dsubmesh_272
+    100540: .li3dsubmesh_273
+    100542: .li3dsubmesh_274
+    100544: .li3dsubmesh_275
+    100546: .li3dsubmesh_276
+    100548: .li3dsubmesh_277
+    100550: .li3dsubmesh_278
+    100552: .li3dsubmesh_279
+    100554: .li3dsubmesh_280
+    100556: .li3dsubmesh_281
+    100558: .li3dsubmesh_282
+    100560: .li3dsubmesh_283
+    100562: .li3dsubmesh_284
+    100564: .li3dsubmesh_285
+    100566: .li3dsubmesh_286
+    100568: .li3dsubmesh_287
+    100570: .li3dsubmesh_288
+    100572: .li3dsubmesh_289
+    100574: .li3dsubmesh_290
+    100576: .li3dsubmesh_291
+    100578: .li3dsubmesh_292
+    100580: .li3dsubmesh_293
+    100582: .li3dsubmesh_294
+    100584: .li3dsubmesh_295
+    100586: .li3dsubmesh_296
+    100588: .li3dsubmesh_297
+    100590: .li3dsubmesh_298
+    100592: .li3dsubmesh_299
+    100594: .li3dsubmesh_300
+    100596: .li3dsubmesh_301
+    100598: .li3dsubmesh_302
+    100600: .li3dsubmesh_303
+    100602: .li3dsubmesh_304
+    100604: .li3dsubmesh_305
+    100606: .li3dsubmesh_306
+    100608: .li3dsubmesh_307
+    100610: .li3dsubmesh_308
+    100612: .li3dsubmesh_309
+    100614: .li3dsubmesh_310
+    100616: .li3dsubmesh_311
+    100618: .li3dsubmesh_312
+    100620: .li3dsubmesh_313
+    100622: .li3dsubmesh_314
+    100624: .li3dsubmesh_315
+    100626: .li3dsubmesh_316
+    100628: .li3dsubmesh_317
+    100630: .li3dsubmesh_318
+    100632: .li3dsubmesh_319
+    100634: .li3dsubmesh_320
+    100636: .li3dsubmesh_321
+    100638: .li3dsubmesh_322
+    100640: .li3dsubmesh_323
+    100642: .li3dsubmesh_324
+    100644: .li3dsubmesh_325
+    100646: .li3dsubmesh_326
+    100648: .li3dsubmesh_327
+    100650: .li3dsubmesh_328
+    100652: .li3dsubmesh_329
+    100654: .li3dsubmesh_330
+    100656: .li3dsubmesh_331
+    100658: .li3dsubmesh_332
+    100660: .li3dsubmesh_333
+    100662: .li3dsubmesh_334
+    100664: .li3dsubmesh_335
+    100666: .li3dsubmesh_336
+    100668: .li3dsubmesh_337
+    100670: .li3dsubmesh_338
+    100672: .li3dsubmesh_339
+    100674: .li3dsubmesh_340
+    100676: .li3dsubmesh_341
+    100678: .li3dsubmesh_342
+    100680: .li3dsubmesh_343
+    100682: .li3dsubmesh_344
+    100684: .li3dsubmesh_345
+    100686: .li3dsubmesh_346
+    100688: .li3dsubmesh_347
+    100690: //RootNode
+    100692: AutoCeiling_1_72YLXWDOGBUS_weTn_Cj_001
+    100694: AutoCeiling_1OCEAPipjnHgMiIiN5IVmN_001
+    100696: AutoCeiling_1XzIAFSzNeIROZz6_Z1LHQ_001
+    100698: AutoCeiling_3ZjRj1AE$uI9ZzutTMB7Bj_001
+    100700: AutoFloor_0_vGsKW7JYHBqSxuhkJx1v_001
+    100702: AutoFloor_222G1e_nHfH8Tlpg3ZD7wv_001
+    100704: AutoFloor_2jdAp8PtpnHwIIruuoyBtC_001
+    100706: AutoFloor_2Vl5Q0zWFxIAfsRRiX3W5O_001
+    100708: Base Left Moulding_0afrYSZV2uIggtBkdjB4Dd_001
+    100710: Base Left Moulding_0d2tU37_MvIeowWWxj3yXB_001
+    100712: Base Left Moulding_0KJ$QQ7Uf9Jgh7gAWFCmuL_001
+    100714: Base Left Moulding_0PfaSAtANwHgJMaPNbfZ0i_001
+    100716: Base Left Moulding_0u15jGzHKNJfzrhNkwPoex_001
+    100718: Base Left Moulding_0y5PBx1HNAI85Yf3sLFvwv_001
+    100720: Base Left Moulding_0z5s6CxZgSHxZtKhyHceZO_001
+    100722: Base Left Moulding_1$QbNd_kXxG84U9CtNxZ$F_001
+    100724: Base Left Moulding_1AadFtpD9CJPoepzxJrXRd_001
+    100726: Base Left Moulding_1bOfoXEx7xHQm4Ea04Jnvu_001
+    100728: Base Left Moulding_1x97Q1rXZXHAvN3nDB2Abf_001
+    100730: Base Left Moulding_2feo3YlSX4GA2JQTyFQ5sG_001
+    100732: Base Left Moulding_2xFoUP9i4DI9sYbk4yRJsJ_001
+    100734: Base Left Moulding_3EUehQ1pdGIxUaWIr7Djg3_001
+    100736: Base Left Moulding_3H4U4DlIGEJhAa8ralSM2U_001
+    100738: Base Left Moulding_3kWRQI8BXYHw9U$CypyfK__001
+    100740: Base Left Moulding_3M$wqaJP1cJuPI_Jd8oVPm_001
+    100742: Base Left Moulding_3m_Dc29LR6Ge0_JHAD4P2D_001
+    100744: Base Left Moulding_3mdt0IdWTyJuWp8e9sIpdK_001
+    100746: Base Left Moulding_3NkT2KmVINHQZo4o4C7Iyk_001
+    100748: Base Right Moulding_0b5dHf9IbLGvxQs2WXYlmr_001
+    100750: Base Right Moulding_0dRm1C_Vp6HAudb1z3Ynqo_001
+    100752: Base Right Moulding_19qBT40RwAIPC4vYae3qWa_001
+    100754: Base Right Moulding_22ZFviIoNqHRK16fGfuwt9_001
+    100756: Base Right Moulding_2IaTUlbI0AIhUDW3COWxMN_001
+    100758: Base Right Moulding_2lNDYrsROUIgD6L_9P32aa_001
+    100760: Ceiling Opening_3DQ7wRvh0THgn3Fht1u1Lq_001
+    100762: Ceiling_3Tdow7pQ5kI8rXksbJ6dvY_001
+    100764: Crown Left Moulding_0$qcw60P2qJwn7x4UfpOWu_001
+    100766: Crown Left Moulding_0cf3B6VQnNJ8snH3EcnMbk_001
+    100768: Crown Left Moulding_0g$4ni1mbvJvOGW5F$yd4K_001
+    100770: Crown Left Moulding_0SU04ChdA0JxPKMKL$1c8w_001
+    100772: Crown Left Moulding_0Yh7_TokPTGx0HeFklv8Zf_001
+    100774: Crown Left Moulding_13D4n1gZpKJeRa8ft7iL3O_001
+    100776: Crown Left Moulding_1UyFzdBmtpIAKNCqVc4QAO_001
+    100778: Crown Left Moulding_2btgSeGDHXHfvRMZzFk2jo_001
+    100780: Crown Left Moulding_2fn9gv9qT6IBrQVMPHmN$O_001
+    100782: Crown Left Moulding_2pri9yIaFTGgw15Q8o4n9Z_001
+    100784: Crown Left Moulding_30l8YpIHU$JwpMusYaYUs8_001
+    100786: Crown Left Moulding_3eUEPb_CkxHOYNpkBHCC1G_001
+    100788: Crown Left Moulding_3EuvhEI5VIHBPN__dLgwZ6_001
+    100790: Crown Left Moulding_3GHoircYrLJuYMMS8VdySq_001
+    100792: Crown Left Moulding_3ShBCGbuoHIuTxOFYn3HwZ_001
+    100794: Crown Right Moulding_0FZaBJ7O3lGOVPg5YWyzE0_001
+    100796: Crown Right Moulding_1RDHii6nFKIhtBUtkH$GwN_001
+    100798: Crown Right Moulding_23pd1iH$PuIvZjkdAcbJGN_001
+    100800: Crown Right Moulding_3xRBEU0In8J9kYG7oKWSMz_001
+    100802: Floor_2DX4Eu1sAhJvZoPYXBTGvU_001
+    100804: Group_001
+    100806: Group_002
+    100808: Group_004
+    400000: .li3dsubmesh_001
+    400002: .li3dsubmesh_002
+    400004: .li3dsubmesh_003
+    400006: .li3dsubmesh_004
+    400008: .li3dsubmesh_005
+    400010: .li3dsubmesh_006
+    400012: .li3dsubmesh_007
+    400014: .li3dsubmesh_008
+    400016: .li3dsubmesh_009
+    400018: .li3dsubmesh_010
+    400020: .li3dsubmesh_011
+    400022: .li3dsubmesh_012
+    400024: .li3dsubmesh_013
+    400026: .li3dsubmesh_014
+    400028: .li3dsubmesh_015
+    400030: .li3dsubmesh_016
+    400032: .li3dsubmesh_017
+    400034: .li3dsubmesh_018
+    400036: .li3dsubmesh_019
+    400038: .li3dsubmesh_020
+    400040: .li3dsubmesh_021
+    400042: .li3dsubmesh_022
+    400044: .li3dsubmesh_023
+    400046: .li3dsubmesh_024
+    400048: .li3dsubmesh_025
+    400050: .li3dsubmesh_026
+    400052: .li3dsubmesh_027
+    400054: .li3dsubmesh_028
+    400056: .li3dsubmesh_029
+    400058: .li3dsubmesh_030
+    400060: .li3dsubmesh_031
+    400062: .li3dsubmesh_032
+    400064: .li3dsubmesh_033
+    400066: .li3dsubmesh_034
+    400068: .li3dsubmesh_035
+    400070: .li3dsubmesh_036
+    400072: .li3dsubmesh_037
+    400074: .li3dsubmesh_038
+    400076: .li3dsubmesh_039
+    400078: .li3dsubmesh_040
+    400080: .li3dsubmesh_041
+    400082: .li3dsubmesh_042
+    400084: .li3dsubmesh_043
+    400086: .li3dsubmesh_044
+    400088: .li3dsubmesh_045
+    400090: .li3dsubmesh_046
+    400092: .li3dsubmesh_047
+    400094: .li3dsubmesh_048
+    400096: .li3dsubmesh_049
+    400098: .li3dsubmesh_050
+    400100: .li3dsubmesh_051
+    400102: .li3dsubmesh_052
+    400104: .li3dsubmesh_053
+    400106: .li3dsubmesh_054
+    400108: .li3dsubmesh_055
+    400110: .li3dsubmesh_056
+    400112: .li3dsubmesh_057
+    400114: .li3dsubmesh_058
+    400116: .li3dsubmesh_059
+    400118: .li3dsubmesh_060
+    400120: .li3dsubmesh_061
+    400122: .li3dsubmesh_062
+    400124: .li3dsubmesh_063
+    400126: .li3dsubmesh_064
+    400128: .li3dsubmesh_065
+    400130: .li3dsubmesh_066
+    400132: .li3dsubmesh_067
+    400134: .li3dsubmesh_068
+    400136: .li3dsubmesh_069
+    400138: .li3dsubmesh_070
+    400140: .li3dsubmesh_071
+    400142: .li3dsubmesh_072
+    400144: .li3dsubmesh_073
+    400146: .li3dsubmesh_074
+    400148: .li3dsubmesh_075
+    400150: .li3dsubmesh_076
+    400152: .li3dsubmesh_077
+    400154: .li3dsubmesh_078
+    400156: .li3dsubmesh_079
+    400158: .li3dsubmesh_080
+    400160: .li3dsubmesh_081
+    400162: .li3dsubmesh_082
+    400164: .li3dsubmesh_083
+    400166: .li3dsubmesh_084
+    400168: .li3dsubmesh_085
+    400170: .li3dsubmesh_086
+    400172: .li3dsubmesh_087
+    400174: .li3dsubmesh_088
+    400176: .li3dsubmesh_089
+    400178: .li3dsubmesh_090
+    400180: .li3dsubmesh_091
+    400182: .li3dsubmesh_092
+    400184: .li3dsubmesh_093
+    400186: .li3dsubmesh_094
+    400188: .li3dsubmesh_095
+    400190: .li3dsubmesh_096
+    400192: .li3dsubmesh_097
+    400194: .li3dsubmesh_098
+    400196: .li3dsubmesh_099
+    400198: .li3dsubmesh_100
+    400200: .li3dsubmesh_101
+    400202: .li3dsubmesh_102
+    400204: .li3dsubmesh_103
+    400206: .li3dsubmesh_104
+    400208: .li3dsubmesh_105
+    400210: .li3dsubmesh_106
+    400212: .li3dsubmesh_107
+    400214: .li3dsubmesh_108
+    400216: .li3dsubmesh_109
+    400218: .li3dsubmesh_110
+    400220: .li3dsubmesh_111
+    400222: .li3dsubmesh_112
+    400224: .li3dsubmesh_113
+    400226: .li3dsubmesh_114
+    400228: .li3dsubmesh_115
+    400230: .li3dsubmesh_116
+    400232: .li3dsubmesh_117
+    400234: .li3dsubmesh_118
+    400236: .li3dsubmesh_119
+    400238: .li3dsubmesh_120
+    400240: .li3dsubmesh_121
+    400242: .li3dsubmesh_122
+    400244: .li3dsubmesh_123
+    400246: .li3dsubmesh_124
+    400248: .li3dsubmesh_125
+    400250: .li3dsubmesh_126
+    400252: .li3dsubmesh_127
+    400254: .li3dsubmesh_128
+    400256: .li3dsubmesh_129
+    400258: .li3dsubmesh_130
+    400260: .li3dsubmesh_131
+    400262: .li3dsubmesh_132
+    400264: .li3dsubmesh_133
+    400266: .li3dsubmesh_134
+    400268: .li3dsubmesh_135
+    400270: .li3dsubmesh_136
+    400272: .li3dsubmesh_137
+    400274: .li3dsubmesh_138
+    400276: .li3dsubmesh_139
+    400278: .li3dsubmesh_140
+    400280: .li3dsubmesh_141
+    400282: .li3dsubmesh_142
+    400284: .li3dsubmesh_143
+    400286: .li3dsubmesh_144
+    400288: .li3dsubmesh_145
+    400290: .li3dsubmesh_146
+    400292: .li3dsubmesh_147
+    400294: .li3dsubmesh_148
+    400296: .li3dsubmesh_149
+    400298: .li3dsubmesh_150
+    400300: .li3dsubmesh_151
+    400302: .li3dsubmesh_152
+    400304: .li3dsubmesh_153
+    400306: .li3dsubmesh_154
+    400308: .li3dsubmesh_155
+    400310: .li3dsubmesh_156
+    400312: .li3dsubmesh_157
+    400314: .li3dsubmesh_158
+    400316: .li3dsubmesh_159
+    400318: .li3dsubmesh_160
+    400320: .li3dsubmesh_161
+    400322: .li3dsubmesh_162
+    400324: .li3dsubmesh_163
+    400326: .li3dsubmesh_164
+    400328: .li3dsubmesh_165
+    400330: .li3dsubmesh_166
+    400332: .li3dsubmesh_167
+    400334: .li3dsubmesh_168
+    400336: .li3dsubmesh_169
+    400338: .li3dsubmesh_170
+    400340: .li3dsubmesh_171
+    400342: .li3dsubmesh_172
+    400344: .li3dsubmesh_173
+    400346: .li3dsubmesh_174
+    400348: .li3dsubmesh_175
+    400350: .li3dsubmesh_176
+    400352: .li3dsubmesh_177
+    400354: .li3dsubmesh_178
+    400356: .li3dsubmesh_179
+    400358: .li3dsubmesh_180
+    400360: .li3dsubmesh_181
+    400362: .li3dsubmesh_182
+    400364: .li3dsubmesh_183
+    400366: .li3dsubmesh_184
+    400368: .li3dsubmesh_185
+    400370: .li3dsubmesh_186
+    400372: .li3dsubmesh_187
+    400374: .li3dsubmesh_188
+    400376: .li3dsubmesh_189
+    400378: .li3dsubmesh_190
+    400380: .li3dsubmesh_191
+    400382: .li3dsubmesh_192
+    400384: .li3dsubmesh_193
+    400386: .li3dsubmesh_194
+    400388: .li3dsubmesh_195
+    400390: .li3dsubmesh_196
+    400392: .li3dsubmesh_197
+    400394: .li3dsubmesh_198
+    400396: .li3dsubmesh_199
+    400398: .li3dsubmesh_200
+    400400: .li3dsubmesh_201
+    400402: .li3dsubmesh_202
+    400404: .li3dsubmesh_203
+    400406: .li3dsubmesh_204
+    400408: .li3dsubmesh_205
+    400410: .li3dsubmesh_206
+    400412: .li3dsubmesh_207
+    400414: .li3dsubmesh_208
+    400416: .li3dsubmesh_209
+    400418: .li3dsubmesh_210
+    400420: .li3dsubmesh_211
+    400422: .li3dsubmesh_212
+    400424: .li3dsubmesh_213
+    400426: .li3dsubmesh_214
+    400428: .li3dsubmesh_215
+    400430: .li3dsubmesh_216
+    400432: .li3dsubmesh_217
+    400434: .li3dsubmesh_218
+    400436: .li3dsubmesh_219
+    400438: .li3dsubmesh_220
+    400440: .li3dsubmesh_221
+    400442: .li3dsubmesh_222
+    400444: .li3dsubmesh_223
+    400446: .li3dsubmesh_225
+    400448: .li3dsubmesh_227
+    400450: .li3dsubmesh_228
+    400452: .li3dsubmesh_229
+    400454: .li3dsubmesh_230
+    400456: .li3dsubmesh_231
+    400458: .li3dsubmesh_232
+    400460: .li3dsubmesh_233
+    400462: .li3dsubmesh_234
+    400464: .li3dsubmesh_235
+    400466: .li3dsubmesh_236
+    400468: .li3dsubmesh_237
+    400470: .li3dsubmesh_238
+    400472: .li3dsubmesh_239
+    400474: .li3dsubmesh_240
+    400476: .li3dsubmesh_241
+    400478: .li3dsubmesh_242
+    400480: .li3dsubmesh_243
+    400482: .li3dsubmesh_244
+    400484: .li3dsubmesh_245
+    400486: .li3dsubmesh_246
+    400488: .li3dsubmesh_247
+    400490: .li3dsubmesh_248
+    400492: .li3dsubmesh_249
+    400494: .li3dsubmesh_250
+    400496: .li3dsubmesh_251
+    400498: .li3dsubmesh_252
+    400500: .li3dsubmesh_253
+    400502: .li3dsubmesh_254
+    400504: .li3dsubmesh_255
+    400506: .li3dsubmesh_256
+    400508: .li3dsubmesh_257
+    400510: .li3dsubmesh_258
+    400512: .li3dsubmesh_259
+    400514: .li3dsubmesh_260
+    400516: .li3dsubmesh_261
+    400518: .li3dsubmesh_262
+    400520: .li3dsubmesh_263
+    400522: .li3dsubmesh_264
+    400524: .li3dsubmesh_265
+    400526: .li3dsubmesh_266
+    400528: .li3dsubmesh_267
+    400530: .li3dsubmesh_268
+    400532: .li3dsubmesh_269
+    400534: .li3dsubmesh_270
+    400536: .li3dsubmesh_271
+    400538: .li3dsubmesh_272
+    400540: .li3dsubmesh_273
+    400542: .li3dsubmesh_274
+    400544: .li3dsubmesh_275
+    400546: .li3dsubmesh_276
+    400548: .li3dsubmesh_277
+    400550: .li3dsubmesh_278
+    400552: .li3dsubmesh_279
+    400554: .li3dsubmesh_280
+    400556: .li3dsubmesh_281
+    400558: .li3dsubmesh_282
+    400560: .li3dsubmesh_283
+    400562: .li3dsubmesh_284
+    400564: .li3dsubmesh_285
+    400566: .li3dsubmesh_286
+    400568: .li3dsubmesh_287
+    400570: .li3dsubmesh_288
+    400572: .li3dsubmesh_289
+    400574: .li3dsubmesh_290
+    400576: .li3dsubmesh_291
+    400578: .li3dsubmesh_292
+    400580: .li3dsubmesh_293
+    400582: .li3dsubmesh_294
+    400584: .li3dsubmesh_295
+    400586: .li3dsubmesh_296
+    400588: .li3dsubmesh_297
+    400590: .li3dsubmesh_298
+    400592: .li3dsubmesh_299
+    400594: .li3dsubmesh_300
+    400596: .li3dsubmesh_301
+    400598: .li3dsubmesh_302
+    400600: .li3dsubmesh_303
+    400602: .li3dsubmesh_304
+    400604: .li3dsubmesh_305
+    400606: .li3dsubmesh_306
+    400608: .li3dsubmesh_307
+    400610: .li3dsubmesh_308
+    400612: .li3dsubmesh_309
+    400614: .li3dsubmesh_310
+    400616: .li3dsubmesh_311
+    400618: .li3dsubmesh_312
+    400620: .li3dsubmesh_313
+    400622: .li3dsubmesh_314
+    400624: .li3dsubmesh_315
+    400626: .li3dsubmesh_316
+    400628: .li3dsubmesh_317
+    400630: .li3dsubmesh_318
+    400632: .li3dsubmesh_319
+    400634: .li3dsubmesh_320
+    400636: .li3dsubmesh_321
+    400638: .li3dsubmesh_322
+    400640: .li3dsubmesh_323
+    400642: .li3dsubmesh_324
+    400644: .li3dsubmesh_325
+    400646: .li3dsubmesh_326
+    400648: .li3dsubmesh_327
+    400650: .li3dsubmesh_328
+    400652: .li3dsubmesh_329
+    400654: .li3dsubmesh_330
+    400656: .li3dsubmesh_331
+    400658: .li3dsubmesh_332
+    400660: .li3dsubmesh_333
+    400662: .li3dsubmesh_334
+    400664: .li3dsubmesh_335
+    400666: .li3dsubmesh_336
+    400668: .li3dsubmesh_337
+    400670: .li3dsubmesh_338
+    400672: .li3dsubmesh_339
+    400674: .li3dsubmesh_340
+    400676: .li3dsubmesh_341
+    400678: .li3dsubmesh_342
+    400680: .li3dsubmesh_343
+    400682: .li3dsubmesh_344
+    400684: .li3dsubmesh_345
+    400686: .li3dsubmesh_346
+    400688: .li3dsubmesh_347
+    400690: //RootNode
+    400692: AutoCeiling_1_72YLXWDOGBUS_weTn_Cj_001
+    400694: AutoCeiling_1OCEAPipjnHgMiIiN5IVmN_001
+    400696: AutoCeiling_1XzIAFSzNeIROZz6_Z1LHQ_001
+    400698: AutoCeiling_3ZjRj1AE$uI9ZzutTMB7Bj_001
+    400700: AutoFloor_0_vGsKW7JYHBqSxuhkJx1v_001
+    400702: AutoFloor_222G1e_nHfH8Tlpg3ZD7wv_001
+    400704: AutoFloor_2jdAp8PtpnHwIIruuoyBtC_001
+    400706: AutoFloor_2Vl5Q0zWFxIAfsRRiX3W5O_001
+    400708: Base Left Moulding_0afrYSZV2uIggtBkdjB4Dd_001
+    400710: Base Left Moulding_0d2tU37_MvIeowWWxj3yXB_001
+    400712: Base Left Moulding_0KJ$QQ7Uf9Jgh7gAWFCmuL_001
+    400714: Base Left Moulding_0PfaSAtANwHgJMaPNbfZ0i_001
+    400716: Base Left Moulding_0u15jGzHKNJfzrhNkwPoex_001
+    400718: Base Left Moulding_0y5PBx1HNAI85Yf3sLFvwv_001
+    400720: Base Left Moulding_0z5s6CxZgSHxZtKhyHceZO_001
+    400722: Base Left Moulding_1$QbNd_kXxG84U9CtNxZ$F_001
+    400724: Base Left Moulding_1AadFtpD9CJPoepzxJrXRd_001
+    400726: Base Left Moulding_1bOfoXEx7xHQm4Ea04Jnvu_001
+    400728: Base Left Moulding_1x97Q1rXZXHAvN3nDB2Abf_001
+    400730: Base Left Moulding_2feo3YlSX4GA2JQTyFQ5sG_001
+    400732: Base Left Moulding_2xFoUP9i4DI9sYbk4yRJsJ_001
+    400734: Base Left Moulding_3EUehQ1pdGIxUaWIr7Djg3_001
+    400736: Base Left Moulding_3H4U4DlIGEJhAa8ralSM2U_001
+    400738: Base Left Moulding_3kWRQI8BXYHw9U$CypyfK__001
+    400740: Base Left Moulding_3M$wqaJP1cJuPI_Jd8oVPm_001
+    400742: Base Left Moulding_3m_Dc29LR6Ge0_JHAD4P2D_001
+    400744: Base Left Moulding_3mdt0IdWTyJuWp8e9sIpdK_001
+    400746: Base Left Moulding_3NkT2KmVINHQZo4o4C7Iyk_001
+    400748: Base Right Moulding_0b5dHf9IbLGvxQs2WXYlmr_001
+    400750: Base Right Moulding_0dRm1C_Vp6HAudb1z3Ynqo_001
+    400752: Base Right Moulding_19qBT40RwAIPC4vYae3qWa_001
+    400754: Base Right Moulding_22ZFviIoNqHRK16fGfuwt9_001
+    400756: Base Right Moulding_2IaTUlbI0AIhUDW3COWxMN_001
+    400758: Base Right Moulding_2lNDYrsROUIgD6L_9P32aa_001
+    400760: Ceiling Opening_3DQ7wRvh0THgn3Fht1u1Lq_001
+    400762: Ceiling_3Tdow7pQ5kI8rXksbJ6dvY_001
+    400764: Crown Left Moulding_0$qcw60P2qJwn7x4UfpOWu_001
+    400766: Crown Left Moulding_0cf3B6VQnNJ8snH3EcnMbk_001
+    400768: Crown Left Moulding_0g$4ni1mbvJvOGW5F$yd4K_001
+    400770: Crown Left Moulding_0SU04ChdA0JxPKMKL$1c8w_001
+    400772: Crown Left Moulding_0Yh7_TokPTGx0HeFklv8Zf_001
+    400774: Crown Left Moulding_13D4n1gZpKJeRa8ft7iL3O_001
+    400776: Crown Left Moulding_1UyFzdBmtpIAKNCqVc4QAO_001
+    400778: Crown Left Moulding_2btgSeGDHXHfvRMZzFk2jo_001
+    400780: Crown Left Moulding_2fn9gv9qT6IBrQVMPHmN$O_001
+    400782: Crown Left Moulding_2pri9yIaFTGgw15Q8o4n9Z_001
+    400784: Crown Left Moulding_30l8YpIHU$JwpMusYaYUs8_001
+    400786: Crown Left Moulding_3eUEPb_CkxHOYNpkBHCC1G_001
+    400788: Crown Left Moulding_3EuvhEI5VIHBPN__dLgwZ6_001
+    400790: Crown Left Moulding_3GHoircYrLJuYMMS8VdySq_001
+    400792: Crown Left Moulding_3ShBCGbuoHIuTxOFYn3HwZ_001
+    400794: Crown Right Moulding_0FZaBJ7O3lGOVPg5YWyzE0_001
+    400796: Crown Right Moulding_1RDHii6nFKIhtBUtkH$GwN_001
+    400798: Crown Right Moulding_23pd1iH$PuIvZjkdAcbJGN_001
+    400800: Crown Right Moulding_3xRBEU0In8J9kYG7oKWSMz_001
+    400802: Floor_2DX4Eu1sAhJvZoPYXBTGvU_001
+    400804: Group_001
+    400806: Group_002
+    400808: Group_004
+    2100000: Laminate Floor_007 Oak
+    2100002: Matte paint_9001 cream
+    2100004: Matte paint_1013 oyster white
+    2100006: Imported_1_-Siding3
+    2100008: Roofing_Asphalt-017
+    2100010: Matte paint_7031 blue grey
+    2100012: Wood_007 Oxford Cherry
+    2100014: Glass_ArchiBase_Glass
+    2100016: fx_9001_cream_matte_paint
+    2100018: Glass_Blue
+    2100020: Glossy paint_9010 pure white
+    2100022: Glossy paint_7024 graphite grey
+    2100024: Glossy paint_7035 light grey
+    2100026: Ceramics_VB_164_2
+    2100028: Ceramics_VB_164_1
+    2100030: Ceramics_VB_124_1
+    2100032: Glossy paint_1014 ivory
+    2100034: Glossy paint_1015 light ivory
+    2100036: Imported_1_Wood-cherry_3zKsI9Oe4HsxSR00gLYnzC
+    2100038: Imported_1_Stone_walk
+    2100040: Imported_1_SketchupDefault_0grROzM5qHsuqi00sJk4tI
+    2100042: Metal_ArchiBase_Metal_2
+    2100044: Imported_1__Wood-cherry_fasad_3z0yTpOe4HsxSR00gLYnzC
+    2100046: skp_front_default
+    2100048: Imported_1__Wood-cherry_2
+    2100050: Metal_ArchiBase_Metal_2_no_cull
+    2100052: Imported_1__Wood-cherry_fasad_3z0yTpOe4HsxSR00gLYnzC_no_cull
+    2100054: Imported_1_Stone_walk_no_cull
+    2100056: BaseWhite
+    2100058: Plaster_White
+    2100060: Imported_1_-Siding5
+    2100062: Matte paint_7042 traffic grey A
+    2100064: Metal_ArchiBase_Brass
+    2100066: Metal_ArchiBase_Chrome
+    2100068: Glossy paint_1001 beige
+    2100070: Matte paint_9002 grey white
+    2100072: Brick_001 Baked Brick
+    2300000: .li3dsubmesh_001
+    2300002: .li3dsubmesh_002
+    2300004: .li3dsubmesh_003
+    2300006: .li3dsubmesh_004
+    2300008: .li3dsubmesh_005
+    2300010: .li3dsubmesh_006
+    2300012: .li3dsubmesh_007
+    2300014: .li3dsubmesh_008
+    2300016: .li3dsubmesh_009
+    2300018: .li3dsubmesh_010
+    2300020: .li3dsubmesh_011
+    2300022: .li3dsubmesh_012
+    2300024: .li3dsubmesh_013
+    2300026: .li3dsubmesh_014
+    2300028: .li3dsubmesh_015
+    2300030: .li3dsubmesh_016
+    2300032: .li3dsubmesh_017
+    2300034: .li3dsubmesh_018
+    2300036: .li3dsubmesh_019
+    2300038: .li3dsubmesh_020
+    2300040: .li3dsubmesh_021
+    2300042: .li3dsubmesh_022
+    2300044: .li3dsubmesh_023
+    2300046: .li3dsubmesh_024
+    2300048: .li3dsubmesh_025
+    2300050: .li3dsubmesh_026
+    2300052: .li3dsubmesh_027
+    2300054: .li3dsubmesh_028
+    2300056: .li3dsubmesh_029
+    2300058: .li3dsubmesh_030
+    2300060: .li3dsubmesh_031
+    2300062: .li3dsubmesh_032
+    2300064: .li3dsubmesh_033
+    2300066: .li3dsubmesh_034
+    2300068: .li3dsubmesh_035
+    2300070: .li3dsubmesh_036
+    2300072: .li3dsubmesh_037
+    2300074: .li3dsubmesh_038
+    2300076: .li3dsubmesh_039
+    2300078: .li3dsubmesh_040
+    2300080: .li3dsubmesh_041
+    2300082: .li3dsubmesh_042
+    2300084: .li3dsubmesh_043
+    2300086: .li3dsubmesh_044
+    2300088: .li3dsubmesh_045
+    2300090: .li3dsubmesh_046
+    2300092: .li3dsubmesh_047
+    2300094: .li3dsubmesh_048
+    2300096: .li3dsubmesh_049
+    2300098: .li3dsubmesh_050
+    2300100: .li3dsubmesh_051
+    2300102: .li3dsubmesh_052
+    2300104: .li3dsubmesh_053
+    2300106: .li3dsubmesh_054
+    2300108: .li3dsubmesh_055
+    2300110: .li3dsubmesh_056
+    2300112: .li3dsubmesh_057
+    2300114: .li3dsubmesh_058
+    2300116: .li3dsubmesh_059
+    2300118: .li3dsubmesh_060
+    2300120: .li3dsubmesh_061
+    2300122: .li3dsubmesh_062
+    2300124: .li3dsubmesh_063
+    2300126: .li3dsubmesh_064
+    2300128: .li3dsubmesh_065
+    2300130: .li3dsubmesh_066
+    2300132: .li3dsubmesh_067
+    2300134: .li3dsubmesh_068
+    2300136: .li3dsubmesh_069
+    2300138: .li3dsubmesh_070
+    2300140: .li3dsubmesh_071
+    2300142: .li3dsubmesh_072
+    2300144: .li3dsubmesh_073
+    2300146: .li3dsubmesh_074
+    2300148: .li3dsubmesh_075
+    2300150: .li3dsubmesh_076
+    2300152: .li3dsubmesh_077
+    2300154: .li3dsubmesh_078
+    2300156: .li3dsubmesh_079
+    2300158: .li3dsubmesh_080
+    2300160: .li3dsubmesh_081
+    2300162: .li3dsubmesh_082
+    2300164: .li3dsubmesh_083
+    2300166: .li3dsubmesh_084
+    2300168: .li3dsubmesh_085
+    2300170: .li3dsubmesh_086
+    2300172: .li3dsubmesh_087
+    2300174: .li3dsubmesh_088
+    2300176: .li3dsubmesh_089
+    2300178: .li3dsubmesh_090
+    2300180: .li3dsubmesh_091
+    2300182: .li3dsubmesh_092
+    2300184: .li3dsubmesh_093
+    2300186: .li3dsubmesh_094
+    2300188: .li3dsubmesh_095
+    2300190: .li3dsubmesh_096
+    2300192: .li3dsubmesh_097
+    2300194: .li3dsubmesh_098
+    2300196: .li3dsubmesh_099
+    2300198: .li3dsubmesh_100
+    2300200: .li3dsubmesh_101
+    2300202: .li3dsubmesh_102
+    2300204: .li3dsubmesh_103
+    2300206: .li3dsubmesh_104
+    2300208: .li3dsubmesh_105
+    2300210: .li3dsubmesh_106
+    2300212: .li3dsubmesh_107
+    2300214: .li3dsubmesh_108
+    2300216: .li3dsubmesh_109
+    2300218: .li3dsubmesh_110
+    2300220: .li3dsubmesh_111
+    2300222: .li3dsubmesh_112
+    2300224: .li3dsubmesh_113
+    2300226: .li3dsubmesh_114
+    2300228: .li3dsubmesh_115
+    2300230: .li3dsubmesh_116
+    2300232: .li3dsubmesh_117
+    2300234: .li3dsubmesh_118
+    2300236: .li3dsubmesh_119
+    2300238: .li3dsubmesh_120
+    2300240: .li3dsubmesh_121
+    2300242: .li3dsubmesh_122
+    2300244: .li3dsubmesh_123
+    2300246: .li3dsubmesh_124
+    2300248: .li3dsubmesh_125
+    2300250: .li3dsubmesh_126
+    2300252: .li3dsubmesh_127
+    2300254: .li3dsubmesh_128
+    2300256: .li3dsubmesh_129
+    2300258: .li3dsubmesh_130
+    2300260: .li3dsubmesh_131
+    2300262: .li3dsubmesh_132
+    2300264: .li3dsubmesh_133
+    2300266: .li3dsubmesh_134
+    2300268: .li3dsubmesh_135
+    2300270: .li3dsubmesh_136
+    2300272: .li3dsubmesh_137
+    2300274: .li3dsubmesh_138
+    2300276: .li3dsubmesh_139
+    2300278: .li3dsubmesh_140
+    2300280: .li3dsubmesh_141
+    2300282: .li3dsubmesh_142
+    2300284: .li3dsubmesh_143
+    2300286: .li3dsubmesh_144
+    2300288: .li3dsubmesh_145
+    2300290: .li3dsubmesh_146
+    2300292: .li3dsubmesh_147
+    2300294: .li3dsubmesh_148
+    2300296: .li3dsubmesh_149
+    2300298: .li3dsubmesh_150
+    2300300: .li3dsubmesh_151
+    2300302: .li3dsubmesh_152
+    2300304: .li3dsubmesh_153
+    2300306: .li3dsubmesh_154
+    2300308: .li3dsubmesh_155
+    2300310: .li3dsubmesh_156
+    2300312: .li3dsubmesh_157
+    2300314: .li3dsubmesh_158
+    2300316: .li3dsubmesh_159
+    2300318: .li3dsubmesh_160
+    2300320: .li3dsubmesh_161
+    2300322: .li3dsubmesh_162
+    2300324: .li3dsubmesh_163
+    2300326: .li3dsubmesh_164
+    2300328: .li3dsubmesh_165
+    2300330: .li3dsubmesh_166
+    2300332: .li3dsubmesh_167
+    2300334: .li3dsubmesh_168
+    2300336: .li3dsubmesh_169
+    2300338: .li3dsubmesh_170
+    2300340: .li3dsubmesh_171
+    2300342: .li3dsubmesh_172
+    2300344: .li3dsubmesh_173
+    2300346: .li3dsubmesh_174
+    2300348: .li3dsubmesh_175
+    2300350: .li3dsubmesh_176
+    2300352: .li3dsubmesh_177
+    2300354: .li3dsubmesh_178
+    2300356: .li3dsubmesh_179
+    2300358: .li3dsubmesh_180
+    2300360: .li3dsubmesh_181
+    2300362: .li3dsubmesh_182
+    2300364: .li3dsubmesh_183
+    2300366: .li3dsubmesh_184
+    2300368: .li3dsubmesh_185
+    2300370: .li3dsubmesh_186
+    2300372: .li3dsubmesh_187
+    2300374: .li3dsubmesh_188
+    2300376: .li3dsubmesh_189
+    2300378: .li3dsubmesh_190
+    2300380: .li3dsubmesh_191
+    2300382: .li3dsubmesh_192
+    2300384: .li3dsubmesh_193
+    2300386: .li3dsubmesh_194
+    2300388: .li3dsubmesh_195
+    2300390: .li3dsubmesh_196
+    2300392: .li3dsubmesh_197
+    2300394: .li3dsubmesh_198
+    2300396: .li3dsubmesh_199
+    2300398: .li3dsubmesh_200
+    2300400: .li3dsubmesh_201
+    2300402: .li3dsubmesh_202
+    2300404: .li3dsubmesh_203
+    2300406: .li3dsubmesh_204
+    2300408: .li3dsubmesh_205
+    2300410: .li3dsubmesh_206
+    2300412: .li3dsubmesh_207
+    2300414: .li3dsubmesh_208
+    2300416: .li3dsubmesh_209
+    2300418: .li3dsubmesh_210
+    2300420: .li3dsubmesh_211
+    2300422: .li3dsubmesh_212
+    2300424: .li3dsubmesh_213
+    2300426: .li3dsubmesh_214
+    2300428: .li3dsubmesh_215
+    2300430: .li3dsubmesh_216
+    2300432: .li3dsubmesh_217
+    2300434: .li3dsubmesh_218
+    2300436: .li3dsubmesh_219
+    2300438: .li3dsubmesh_220
+    2300440: .li3dsubmesh_221
+    2300442: .li3dsubmesh_222
+    2300444: .li3dsubmesh_223
+    2300446: .li3dsubmesh_225
+    2300448: .li3dsubmesh_227
+    2300450: .li3dsubmesh_228
+    2300452: .li3dsubmesh_229
+    2300454: .li3dsubmesh_230
+    2300456: .li3dsubmesh_231
+    2300458: .li3dsubmesh_232
+    2300460: .li3dsubmesh_233
+    2300462: .li3dsubmesh_234
+    2300464: .li3dsubmesh_235
+    2300466: .li3dsubmesh_236
+    2300468: .li3dsubmesh_237
+    2300470: .li3dsubmesh_238
+    2300472: .li3dsubmesh_239
+    2300474: .li3dsubmesh_240
+    2300476: .li3dsubmesh_241
+    2300478: .li3dsubmesh_242
+    2300480: .li3dsubmesh_243
+    2300482: .li3dsubmesh_244
+    2300484: .li3dsubmesh_245
+    2300486: .li3dsubmesh_246
+    2300488: .li3dsubmesh_247
+    2300490: .li3dsubmesh_248
+    2300492: .li3dsubmesh_249
+    2300494: .li3dsubmesh_250
+    2300496: .li3dsubmesh_251
+    2300498: .li3dsubmesh_252
+    2300500: .li3dsubmesh_253
+    2300502: .li3dsubmesh_254
+    2300504: .li3dsubmesh_255
+    2300506: .li3dsubmesh_256
+    2300508: .li3dsubmesh_257
+    2300510: .li3dsubmesh_258
+    2300512: .li3dsubmesh_259
+    2300514: .li3dsubmesh_260
+    2300516: .li3dsubmesh_261
+    2300518: .li3dsubmesh_262
+    2300520: .li3dsubmesh_263
+    2300522: .li3dsubmesh_264
+    2300524: .li3dsubmesh_265
+    2300526: .li3dsubmesh_266
+    2300528: .li3dsubmesh_267
+    2300530: .li3dsubmesh_268
+    2300532: .li3dsubmesh_269
+    2300534: .li3dsubmesh_270
+    2300536: .li3dsubmesh_271
+    2300538: .li3dsubmesh_272
+    2300540: .li3dsubmesh_273
+    2300542: .li3dsubmesh_274
+    2300544: .li3dsubmesh_275
+    2300546: .li3dsubmesh_276
+    2300548: .li3dsubmesh_277
+    2300550: .li3dsubmesh_278
+    2300552: .li3dsubmesh_279
+    2300554: .li3dsubmesh_280
+    2300556: .li3dsubmesh_281
+    2300558: .li3dsubmesh_282
+    2300560: .li3dsubmesh_283
+    2300562: .li3dsubmesh_284
+    2300564: .li3dsubmesh_285
+    2300566: .li3dsubmesh_286
+    2300568: .li3dsubmesh_287
+    2300570: .li3dsubmesh_288
+    2300572: .li3dsubmesh_289
+    2300574: .li3dsubmesh_290
+    2300576: .li3dsubmesh_291
+    2300578: .li3dsubmesh_292
+    2300580: .li3dsubmesh_293
+    2300582: .li3dsubmesh_294
+    2300584: .li3dsubmesh_295
+    2300586: .li3dsubmesh_296
+    2300588: .li3dsubmesh_297
+    2300590: .li3dsubmesh_298
+    2300592: .li3dsubmesh_299
+    2300594: .li3dsubmesh_300
+    2300596: .li3dsubmesh_301
+    2300598: .li3dsubmesh_302
+    2300600: .li3dsubmesh_303
+    2300602: .li3dsubmesh_304
+    2300604: .li3dsubmesh_305
+    2300606: .li3dsubmesh_306
+    2300608: .li3dsubmesh_307
+    2300610: .li3dsubmesh_308
+    2300612: .li3dsubmesh_309
+    2300614: .li3dsubmesh_310
+    2300616: .li3dsubmesh_311
+    2300618: .li3dsubmesh_312
+    2300620: .li3dsubmesh_313
+    2300622: .li3dsubmesh_314
+    2300624: .li3dsubmesh_315
+    2300626: .li3dsubmesh_316
+    2300628: .li3dsubmesh_317
+    2300630: .li3dsubmesh_318
+    2300632: .li3dsubmesh_319
+    2300634: .li3dsubmesh_320
+    2300636: .li3dsubmesh_321
+    2300638: .li3dsubmesh_322
+    2300640: .li3dsubmesh_323
+    2300642: .li3dsubmesh_324
+    2300644: .li3dsubmesh_325
+    2300646: .li3dsubmesh_326
+    2300648: .li3dsubmesh_327
+    2300650: .li3dsubmesh_328
+    2300652: .li3dsubmesh_329
+    2300654: .li3dsubmesh_330
+    2300656: .li3dsubmesh_331
+    2300658: .li3dsubmesh_332
+    2300660: .li3dsubmesh_333
+    2300662: .li3dsubmesh_334
+    2300664: .li3dsubmesh_335
+    2300666: .li3dsubmesh_336
+    2300668: .li3dsubmesh_337
+    2300670: .li3dsubmesh_338
+    2300672: .li3dsubmesh_339
+    2300674: .li3dsubmesh_340
+    2300676: .li3dsubmesh_341
+    2300678: .li3dsubmesh_342
+    2300680: .li3dsubmesh_343
+    2300682: .li3dsubmesh_344
+    2300684: .li3dsubmesh_345
+    2300686: .li3dsubmesh_346
+    2300688: .li3dsubmesh_347
+    2300690: AutoCeiling_1_72YLXWDOGBUS_weTn_Cj_001
+    2300692: AutoCeiling_1OCEAPipjnHgMiIiN5IVmN_001
+    2300694: AutoCeiling_1XzIAFSzNeIROZz6_Z1LHQ_001
+    2300696: AutoCeiling_3ZjRj1AE$uI9ZzutTMB7Bj_001
+    2300698: AutoFloor_0_vGsKW7JYHBqSxuhkJx1v_001
+    2300700: AutoFloor_222G1e_nHfH8Tlpg3ZD7wv_001
+    2300702: AutoFloor_2jdAp8PtpnHwIIruuoyBtC_001
+    2300704: AutoFloor_2Vl5Q0zWFxIAfsRRiX3W5O_001
+    2300706: Base Left Moulding_0afrYSZV2uIggtBkdjB4Dd_001
+    2300708: Base Left Moulding_0d2tU37_MvIeowWWxj3yXB_001
+    2300710: Base Left Moulding_0KJ$QQ7Uf9Jgh7gAWFCmuL_001
+    2300712: Base Left Moulding_0PfaSAtANwHgJMaPNbfZ0i_001
+    2300714: Base Left Moulding_0u15jGzHKNJfzrhNkwPoex_001
+    2300716: Base Left Moulding_0y5PBx1HNAI85Yf3sLFvwv_001
+    2300718: Base Left Moulding_0z5s6CxZgSHxZtKhyHceZO_001
+    2300720: Base Left Moulding_1$QbNd_kXxG84U9CtNxZ$F_001
+    2300722: Base Left Moulding_1AadFtpD9CJPoepzxJrXRd_001
+    2300724: Base Left Moulding_1bOfoXEx7xHQm4Ea04Jnvu_001
+    2300726: Base Left Moulding_1x97Q1rXZXHAvN3nDB2Abf_001
+    2300728: Base Left Moulding_2feo3YlSX4GA2JQTyFQ5sG_001
+    2300730: Base Left Moulding_2xFoUP9i4DI9sYbk4yRJsJ_001
+    2300732: Base Left Moulding_3EUehQ1pdGIxUaWIr7Djg3_001
+    2300734: Base Left Moulding_3H4U4DlIGEJhAa8ralSM2U_001
+    2300736: Base Left Moulding_3kWRQI8BXYHw9U$CypyfK__001
+    2300738: Base Left Moulding_3M$wqaJP1cJuPI_Jd8oVPm_001
+    2300740: Base Left Moulding_3m_Dc29LR6Ge0_JHAD4P2D_001
+    2300742: Base Left Moulding_3mdt0IdWTyJuWp8e9sIpdK_001
+    2300744: Base Left Moulding_3NkT2KmVINHQZo4o4C7Iyk_001
+    2300746: Base Right Moulding_0b5dHf9IbLGvxQs2WXYlmr_001
+    2300748: Base Right Moulding_0dRm1C_Vp6HAudb1z3Ynqo_001
+    2300750: Base Right Moulding_19qBT40RwAIPC4vYae3qWa_001
+    2300752: Base Right Moulding_22ZFviIoNqHRK16fGfuwt9_001
+    2300754: Base Right Moulding_2IaTUlbI0AIhUDW3COWxMN_001
+    2300756: Base Right Moulding_2lNDYrsROUIgD6L_9P32aa_001
+    2300758: Ceiling Opening_3DQ7wRvh0THgn3Fht1u1Lq_001
+    2300760: Ceiling_3Tdow7pQ5kI8rXksbJ6dvY_001
+    2300762: Crown Left Moulding_0$qcw60P2qJwn7x4UfpOWu_001
+    2300764: Crown Left Moulding_0cf3B6VQnNJ8snH3EcnMbk_001
+    2300766: Crown Left Moulding_0g$4ni1mbvJvOGW5F$yd4K_001
+    2300768: Crown Left Moulding_0SU04ChdA0JxPKMKL$1c8w_001
+    2300770: Crown Left Moulding_0Yh7_TokPTGx0HeFklv8Zf_001
+    2300772: Crown Left Moulding_13D4n1gZpKJeRa8ft7iL3O_001
+    2300774: Crown Left Moulding_1UyFzdBmtpIAKNCqVc4QAO_001
+    2300776: Crown Left Moulding_2btgSeGDHXHfvRMZzFk2jo_001
+    2300778: Crown Left Moulding_2fn9gv9qT6IBrQVMPHmN$O_001
+    2300780: Crown Left Moulding_2pri9yIaFTGgw15Q8o4n9Z_001
+    2300782: Crown Left Moulding_30l8YpIHU$JwpMusYaYUs8_001
+    2300784: Crown Left Moulding_3eUEPb_CkxHOYNpkBHCC1G_001
+    2300786: Crown Left Moulding_3EuvhEI5VIHBPN__dLgwZ6_001
+    2300788: Crown Left Moulding_3GHoircYrLJuYMMS8VdySq_001
+    2300790: Crown Left Moulding_3ShBCGbuoHIuTxOFYn3HwZ_001
+    2300792: Crown Right Moulding_0FZaBJ7O3lGOVPg5YWyzE0_001
+    2300794: Crown Right Moulding_1RDHii6nFKIhtBUtkH$GwN_001
+    2300796: Crown Right Moulding_23pd1iH$PuIvZjkdAcbJGN_001
+    2300798: Crown Right Moulding_3xRBEU0In8J9kYG7oKWSMz_001
+    2300800: Floor_2DX4Eu1sAhJvZoPYXBTGvU_001
+    2300802: Group_001
+    2300804: Group_002
+    2300806: Group_004
+    3300000: .li3dsubmesh_001
+    3300002: .li3dsubmesh_002
+    3300004: .li3dsubmesh_003
+    3300006: .li3dsubmesh_004
+    3300008: .li3dsubmesh_005
+    3300010: .li3dsubmesh_006
+    3300012: .li3dsubmesh_007
+    3300014: .li3dsubmesh_008
+    3300016: .li3dsubmesh_009
+    3300018: .li3dsubmesh_010
+    3300020: .li3dsubmesh_011
+    3300022: .li3dsubmesh_012
+    3300024: .li3dsubmesh_013
+    3300026: .li3dsubmesh_014
+    3300028: .li3dsubmesh_015
+    3300030: .li3dsubmesh_016
+    3300032: .li3dsubmesh_017
+    3300034: .li3dsubmesh_018
+    3300036: .li3dsubmesh_019
+    3300038: .li3dsubmesh_020
+    3300040: .li3dsubmesh_021
+    3300042: .li3dsubmesh_022
+    3300044: .li3dsubmesh_023
+    3300046: .li3dsubmesh_024
+    3300048: .li3dsubmesh_025
+    3300050: .li3dsubmesh_026
+    3300052: .li3dsubmesh_027
+    3300054: .li3dsubmesh_028
+    3300056: .li3dsubmesh_029
+    3300058: .li3dsubmesh_030
+    3300060: .li3dsubmesh_031
+    3300062: .li3dsubmesh_032
+    3300064: .li3dsubmesh_033
+    3300066: .li3dsubmesh_034
+    3300068: .li3dsubmesh_035
+    3300070: .li3dsubmesh_036
+    3300072: .li3dsubmesh_037
+    3300074: .li3dsubmesh_038
+    3300076: .li3dsubmesh_039
+    3300078: .li3dsubmesh_040
+    3300080: .li3dsubmesh_041
+    3300082: .li3dsubmesh_042
+    3300084: .li3dsubmesh_043
+    3300086: .li3dsubmesh_044
+    3300088: .li3dsubmesh_045
+    3300090: .li3dsubmesh_046
+    3300092: .li3dsubmesh_047
+    3300094: .li3dsubmesh_048
+    3300096: .li3dsubmesh_049
+    3300098: .li3dsubmesh_050
+    3300100: .li3dsubmesh_051
+    3300102: .li3dsubmesh_052
+    3300104: .li3dsubmesh_053
+    3300106: .li3dsubmesh_054
+    3300108: .li3dsubmesh_055
+    3300110: .li3dsubmesh_056
+    3300112: .li3dsubmesh_057
+    3300114: .li3dsubmesh_058
+    3300116: .li3dsubmesh_059
+    3300118: .li3dsubmesh_060
+    3300120: .li3dsubmesh_061
+    3300122: .li3dsubmesh_062
+    3300124: .li3dsubmesh_063
+    3300126: .li3dsubmesh_064
+    3300128: .li3dsubmesh_065
+    3300130: .li3dsubmesh_066
+    3300132: .li3dsubmesh_067
+    3300134: .li3dsubmesh_068
+    3300136: .li3dsubmesh_069
+    3300138: .li3dsubmesh_070
+    3300140: .li3dsubmesh_071
+    3300142: .li3dsubmesh_072
+    3300144: .li3dsubmesh_073
+    3300146: .li3dsubmesh_074
+    3300148: .li3dsubmesh_075
+    3300150: .li3dsubmesh_076
+    3300152: .li3dsubmesh_077
+    3300154: .li3dsubmesh_078
+    3300156: .li3dsubmesh_079
+    3300158: .li3dsubmesh_080
+    3300160: .li3dsubmesh_081
+    3300162: .li3dsubmesh_082
+    3300164: .li3dsubmesh_083
+    3300166: .li3dsubmesh_084
+    3300168: .li3dsubmesh_085
+    3300170: .li3dsubmesh_086
+    3300172: .li3dsubmesh_087
+    3300174: .li3dsubmesh_088
+    3300176: .li3dsubmesh_089
+    3300178: .li3dsubmesh_090
+    3300180: .li3dsubmesh_091
+    3300182: .li3dsubmesh_092
+    3300184: .li3dsubmesh_093
+    3300186: .li3dsubmesh_094
+    3300188: .li3dsubmesh_095
+    3300190: .li3dsubmesh_096
+    3300192: .li3dsubmesh_097
+    3300194: .li3dsubmesh_098
+    3300196: .li3dsubmesh_099
+    3300198: .li3dsubmesh_100
+    3300200: .li3dsubmesh_101
+    3300202: .li3dsubmesh_102
+    3300204: .li3dsubmesh_103
+    3300206: .li3dsubmesh_104
+    3300208: .li3dsubmesh_105
+    3300210: .li3dsubmesh_106
+    3300212: .li3dsubmesh_107
+    3300214: .li3dsubmesh_108
+    3300216: .li3dsubmesh_109
+    3300218: .li3dsubmesh_110
+    3300220: .li3dsubmesh_111
+    3300222: .li3dsubmesh_112
+    3300224: .li3dsubmesh_113
+    3300226: .li3dsubmesh_114
+    3300228: .li3dsubmesh_115
+    3300230: .li3dsubmesh_116
+    3300232: .li3dsubmesh_117
+    3300234: .li3dsubmesh_118
+    3300236: .li3dsubmesh_119
+    3300238: .li3dsubmesh_120
+    3300240: .li3dsubmesh_121
+    3300242: .li3dsubmesh_122
+    3300244: .li3dsubmesh_123
+    3300246: .li3dsubmesh_124
+    3300248: .li3dsubmesh_125
+    3300250: .li3dsubmesh_126
+    3300252: .li3dsubmesh_127
+    3300254: .li3dsubmesh_128
+    3300256: .li3dsubmesh_129
+    3300258: .li3dsubmesh_130
+    3300260: .li3dsubmesh_131
+    3300262: .li3dsubmesh_132
+    3300264: .li3dsubmesh_133
+    3300266: .li3dsubmesh_134
+    3300268: .li3dsubmesh_135
+    3300270: .li3dsubmesh_136
+    3300272: .li3dsubmesh_137
+    3300274: .li3dsubmesh_138
+    3300276: .li3dsubmesh_139
+    3300278: .li3dsubmesh_140
+    3300280: .li3dsubmesh_141
+    3300282: .li3dsubmesh_142
+    3300284: .li3dsubmesh_143
+    3300286: .li3dsubmesh_144
+    3300288: .li3dsubmesh_145
+    3300290: .li3dsubmesh_146
+    3300292: .li3dsubmesh_147
+    3300294: .li3dsubmesh_148
+    3300296: .li3dsubmesh_149
+    3300298: .li3dsubmesh_150
+    3300300: .li3dsubmesh_151
+    3300302: .li3dsubmesh_152
+    3300304: .li3dsubmesh_153
+    3300306: .li3dsubmesh_154
+    3300308: .li3dsubmesh_155
+    3300310: .li3dsubmesh_156
+    3300312: .li3dsubmesh_157
+    3300314: .li3dsubmesh_158
+    3300316: .li3dsubmesh_159
+    3300318: .li3dsubmesh_160
+    3300320: .li3dsubmesh_161
+    3300322: .li3dsubmesh_162
+    3300324: .li3dsubmesh_163
+    3300326: .li3dsubmesh_164
+    3300328: .li3dsubmesh_165
+    3300330: .li3dsubmesh_166
+    3300332: .li3dsubmesh_167
+    3300334: .li3dsubmesh_168
+    3300336: .li3dsubmesh_169
+    3300338: .li3dsubmesh_170
+    3300340: .li3dsubmesh_171
+    3300342: .li3dsubmesh_172
+    3300344: .li3dsubmesh_173
+    3300346: .li3dsubmesh_174
+    3300348: .li3dsubmesh_175
+    3300350: .li3dsubmesh_176
+    3300352: .li3dsubmesh_177
+    3300354: .li3dsubmesh_178
+    3300356: .li3dsubmesh_179
+    3300358: .li3dsubmesh_180
+    3300360: .li3dsubmesh_181
+    3300362: .li3dsubmesh_182
+    3300364: .li3dsubmesh_183
+    3300366: .li3dsubmesh_184
+    3300368: .li3dsubmesh_185
+    3300370: .li3dsubmesh_186
+    3300372: .li3dsubmesh_187
+    3300374: .li3dsubmesh_188
+    3300376: .li3dsubmesh_189
+    3300378: .li3dsubmesh_190
+    3300380: .li3dsubmesh_191
+    3300382: .li3dsubmesh_192
+    3300384: .li3dsubmesh_193
+    3300386: .li3dsubmesh_194
+    3300388: .li3dsubmesh_195
+    3300390: .li3dsubmesh_196
+    3300392: .li3dsubmesh_197
+    3300394: .li3dsubmesh_198
+    3300396: .li3dsubmesh_199
+    3300398: .li3dsubmesh_200
+    3300400: .li3dsubmesh_201
+    3300402: .li3dsubmesh_202
+    3300404: .li3dsubmesh_203
+    3300406: .li3dsubmesh_204
+    3300408: .li3dsubmesh_205
+    3300410: .li3dsubmesh_206
+    3300412: .li3dsubmesh_207
+    3300414: .li3dsubmesh_208
+    3300416: .li3dsubmesh_209
+    3300418: .li3dsubmesh_210
+    3300420: .li3dsubmesh_211
+    3300422: .li3dsubmesh_212
+    3300424: .li3dsubmesh_213
+    3300426: .li3dsubmesh_214
+    3300428: .li3dsubmesh_215
+    3300430: .li3dsubmesh_216
+    3300432: .li3dsubmesh_217
+    3300434: .li3dsubmesh_218
+    3300436: .li3dsubmesh_219
+    3300438: .li3dsubmesh_220
+    3300440: .li3dsubmesh_221
+    3300442: .li3dsubmesh_222
+    3300444: .li3dsubmesh_223
+    3300446: .li3dsubmesh_225
+    3300448: .li3dsubmesh_227
+    3300450: .li3dsubmesh_228
+    3300452: .li3dsubmesh_229
+    3300454: .li3dsubmesh_230
+    3300456: .li3dsubmesh_231
+    3300458: .li3dsubmesh_232
+    3300460: .li3dsubmesh_233
+    3300462: .li3dsubmesh_234
+    3300464: .li3dsubmesh_235
+    3300466: .li3dsubmesh_236
+    3300468: .li3dsubmesh_237
+    3300470: .li3dsubmesh_238
+    3300472: .li3dsubmesh_239
+    3300474: .li3dsubmesh_240
+    3300476: .li3dsubmesh_241
+    3300478: .li3dsubmesh_242
+    3300480: .li3dsubmesh_243
+    3300482: .li3dsubmesh_244
+    3300484: .li3dsubmesh_245
+    3300486: .li3dsubmesh_246
+    3300488: .li3dsubmesh_247
+    3300490: .li3dsubmesh_248
+    3300492: .li3dsubmesh_249
+    3300494: .li3dsubmesh_250
+    3300496: .li3dsubmesh_251
+    3300498: .li3dsubmesh_252
+    3300500: .li3dsubmesh_253
+    3300502: .li3dsubmesh_254
+    3300504: .li3dsubmesh_255
+    3300506: .li3dsubmesh_256
+    3300508: .li3dsubmesh_257
+    3300510: .li3dsubmesh_258
+    3300512: .li3dsubmesh_259
+    3300514: .li3dsubmesh_260
+    3300516: .li3dsubmesh_261
+    3300518: .li3dsubmesh_262
+    3300520: .li3dsubmesh_263
+    3300522: .li3dsubmesh_264
+    3300524: .li3dsubmesh_265
+    3300526: .li3dsubmesh_266
+    3300528: .li3dsubmesh_267
+    3300530: .li3dsubmesh_268
+    3300532: .li3dsubmesh_269
+    3300534: .li3dsubmesh_270
+    3300536: .li3dsubmesh_271
+    3300538: .li3dsubmesh_272
+    3300540: .li3dsubmesh_273
+    3300542: .li3dsubmesh_274
+    3300544: .li3dsubmesh_275
+    3300546: .li3dsubmesh_276
+    3300548: .li3dsubmesh_277
+    3300550: .li3dsubmesh_278
+    3300552: .li3dsubmesh_279
+    3300554: .li3dsubmesh_280
+    3300556: .li3dsubmesh_281
+    3300558: .li3dsubmesh_282
+    3300560: .li3dsubmesh_283
+    3300562: .li3dsubmesh_284
+    3300564: .li3dsubmesh_285
+    3300566: .li3dsubmesh_286
+    3300568: .li3dsubmesh_287
+    3300570: .li3dsubmesh_288
+    3300572: .li3dsubmesh_289
+    3300574: .li3dsubmesh_290
+    3300576: .li3dsubmesh_291
+    3300578: .li3dsubmesh_292
+    3300580: .li3dsubmesh_293
+    3300582: .li3dsubmesh_294
+    3300584: .li3dsubmesh_295
+    3300586: .li3dsubmesh_296
+    3300588: .li3dsubmesh_297
+    3300590: .li3dsubmesh_298
+    3300592: .li3dsubmesh_299
+    3300594: .li3dsubmesh_300
+    3300596: .li3dsubmesh_301
+    3300598: .li3dsubmesh_302
+    3300600: .li3dsubmesh_303
+    3300602: .li3dsubmesh_304
+    3300604: .li3dsubmesh_305
+    3300606: .li3dsubmesh_306
+    3300608: .li3dsubmesh_307
+    3300610: .li3dsubmesh_308
+    3300612: .li3dsubmesh_309
+    3300614: .li3dsubmesh_310
+    3300616: .li3dsubmesh_311
+    3300618: .li3dsubmesh_312
+    3300620: .li3dsubmesh_313
+    3300622: .li3dsubmesh_314
+    3300624: .li3dsubmesh_315
+    3300626: .li3dsubmesh_316
+    3300628: .li3dsubmesh_317
+    3300630: .li3dsubmesh_318
+    3300632: .li3dsubmesh_319
+    3300634: .li3dsubmesh_320
+    3300636: .li3dsubmesh_321
+    3300638: .li3dsubmesh_322
+    3300640: .li3dsubmesh_323
+    3300642: .li3dsubmesh_324
+    3300644: .li3dsubmesh_325
+    3300646: .li3dsubmesh_326
+    3300648: .li3dsubmesh_327
+    3300650: .li3dsubmesh_328
+    3300652: .li3dsubmesh_329
+    3300654: .li3dsubmesh_330
+    3300656: .li3dsubmesh_331
+    3300658: .li3dsubmesh_332
+    3300660: .li3dsubmesh_333
+    3300662: .li3dsubmesh_334
+    3300664: .li3dsubmesh_335
+    3300666: .li3dsubmesh_336
+    3300668: .li3dsubmesh_337
+    3300670: .li3dsubmesh_338
+    3300672: .li3dsubmesh_339
+    3300674: .li3dsubmesh_340
+    3300676: .li3dsubmesh_341
+    3300678: .li3dsubmesh_342
+    3300680: .li3dsubmesh_343
+    3300682: .li3dsubmesh_344
+    3300684: .li3dsubmesh_345
+    3300686: .li3dsubmesh_346
+    3300688: .li3dsubmesh_347
+    3300690: AutoCeiling_1_72YLXWDOGBUS_weTn_Cj_001
+    3300692: AutoCeiling_1OCEAPipjnHgMiIiN5IVmN_001
+    3300694: AutoCeiling_1XzIAFSzNeIROZz6_Z1LHQ_001
+    3300696: AutoCeiling_3ZjRj1AE$uI9ZzutTMB7Bj_001
+    3300698: AutoFloor_0_vGsKW7JYHBqSxuhkJx1v_001
+    3300700: AutoFloor_222G1e_nHfH8Tlpg3ZD7wv_001
+    3300702: AutoFloor_2jdAp8PtpnHwIIruuoyBtC_001
+    3300704: AutoFloor_2Vl5Q0zWFxIAfsRRiX3W5O_001
+    3300706: Base Left Moulding_0afrYSZV2uIggtBkdjB4Dd_001
+    3300708: Base Left Moulding_0d2tU37_MvIeowWWxj3yXB_001
+    3300710: Base Left Moulding_0KJ$QQ7Uf9Jgh7gAWFCmuL_001
+    3300712: Base Left Moulding_0PfaSAtANwHgJMaPNbfZ0i_001
+    3300714: Base Left Moulding_0u15jGzHKNJfzrhNkwPoex_001
+    3300716: Base Left Moulding_0y5PBx1HNAI85Yf3sLFvwv_001
+    3300718: Base Left Moulding_0z5s6CxZgSHxZtKhyHceZO_001
+    3300720: Base Left Moulding_1$QbNd_kXxG84U9CtNxZ$F_001
+    3300722: Base Left Moulding_1AadFtpD9CJPoepzxJrXRd_001
+    3300724: Base Left Moulding_1bOfoXEx7xHQm4Ea04Jnvu_001
+    3300726: Base Left Moulding_1x97Q1rXZXHAvN3nDB2Abf_001
+    3300728: Base Left Moulding_2feo3YlSX4GA2JQTyFQ5sG_001
+    3300730: Base Left Moulding_2xFoUP9i4DI9sYbk4yRJsJ_001
+    3300732: Base Left Moulding_3EUehQ1pdGIxUaWIr7Djg3_001
+    3300734: Base Left Moulding_3H4U4DlIGEJhAa8ralSM2U_001
+    3300736: Base Left Moulding_3kWRQI8BXYHw9U$CypyfK__001
+    3300738: Base Left Moulding_3M$wqaJP1cJuPI_Jd8oVPm_001
+    3300740: Base Left Moulding_3m_Dc29LR6Ge0_JHAD4P2D_001
+    3300742: Base Left Moulding_3mdt0IdWTyJuWp8e9sIpdK_001
+    3300744: Base Left Moulding_3NkT2KmVINHQZo4o4C7Iyk_001
+    3300746: Base Right Moulding_0b5dHf9IbLGvxQs2WXYlmr_001
+    3300748: Base Right Moulding_0dRm1C_Vp6HAudb1z3Ynqo_001
+    3300750: Base Right Moulding_19qBT40RwAIPC4vYae3qWa_001
+    3300752: Base Right Moulding_22ZFviIoNqHRK16fGfuwt9_001
+    3300754: Base Right Moulding_2IaTUlbI0AIhUDW3COWxMN_001
+    3300756: Base Right Moulding_2lNDYrsROUIgD6L_9P32aa_001
+    3300758: Ceiling Opening_3DQ7wRvh0THgn3Fht1u1Lq_001
+    3300760: Ceiling_3Tdow7pQ5kI8rXksbJ6dvY_001
+    3300762: Crown Left Moulding_0$qcw60P2qJwn7x4UfpOWu_001
+    3300764: Crown Left Moulding_0cf3B6VQnNJ8snH3EcnMbk_001
+    3300766: Crown Left Moulding_0g$4ni1mbvJvOGW5F$yd4K_001
+    3300768: Crown Left Moulding_0SU04ChdA0JxPKMKL$1c8w_001
+    3300770: Crown Left Moulding_0Yh7_TokPTGx0HeFklv8Zf_001
+    3300772: Crown Left Moulding_13D4n1gZpKJeRa8ft7iL3O_001
+    3300774: Crown Left Moulding_1UyFzdBmtpIAKNCqVc4QAO_001
+    3300776: Crown Left Moulding_2btgSeGDHXHfvRMZzFk2jo_001
+    3300778: Crown Left Moulding_2fn9gv9qT6IBrQVMPHmN$O_001
+    3300780: Crown Left Moulding_2pri9yIaFTGgw15Q8o4n9Z_001
+    3300782: Crown Left Moulding_30l8YpIHU$JwpMusYaYUs8_001
+    3300784: Crown Left Moulding_3eUEPb_CkxHOYNpkBHCC1G_001
+    3300786: Crown Left Moulding_3EuvhEI5VIHBPN__dLgwZ6_001
+    3300788: Crown Left Moulding_3GHoircYrLJuYMMS8VdySq_001
+    3300790: Crown Left Moulding_3ShBCGbuoHIuTxOFYn3HwZ_001
+    3300792: Crown Right Moulding_0FZaBJ7O3lGOVPg5YWyzE0_001
+    3300794: Crown Right Moulding_1RDHii6nFKIhtBUtkH$GwN_001
+    3300796: Crown Right Moulding_23pd1iH$PuIvZjkdAcbJGN_001
+    3300798: Crown Right Moulding_3xRBEU0In8J9kYG7oKWSMz_001
+    3300800: Floor_2DX4Eu1sAhJvZoPYXBTGvU_001
+    3300802: Group_001
+    3300804: Group_002
+    3300806: Group_004
+    4300000: .li3dsubmesh_347
+    4300002: .li3dsubmesh_346
+    4300004: .li3dsubmesh_345
+    4300006: .li3dsubmesh_344
+    4300008: .li3dsubmesh_343
+    4300010: .li3dsubmesh_342
+    4300012: .li3dsubmesh_341
+    4300014: .li3dsubmesh_340
+    4300016: .li3dsubmesh_339
+    4300018: .li3dsubmesh_338
+    4300020: .li3dsubmesh_337
+    4300022: .li3dsubmesh_336
+    4300024: .li3dsubmesh_335
+    4300026: .li3dsubmesh_334
+    4300028: .li3dsubmesh_333
+    4300030: .li3dsubmesh_332
+    4300032: .li3dsubmesh_331
+    4300034: .li3dsubmesh_330
+    4300036: .li3dsubmesh_329
+    4300038: .li3dsubmesh_328
+    4300040: .li3dsubmesh_327
+    4300042: .li3dsubmesh_326
+    4300044: .li3dsubmesh_325
+    4300046: .li3dsubmesh_324
+    4300048: .li3dsubmesh_323
+    4300050: .li3dsubmesh_322
+    4300052: .li3dsubmesh_321
+    4300054: .li3dsubmesh_320
+    4300056: .li3dsubmesh_319
+    4300058: .li3dsubmesh_318
+    4300060: .li3dsubmesh_317
+    4300062: .li3dsubmesh_316
+    4300064: .li3dsubmesh_315
+    4300066: .li3dsubmesh_314
+    4300068: .li3dsubmesh_313
+    4300070: .li3dsubmesh_312
+    4300072: .li3dsubmesh_311
+    4300074: .li3dsubmesh_310
+    4300076: .li3dsubmesh_309
+    4300078: .li3dsubmesh_308
+    4300080: .li3dsubmesh_307
+    4300082: .li3dsubmesh_306
+    4300084: .li3dsubmesh_305
+    4300086: .li3dsubmesh_304
+    4300088: .li3dsubmesh_303
+    4300090: .li3dsubmesh_302
+    4300092: .li3dsubmesh_301
+    4300094: .li3dsubmesh_300
+    4300096: .li3dsubmesh_299
+    4300098: .li3dsubmesh_298
+    4300100: .li3dsubmesh_297
+    4300102: .li3dsubmesh_296
+    4300104: .li3dsubmesh_295
+    4300106: .li3dsubmesh_294
+    4300108: .li3dsubmesh_293
+    4300110: .li3dsubmesh_292
+    4300112: .li3dsubmesh_291
+    4300114: .li3dsubmesh_290
+    4300116: .li3dsubmesh_289
+    4300118: .li3dsubmesh_288
+    4300120: .li3dsubmesh_287
+    4300122: .li3dsubmesh_286
+    4300124: .li3dsubmesh_285
+    4300126: .li3dsubmesh_284
+    4300128: .li3dsubmesh_283
+    4300130: .li3dsubmesh_282
+    4300132: .li3dsubmesh_281
+    4300134: .li3dsubmesh_280
+    4300136: .li3dsubmesh_279
+    4300138: .li3dsubmesh_278
+    4300140: .li3dsubmesh_277
+    4300142: .li3dsubmesh_276
+    4300144: .li3dsubmesh_275
+    4300146: .li3dsubmesh_274
+    4300148: .li3dsubmesh_273
+    4300150: .li3dsubmesh_272
+    4300152: .li3dsubmesh_271
+    4300154: .li3dsubmesh_270
+    4300156: .li3dsubmesh_269
+    4300158: .li3dsubmesh_268
+    4300160: .li3dsubmesh_267
+    4300162: .li3dsubmesh_266
+    4300164: .li3dsubmesh_265
+    4300166: .li3dsubmesh_264
+    4300168: .li3dsubmesh_263
+    4300170: .li3dsubmesh_262
+    4300172: .li3dsubmesh_261
+    4300174: .li3dsubmesh_260
+    4300176: .li3dsubmesh_259
+    4300178: .li3dsubmesh_258
+    4300180: .li3dsubmesh_257
+    4300182: .li3dsubmesh_256
+    4300184: .li3dsubmesh_255
+    4300186: .li3dsubmesh_254
+    4300188: .li3dsubmesh_253
+    4300190: .li3dsubmesh_252
+    4300192: .li3dsubmesh_251
+    4300194: .li3dsubmesh_250
+    4300196: .li3dsubmesh_249
+    4300198: .li3dsubmesh_248
+    4300200: .li3dsubmesh_247
+    4300202: .li3dsubmesh_246
+    4300204: .li3dsubmesh_245
+    4300206: .li3dsubmesh_244
+    4300208: .li3dsubmesh_243
+    4300210: .li3dsubmesh_242
+    4300212: .li3dsubmesh_241
+    4300214: .li3dsubmesh_240
+    4300216: .li3dsubmesh_239
+    4300218: .li3dsubmesh_238
+    4300220: .li3dsubmesh_237
+    4300222: .li3dsubmesh_236
+    4300224: .li3dsubmesh_235
+    4300226: .li3dsubmesh_234
+    4300228: .li3dsubmesh_233
+    4300230: .li3dsubmesh_232
+    4300232: .li3dsubmesh_231
+    4300234: .li3dsubmesh_230
+    4300236: .li3dsubmesh_229
+    4300238: .li3dsubmesh_228
+    4300240: .li3dsubmesh_227
+    4300242: .li3dsubmesh_225
+    4300244: .li3dsubmesh_223
+    4300246: .li3dsubmesh_222
+    4300248: .li3dsubmesh_221
+    4300250: .li3dsubmesh_220
+    4300252: .li3dsubmesh_219
+    4300254: .li3dsubmesh_218
+    4300256: .li3dsubmesh_217
+    4300258: .li3dsubmesh_216
+    4300260: .li3dsubmesh_215
+    4300262: .li3dsubmesh_214
+    4300264: .li3dsubmesh_213
+    4300266: .li3dsubmesh_212
+    4300268: .li3dsubmesh_211
+    4300270: .li3dsubmesh_210
+    4300272: .li3dsubmesh_209
+    4300274: .li3dsubmesh_208
+    4300276: .li3dsubmesh_207
+    4300278: .li3dsubmesh_206
+    4300280: .li3dsubmesh_205
+    4300282: .li3dsubmesh_204
+    4300284: .li3dsubmesh_203
+    4300286: .li3dsubmesh_202
+    4300288: .li3dsubmesh_201
+    4300290: .li3dsubmesh_200
+    4300292: .li3dsubmesh_199
+    4300294: .li3dsubmesh_198
+    4300296: .li3dsubmesh_197
+    4300298: .li3dsubmesh_196
+    4300300: .li3dsubmesh_195
+    4300302: .li3dsubmesh_194
+    4300304: .li3dsubmesh_193
+    4300306: .li3dsubmesh_192
+    4300308: .li3dsubmesh_191
+    4300310: .li3dsubmesh_190
+    4300312: .li3dsubmesh_189
+    4300314: .li3dsubmesh_188
+    4300316: .li3dsubmesh_187
+    4300318: .li3dsubmesh_186
+    4300320: .li3dsubmesh_185
+    4300322: .li3dsubmesh_184
+    4300324: .li3dsubmesh_183
+    4300326: .li3dsubmesh_182
+    4300328: .li3dsubmesh_181
+    4300330: .li3dsubmesh_180
+    4300332: .li3dsubmesh_179
+    4300334: .li3dsubmesh_178
+    4300336: .li3dsubmesh_177
+    4300338: .li3dsubmesh_176
+    4300340: .li3dsubmesh_175
+    4300342: .li3dsubmesh_174
+    4300344: .li3dsubmesh_173
+    4300346: Ceiling Opening_3DQ7wRvh0THgn3Fht1u1Lq_001
+    4300348: .li3dsubmesh_172
+    4300350: .li3dsubmesh_171
+    4300352: .li3dsubmesh_170
+    4300354: .li3dsubmesh_169
+    4300356: .li3dsubmesh_168
+    4300358: .li3dsubmesh_167
+    4300360: .li3dsubmesh_166
+    4300362: .li3dsubmesh_165
+    4300364: .li3dsubmesh_164
+    4300366: .li3dsubmesh_163
+    4300368: .li3dsubmesh_162
+    4300370: .li3dsubmesh_161
+    4300372: .li3dsubmesh_160
+    4300374: .li3dsubmesh_159
+    4300376: .li3dsubmesh_158
+    4300378: .li3dsubmesh_157
+    4300380: .li3dsubmesh_156
+    4300382: .li3dsubmesh_155
+    4300384: .li3dsubmesh_154
+    4300386: .li3dsubmesh_153
+    4300388: .li3dsubmesh_152
+    4300390: .li3dsubmesh_151
+    4300392: .li3dsubmesh_150
+    4300394: .li3dsubmesh_149
+    4300396: .li3dsubmesh_148
+    4300398: .li3dsubmesh_147
+    4300400: .li3dsubmesh_146
+    4300402: .li3dsubmesh_145
+    4300404: .li3dsubmesh_144
+    4300406: .li3dsubmesh_143
+    4300408: .li3dsubmesh_142
+    4300410: .li3dsubmesh_141
+    4300412: .li3dsubmesh_140
+    4300414: .li3dsubmesh_139
+    4300416: .li3dsubmesh_138
+    4300418: .li3dsubmesh_137
+    4300420: .li3dsubmesh_136
+    4300422: .li3dsubmesh_135
+    4300424: .li3dsubmesh_134
+    4300426: .li3dsubmesh_133
+    4300428: .li3dsubmesh_132
+    4300430: .li3dsubmesh_131
+    4300432: .li3dsubmesh_130
+    4300434: .li3dsubmesh_129
+    4300436: .li3dsubmesh_128
+    4300438: .li3dsubmesh_127
+    4300440: .li3dsubmesh_126
+    4300442: .li3dsubmesh_125
+    4300444: .li3dsubmesh_124
+    4300446: .li3dsubmesh_123
+    4300448: .li3dsubmesh_122
+    4300450: .li3dsubmesh_121
+    4300452: .li3dsubmesh_120
+    4300454: .li3dsubmesh_119
+    4300456: .li3dsubmesh_118
+    4300458: .li3dsubmesh_117
+    4300460: .li3dsubmesh_116
+    4300462: .li3dsubmesh_115
+    4300464: .li3dsubmesh_114
+    4300466: .li3dsubmesh_113
+    4300468: .li3dsubmesh_112
+    4300470: .li3dsubmesh_111
+    4300472: .li3dsubmesh_110
+    4300474: .li3dsubmesh_109
+    4300476: .li3dsubmesh_108
+    4300478: .li3dsubmesh_107
+    4300480: .li3dsubmesh_106
+    4300482: .li3dsubmesh_105
+    4300484: .li3dsubmesh_104
+    4300486: .li3dsubmesh_103
+    4300488: .li3dsubmesh_102
+    4300490: .li3dsubmesh_101
+    4300492: .li3dsubmesh_100
+    4300494: .li3dsubmesh_099
+    4300496: .li3dsubmesh_098
+    4300498: .li3dsubmesh_097
+    4300500: .li3dsubmesh_096
+    4300502: .li3dsubmesh_095
+    4300504: .li3dsubmesh_094
+    4300506: .li3dsubmesh_093
+    4300508: .li3dsubmesh_092
+    4300510: .li3dsubmesh_091
+    4300512: Base Left Moulding_3mdt0IdWTyJuWp8e9sIpdK_001
+    4300514: Crown Left Moulding_13D4n1gZpKJeRa8ft7iL3O_001
+    4300516: .li3dsubmesh_090
+    4300518: .li3dsubmesh_089
+    4300520: .li3dsubmesh_088
+    4300522: .li3dsubmesh_087
+    4300524: Base Left Moulding_0d2tU37_MvIeowWWxj3yXB_001
+    4300526: .li3dsubmesh_086
+    4300528: .li3dsubmesh_085
+    4300530: .li3dsubmesh_084
+    4300532: .li3dsubmesh_083
+    4300534: Base Left Moulding_3EUehQ1pdGIxUaWIr7Djg3_001
+    4300536: Crown Left Moulding_0cf3B6VQnNJ8snH3EcnMbk_001
+    4300538: .li3dsubmesh_082
+    4300540: .li3dsubmesh_081
+    4300542: .li3dsubmesh_080
+    4300544: .li3dsubmesh_079
+    4300546: Base Right Moulding_2IaTUlbI0AIhUDW3COWxMN_001
+    4300548: Base Left Moulding_3kWRQI8BXYHw9U$CypyfK__001
+    4300550: Crown Right Moulding_0FZaBJ7O3lGOVPg5YWyzE0_001
+    4300552: Crown Left Moulding_0Yh7_TokPTGx0HeFklv8Zf_001
+    4300554: .li3dsubmesh_078
+    4300556: .li3dsubmesh_077
+    4300558: .li3dsubmesh_076
+    4300560: .li3dsubmesh_075
+    4300562: Base Left Moulding_0KJ$QQ7Uf9Jgh7gAWFCmuL_001
+    4300564: Crown Left Moulding_0SU04ChdA0JxPKMKL$1c8w_001
+    4300566: .li3dsubmesh_074
+    4300568: .li3dsubmesh_073
+    4300570: .li3dsubmesh_072
+    4300572: .li3dsubmesh_071
+    4300574: Base Right Moulding_0dRm1C_Vp6HAudb1z3Ynqo_001
+    4300576: Base Left Moulding_3M$wqaJP1cJuPI_Jd8oVPm_001
+    4300578: Crown Right Moulding_3xRBEU0In8J9kYG7oKWSMz_001
+    4300580: Crown Left Moulding_0g$4ni1mbvJvOGW5F$yd4K_001
+    4300582: .li3dsubmesh_070
+    4300584: .li3dsubmesh_069
+    4300586: .li3dsubmesh_068
+    4300588: .li3dsubmesh_067
+    4300590: Base Left Moulding_3H4U4DlIGEJhAa8ralSM2U_001
+    4300592: Crown Left Moulding_2fn9gv9qT6IBrQVMPHmN$O_001
+    4300594: .li3dsubmesh_066
+    4300596: .li3dsubmesh_065
+    4300598: .li3dsubmesh_064
+    4300600: .li3dsubmesh_063
+    4300602: Base Right Moulding_0b5dHf9IbLGvxQs2WXYlmr_001
+    4300604: Base Left Moulding_0z5s6CxZgSHxZtKhyHceZO_001
+    4300606: Crown Left Moulding_0$qcw60P2qJwn7x4UfpOWu_001
+    4300608: .li3dsubmesh_062
+    4300610: .li3dsubmesh_061
+    4300612: .li3dsubmesh_060
+    4300614: .li3dsubmesh_059
+    4300616: .li3dsubmesh_058
+    4300618: Crown Left Moulding_3GHoircYrLJuYMMS8VdySq_001
+    4300620: Base Right Moulding_22ZFviIoNqHRK16fGfuwt9_001
+    4300622: Base Left Moulding_1x97Q1rXZXHAvN3nDB2Abf_001
+    4300624: .li3dsubmesh_057
+    4300626: .li3dsubmesh_056
+    4300628: .li3dsubmesh_055
+    4300630: .li3dsubmesh_054
+    4300632: .li3dsubmesh_053
+    4300634: Base Left Moulding_0afrYSZV2uIggtBkdjB4Dd_001
+    4300636: Crown Left Moulding_3ShBCGbuoHIuTxOFYn3HwZ_001
+    4300638: .li3dsubmesh_052
+    4300640: .li3dsubmesh_051
+    4300642: .li3dsubmesh_050
+    4300644: .li3dsubmesh_049
+    4300646: Base Left Moulding_0y5PBx1HNAI85Yf3sLFvwv_001
+    4300648: .li3dsubmesh_048
+    4300650: .li3dsubmesh_047
+    4300652: .li3dsubmesh_046
+    4300654: .li3dsubmesh_045
+    4300656: Base Left Moulding_0u15jGzHKNJfzrhNkwPoex_001
+    4300658: .li3dsubmesh_044
+    4300660: .li3dsubmesh_043
+    4300662: .li3dsubmesh_042
+    4300664: .li3dsubmesh_041
+    4300666: Crown Right Moulding_23pd1iH$PuIvZjkdAcbJGN_001
+    4300668: Base Right Moulding_19qBT40RwAIPC4vYae3qWa_001
+    4300670: Base Left Moulding_1bOfoXEx7xHQm4Ea04Jnvu_001
+    4300672: .li3dsubmesh_040
+    4300674: .li3dsubmesh_039
+    4300676: .li3dsubmesh_038
+    4300678: .li3dsubmesh_037
+    4300680: Base Left Moulding_3m_Dc29LR6Ge0_JHAD4P2D_001
+    4300682: Crown Left Moulding_1UyFzdBmtpIAKNCqVc4QAO_001
+    4300684: .li3dsubmesh_036
+    4300686: .li3dsubmesh_035
+    4300688: .li3dsubmesh_034
+    4300690: .li3dsubmesh_033
+    4300692: Base Left Moulding_1AadFtpD9CJPoepzxJrXRd_001
+    4300694: Crown Left Moulding_3EuvhEI5VIHBPN__dLgwZ6_001
+    4300696: .li3dsubmesh_032
+    4300698: .li3dsubmesh_031
+    4300700: .li3dsubmesh_030
+    4300702: .li3dsubmesh_029
+    4300704: Crown Right Moulding_1RDHii6nFKIhtBUtkH$GwN_001
+    4300706: Base Right Moulding_2lNDYrsROUIgD6L_9P32aa_001
+    4300708: Base Left Moulding_3NkT2KmVINHQZo4o4C7Iyk_001
+    4300710: .li3dsubmesh_028
+    4300712: .li3dsubmesh_027
+    4300714: .li3dsubmesh_026
+    4300716: .li3dsubmesh_025
+    4300718: .li3dsubmesh_024
+    4300720: Ceiling_3Tdow7pQ5kI8rXksbJ6dvY_001
+    4300722: Floor_2DX4Eu1sAhJvZoPYXBTGvU_001
+    4300724: AutoCeiling_1_72YLXWDOGBUS_weTn_Cj_001
+    4300726: AutoCeiling_1XzIAFSzNeIROZz6_Z1LHQ_001
+    4300728: AutoCeiling_3ZjRj1AE$uI9ZzutTMB7Bj_001
+    4300730: AutoFloor_2jdAp8PtpnHwIIruuoyBtC_001
+    4300732: AutoFloor_0_vGsKW7JYHBqSxuhkJx1v_001
+    4300734: AutoFloor_2Vl5Q0zWFxIAfsRRiX3W5O_001
+    4300736: Group_004
+    4300738: Group_002
+    4300740: Group_001
+    4300742: .li3dsubmesh_023
+    4300744: .li3dsubmesh_022
+    4300746: .li3dsubmesh_021
+    4300748: Base Left Moulding_1$QbNd_kXxG84U9CtNxZ$F_001
+    4300750: Crown Left Moulding_2btgSeGDHXHfvRMZzFk2jo_001
+    4300752: .li3dsubmesh_020
+    4300754: .li3dsubmesh_019
+    4300756: .li3dsubmesh_018
+    4300758: .li3dsubmesh_017
+    4300760: Base Left Moulding_2xFoUP9i4DI9sYbk4yRJsJ_001
+    4300762: Crown Left Moulding_30l8YpIHU$JwpMusYaYUs8_001
+    4300764: .li3dsubmesh_016
+    4300766: .li3dsubmesh_015
+    4300768: .li3dsubmesh_014
+    4300770: .li3dsubmesh_013
+    4300772: Base Left Moulding_2feo3YlSX4GA2JQTyFQ5sG_001
+    4300774: Crown Left Moulding_3eUEPb_CkxHOYNpkBHCC1G_001
+    4300776: .li3dsubmesh_012
+    4300778: .li3dsubmesh_011
+    4300780: .li3dsubmesh_010
+    4300782: .li3dsubmesh_009
+    4300784: Base Left Moulding_0PfaSAtANwHgJMaPNbfZ0i_001
+    4300786: Crown Left Moulding_2pri9yIaFTGgw15Q8o4n9Z_001
+    4300788: .li3dsubmesh_008
+    4300790: .li3dsubmesh_007
+    4300792: .li3dsubmesh_006
+    4300794: .li3dsubmesh_005
+    4300796: .li3dsubmesh_004
+    4300798: .li3dsubmesh_003
+    4300800: AutoCeiling_1OCEAPipjnHgMiIiN5IVmN_001
+    4300802: AutoFloor_222G1e_nHfH8Tlpg3ZD7wv_001
+    4300804: .li3dsubmesh_002
+    4300806: .li3dsubmesh_001
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
