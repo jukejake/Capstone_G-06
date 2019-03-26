@@ -25,7 +25,7 @@ public class FlowData : SerializedMonoBehaviour {
 	[HorizontalGroup("General/Speed", Width = 0.25f), LabelWidth(100)]
 	public bool BasedOnSpeed = false; //Turn on speed based on a UI slider.
 	[HorizontalGroup("General/Speed"), Range(0.1f, 20.0f), LabelWidth(70)]
-	public float AirSpeed = 1.0f; //Speed based on a UI slider.
+	public float AirSpeed = 0.0f; //Speed based on a UI slider.
 	[HorizontalGroup("General/Speed", Width = 0.15f), LabelWidth(40)]
 	public float MaxS = 1.0f; //Speed based on a UI slider.
 	[BoxGroup("General")]
@@ -128,8 +128,9 @@ public class FlowData : SerializedMonoBehaviour {
 					ActiveFlow = 0;
 					SmallFlowsOn = true;
 					BigFlowsOn = false;
-					SwitchWeather(true);
-				}
+                    if (AirSpeed <= 0.1f)  { SwitchWeather(false); }
+                    else { SwitchWeather(true); }
+                }
 				else { ActiveFlow = -1; }
 				break;
 			case 1: //Rain
@@ -137,8 +138,9 @@ public class FlowData : SerializedMonoBehaviour {
 					ActiveFlow = 1;
 					SmallFlowsOn = false;
 					BigFlowsOn = true;
-					SwitchWeather(true);
-				}
+                    if (AirSpeed <= 0.1f) { SwitchWeather(false); }
+                    else { SwitchWeather(true); }
+                }
 				else { ActiveFlow = -1; }
 				break;
 			case 2: //Snow
@@ -146,8 +148,9 @@ public class FlowData : SerializedMonoBehaviour {
 					ActiveFlow = 2;
 					SmallFlowsOn = false;
 					BigFlowsOn = true;
-					SwitchWeather(true);
-				}
+                    if (AirSpeed <= 0.1f) { SwitchWeather(false); }
+                    else { SwitchWeather(true); }
+                }
 				else { ActiveFlow = -1; }
 				break;
 			default: //Do nothing
