@@ -3,6 +3,11 @@
 // UOIT Capstone: BUSI 4995
 // 2018-2019
 // =============================
+/*////
+//Updated by Jacob Rosengren
+//Date: 2018~2019
+//BUSI 4995U Capstone
+////*/
 
 using UnityEngine;
 using System.Collections;
@@ -14,7 +19,7 @@ public class rotateController : MonoBehaviour
 {
    // public ScreenTransformGesture TwoFingerMoveGesture;
 
-    #region ROTATE
+    #region Variables
     public float rotation_sensitivity_Y = 0.75f;
     public float rotation_sensitivity_X = 0.2f;
 
@@ -36,56 +41,13 @@ public class rotateController : MonoBehaviour
 
     public float zoomCurrent = -0.4f;       // Current zoom
 
-	public BoxCollider2D _object;
+    [HideInInspector]
+    public bool CanZoom = true;
 
 
     #endregion
-
-    void Update()
-    {
-        if (_isRotating)
-        {
-            // offset
-            _mouseOffset = (Input.mousePosition - _mouseReference);   // Find difference in old mouse/touch position to new one
-
-            // apply rotation
-            //_rotation.y += (_mouseOffset.x + _mouseOffset.y) * rotation_sensitivity;
-            _rotation.y += (_mouseOffset.x) * rotation_sensitivity_Y;    // Rotate the scene/object on its Y axis (straight up and down) if you move the mouse horizontally (x)
-            _rotation.y = Mathf.Clamp(_rotation.y, minPanY, maxPanY);   // Clamp between -20, 20 (defaults)
-
-            _rotation.x -= (_mouseOffset.y) * rotation_sensitivity_X;     // Rotate scene on its X axis (left and right) if you move the mouse up/down
-            _rotation.x = Mathf.Clamp(_rotation.x, minPanX, maxPanX);   // Clamp between -10, 10 (defaults)
-
-            // rotate
-            //gameObject.transform.Rotate(_rotation);
-            transform.localEulerAngles = new Vector3(_rotation.x, _rotation.y, transform.localEulerAngles.z);   // Apply rotations
-
-            // store new mouse position
-            _mouseReference = Input.mousePosition;
-        }
-
-        if (Input.touchCount == 2)
-        {
-            _isRotating = false;
-            Touch touch0 = Input.GetTouch(0);
-            Touch touch1 = Input.GetTouch(1);
-
-            Vector2 lastTouch0Pos = touch0.position - touch0.deltaPosition;
-            Vector2 lastTouch1Pos = touch1.position - touch1.deltaPosition;
-
-            float previousMagnitude = (lastTouch0Pos - lastTouch1Pos).magnitude;
-            float currentMagnitude = (touch0.position - touch1.position).magnitude;
-
-            float difference = currentMagnitude - previousMagnitude;
-
-            zoom(difference * zoomSensitivity);
-            //Debug.Log(difference);
-        }
-
-        //zoom(Input.GetAxis("Mouse ScrollWheel"));
-        
-        //Debug.Log(Input.GetAxis("Mouse ScrollWheel"));
-    }
+    //The update function has been moved to RotateOnThis script
+    //  that way we can use a UI element to more the camera around.
 
     void OnMouseDown()
     {
@@ -103,8 +65,13 @@ public class rotateController : MonoBehaviour
         _isRotating = false;
     }
 
-    void zoom(float increment)
+    public void SwitchZoom() {
+        CanZoom = !CanZoom;
+    }
+
+    public void zoom(float increment)
     {
+
         zoomCurrent += increment * zoomSensitivity;
         zoomCurrent = Mathf.Clamp(zoomCurrent, zoomOutMin, zoomOutMax);
 

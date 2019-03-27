@@ -38,8 +38,13 @@ public class WheelController : SerializedMonoBehaviour {
 	}
 	//Create a Treadmill Update.
 	void TreadmillUpdate() {
-		offset += Time.deltaTime * RotateAmount * TreadmillSpeed; //
-		Treadmill.material.SetTextureOffset("_MainTex", new Vector2(0, -offset));
+        float val = Time.deltaTime * RotateAmount * TreadmillSpeed;
+
+        Debug.Log(offset);
+        if (val > 0.05) {
+            offset += val; //
+            Treadmill.material.SetTextureOffset("_MainTex", new Vector2(0, -offset));
+        }
 	}
 	//Cancel the Invoke when the object is destroyed.
 	private void OnDestroy() { CancelInvoke("TreadmillUpdate"); }

@@ -42,7 +42,7 @@ public class SwitchCamera : MonoBehaviour {
 				Camera.main.gameObject.transform.position = TCPos;
 				Camera.main.gameObject.transform.rotation = TCRot;
 				Camera.main.fieldOfView = TCFov;
-				Camera.main.gameObject.GetComponent<PanZoom>().enabled = false;
+				//Camera.main.gameObject.GetComponent<PanZoom>().enabled = false;
 				break;
 			//Switching from second camera to the main camera
 			case 1:
@@ -50,7 +50,7 @@ public class SwitchCamera : MonoBehaviour {
 				ImageView.texture = SecondCamera;
 				Camera.main.gameObject.transform.position = MCPos;
 				Camera.main.gameObject.transform.rotation = MCRot;
-				Camera.main.gameObject.GetComponent<PanZoom>().enabled = true;
+				//Camera.main.gameObject.GetComponent<PanZoom>().enabled = true;
 				break;
 			default:
 				break;

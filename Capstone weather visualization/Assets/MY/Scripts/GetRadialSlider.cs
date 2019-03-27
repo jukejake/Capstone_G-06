@@ -15,7 +15,7 @@ public class GetRadialSlider : MonoBehaviour, IPointerEnterHandler, IPointerExit
 	public float ErrorRange;
 	private float Percentage;
 	private float angle;
-	private float Speed = 250.0f;
+	private float MaxSpeed = 250.0f;
 	public float StartAngle = 0.0f;
 	public Vector2 Clamp = new Vector2(0.0f, 360.0f);
     public Vector2 MinMaxVal = new Vector2(0.0f, 1.0f);
@@ -37,26 +37,34 @@ public class GetRadialSlider : MonoBehaviour, IPointerEnterHandler, IPointerExit
 		if (bar.fillPercentage > (Percentage + ErrorRange)) {
 			bar.status = AdultLink.Status.braking;
 			//Set the speed to the Value
-			if (SetFunction != null) { SetFunction.SetSpeed(bar.fillPercentage * Speed); }
+			if (SetFunction != null) { SetFunction.SetSpeed(bar.fillPercentage * MaxSpeed); }
 			if (SetFunction2 != null) {
-				SetFunction2.SetSpeed(bar.fillPercentage * Speed);
+				SetFunction2.SetSpeed(bar.fillPercentage * MaxSpeed);
 				SetFunction2.SetEmissionRate(Emission.x + (bar.fillPercentage * Emission.y));
                 SetFunction2.SetLifeTime(StartLife.x + ((1 - bar.fillPercentage) * StartLife.y));
             }
-            if (bar.fillPercentage < MinMaxVal.x) { bar.fillPercentage = 0; }
+            if (bar.fillPercentage < MinMaxVal.x) {
+                bar.fillPercentage = 0;
+            }
         }
 		else if (bar.fillPercentage < (Percentage - ErrorRange)) {
 			bar.status = AdultLink.Status.accel;
 			//Set the speed to the Value
-			if (SetFunction != null) { SetFunction.SetSpeed(bar.fillPercentage * Speed); }
+			if (SetFunction != null) { SetFunction.SetSpeed(bar.fillPercentage * MaxSpeed); }
 			if (SetFunction2 != null) {
-				SetFunction2.SetSpeed(bar.fillPercentage * Speed);
+				SetFunction2.SetSpeed(bar.fillPercentage * MaxSpeed);
 				SetFunction2.SetEmissionRate(Emission.x + (bar.fillPercentage * Emission.y));
                 SetFunction2.SetLifeTime(StartLife.x + ((1 - bar.fillPercentage) * StartLife.y));
             }
-            if (bar.fillPercentage > MinMaxVal.y) { bar.fillPercentage = 1; }
+            if (bar.fillPercentage > MinMaxVal.y) {
+                bar.fillPercentage = 1;
+            }
         }
-		else { bar.status = AdultLink.Status.idle; }
+		else {
+            bar.status = AdultLink.Status.idle;
+            SetFunction.SetSpeed(bar.fillPercentage * MaxSpeed);
+            SetFunction2.SetSpeed(bar.fillPercentage * MaxSpeed);
+        }
 
 	}
 

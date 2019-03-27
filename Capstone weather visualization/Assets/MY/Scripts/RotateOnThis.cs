@@ -1,5 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿/*////
+//Written by Jacob Rosengren
+//Date: 2018~2019
+//BUSI 4995U Capstone
+////*/
+
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -9,6 +13,8 @@ public class RotateOnThis : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
 	public rotateController RC;
 	void Update()
     {
+
+        if (!RC.CanZoom) { return; }
         if (RC._isRotating)
         {
 			// offset
@@ -44,11 +50,9 @@ public class RotateOnThis : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
 
             float difference = currentMagnitude - previousMagnitude;
 
-			//zoom(difference * 0.01f * zoomSensitivity);
+            RC.zoom(difference * RC.zoomSensitivity);
         }
-
-        //zoom(Input.GetAxis("Mouse ScrollWheel"));
-        //Debug.Log(Input.GetAxis("Mouse ScrollWheel"));
+        
     }
 
 	//If a mouse clicked the UI was detected
@@ -65,31 +69,4 @@ public class RotateOnThis : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
 		// rotating flag
 		RC._isRotating = false;
 	}
-	////If a mouse draged the UI was detected
-	//public void OnDrag(PointerEventData eventData) { Debug.Log("Drag"); }
-	////If a mouse entered the UI was detected
-	//public void OnPointerEnter(PointerEventData eventData) { Debug.Log("Enter"); }
-	////If a mouse left the UI was detected
-	//public void OnPointerExit(PointerEventData eventData) { Debug.Log("Exit"); }
-	////If a mouse clicked the UI was detected
-	//public void OnPointerClick(PointerEventData eventData) { Debug.Log("Click"); }
-
-	//void OnMouseDown()
-	//{
-	//	Debug.Log("Down");
-	//	if ((Input.touchCount == 1) || Input.GetMouseButton(0)) { 
-	//		// rotating flag
-	//		RC._isRotating = true;
-
-	//		// store mouse position
-	//		RC._mouseReference = Input.mousePosition;
-	//	}
- //   }
-
- //   void OnMouseUp()
-	//{
-	//	Debug.Log("Up");
-	//	// rotating flag
-	//	RC._isRotating = false;
- //   }
 }

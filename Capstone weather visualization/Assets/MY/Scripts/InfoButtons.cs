@@ -8,7 +8,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using Sirenix.OdinInspector;
 
-public class InfoButtons : SerializedMonoBehaviour, IPointerClickHandler, IDragHandler, IPointerEnterHandler, IPointerExitHandler {
+public class InfoButtons : SerializedMonoBehaviour, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler {
 
 	#region Variables
 	[BoxGroup("Display Options")]
@@ -44,7 +44,6 @@ public class InfoButtons : SerializedMonoBehaviour, IPointerClickHandler, IDragH
 
 
 	private void Update() {
-		if (Done) { return; }
 
 		//Timer
 		//Timer is active so increase Timer.
@@ -52,11 +51,12 @@ public class InfoButtons : SerializedMonoBehaviour, IPointerClickHandler, IDragH
 		//Set to 0.
 		else if (Open == false && Timer != 0.0f) { Timer = 0.0f; }
 		//Timer is done so set to 0.
-		else if (Timer >= CloseIn) { Open = false; Timer = 0.0f; }
+		else if (Timer >= CloseIn) { Open = false; Done = false; Timer = 0.0f; }
 
-		//Scaler
-		//When opening, increase size.
-		if (Open) { IncreaseScale(); }
+        if (Done) { return; }
+        //Scaler
+        //When opening, increase size.
+        if (Open) { IncreaseScale(); }
 		//When closing, decrease size.
 		else if (!Open) { DecreaseScale(); }
 	}
@@ -95,8 +95,6 @@ public class InfoButtons : SerializedMonoBehaviour, IPointerClickHandler, IDragH
 			 if (Open && PressToClose) { Open = false; Done = false; }
 		else if (!Open && PressToOpen) { Open = true; Done = false; }
 	}
-	//If a mouse draged the UI was detected
-	public void OnDrag(PointerEventData eventData) { }
 	//If a mouse entered the UI was detected
 	public void OnPointerEnter(PointerEventData eventData) {
 		if (!Open && HoverToOpen) { Open = true; Done = false; }
@@ -106,5 +104,14 @@ public class InfoButtons : SerializedMonoBehaviour, IPointerClickHandler, IDragH
 		if (Open && HoverOffToClose && !AutoClose) { Open = false; Done = false; }
 		else if (Open && AutoClose) { Timer += Time.deltaTime; }
 	}
-	#endregion
+
+    public void ClickButtonDown() {
+        if (Open && PressToClose) { Open = false; Done = false; }
+        else if (!Open && PressToOpen) { Open = true; Done = false; }
+    }
+    public void ClickButtonUp() {
+		if (Open && HoverOffToClose && !AutoClose) { Open = false; Done = false; }
+		else if (Open && AutoClose) { Timer += Time.deltaTime; }
+    }
+    #endregion
 }

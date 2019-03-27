@@ -1,8 +1,15 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿/*////
+//Written by Jacob Rosengren
+//Date: 2018~2019
+//BUSI 4995U Capstone
+////*/
 using UnityEngine;
 
 public class LightingArrayConnecters : MonoBehaviour {
+    //This is used to reinstall the connecter that connect the lights to the ceiling.
+    //This is done because they F-up when you switch between the menus and they get hidden.
+    //Once this gets called it will delete itself.
+
 	#region Variables
 	public Transform CF; //Front
 	public Transform CL; //Left
