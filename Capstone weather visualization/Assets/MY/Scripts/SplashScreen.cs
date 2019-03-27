@@ -19,6 +19,8 @@ public class SplashScreen : MonoBehaviour {
 	private void Start() {
 		Counter = CounterInMinutes * 60;
 		TimeLeft = Counter;
+		//Switch to splash screen
+		BSD.SwitchScene();
 	}
 
 	private void FixedUpdate() {
