@@ -121,10 +121,10 @@ public class FlowData : SerializedMonoBehaviour {
 	[Button]
 	//Function to set which particle system should be active
 	public void SetWeather(int _m = 0) {
-		SwitchWeather(false);
 		switch (_m) {
 			case 0: //Wind
-				if (ActiveFlow != 0) {
+                SwitchWeather(false);
+                if (ActiveFlow != 0) {
 					ActiveFlow = 0;
 					SmallFlowsOn = true;
 					BigFlowsOn = false;
@@ -134,7 +134,8 @@ public class FlowData : SerializedMonoBehaviour {
 				else { ActiveFlow = -1; }
 				break;
 			case 1: //Rain
-				if (ActiveFlow != 1) {
+                SwitchWeather(false);
+                if (ActiveFlow != 1) {
 					ActiveFlow = 1;
 					SmallFlowsOn = false;
 					BigFlowsOn = true;
@@ -144,7 +145,8 @@ public class FlowData : SerializedMonoBehaviour {
 				else { ActiveFlow = -1; }
 				break;
 			case 2: //Snow
-				if (ActiveFlow != 2) {
+                SwitchWeather(false);
+                if (ActiveFlow != 2) {
 					ActiveFlow = 2;
 					SmallFlowsOn = false;
 					BigFlowsOn = true;

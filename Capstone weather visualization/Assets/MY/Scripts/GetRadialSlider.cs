@@ -9,7 +9,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using UnityEngine;
 
-public class GetRadialSlider : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler, IPointerUpHandler {
+public class GetRadialSlider : MonoBehaviour, IPointerDownHandler,IPointerUpHandler{
 	#region Variables
 	private bool isPointerDown = false;
 	public float ErrorRange;
@@ -27,13 +27,20 @@ public class GetRadialSlider : MonoBehaviour, IPointerEnterHandler, IPointerExit
     public WheelController SetFunction;
 	public FlowData SetFunction2;
 
-	public AdultLink.SpeedBar bar;
+    private GraphicRaycaster ray;
+    private StandaloneInputModule input;
 
-	#endregion
+    public AdultLink.SpeedBar bar;
 
-	#region Functions
+    #endregion
 
-	private void FixedUpdate() {
+    #region Functions
+    private void Awake() {
+        ray = GetComponentInParent<GraphicRaycaster>();
+        input = FindObjectOfType<StandaloneInputModule>();
+    }
+
+    private void FixedUpdate() {
 		if (bar.fillPercentage > (Percentage + ErrorRange)) {
 			bar.status = AdultLink.Status.braking;
 			//Set the speed to the Value
@@ -68,50 +75,92 @@ public class GetRadialSlider : MonoBehaviour, IPointerEnterHandler, IPointerExit
 
 	}
 
-	//When the mouse is over the UI, Track it.
-	public void OnPointerEnter(PointerEventData eventData) {
-		StartCoroutine("TrackPointer");
-	}
-	//When the mouse is not over the UI, Don't track it.
-	public void OnPointerExit(PointerEventData eventData) {
-		StopCoroutine("TrackPointer");
-	}
+	////When the mouse is over the UI, Track it.
+	//public void OnPointerEnter(PointerEventData eventData) {
+	//	StartCoroutine("TrackPointer");
+	//}
+	////When the mouse is not over the UI, Don't track it.
+	//public void OnPointerExit(PointerEventData eventData) {
+	//	StopCoroutine("TrackPointer");
+	//}
 	//If a mouse clicked the UI was detected.
 	public void OnPointerDown(PointerEventData eventData) {
 		isPointerDown = true;
-	}
+        CaptureRaycast(eventData);
+
+    }
 	//If a mouse clicked ended was detected.
 	public void OnPointerUp(PointerEventData eventData) {
 		isPointerDown = false;
-	}
-	//Track the mouse position
-	IEnumerator TrackPointer() {
-		var ray = GetComponentInParent<GraphicRaycaster>();
-		var input = FindObjectOfType<StandaloneInputModule>();
+        //CaptureRaycast(eventData);
+    }
+ //   public void OnSelect(BaseEventData eventData) {
+	//	StartCoroutine("TrackPointer");
+ //       isPointerDown = true;
+ //   }
 
-		if (ray != null && input != null) {
+ //   public void OnDeselect(BaseEventData eventData) {
+	//	StopCoroutine("TrackPointer");
+ //       isPointerDown = false;
+ //   }
+
+ //   public void OnUpdateSelected(BaseEventData eventData) {
+ //       throw new System.NotImplementedException();
+ //   }
+
+    public void Track() { 
+        isPointerDown = true;
+		StartCoroutine("TrackPointer");
+    }
+    public void StopTrack() {
+        isPointerDown = false;
+        StopCoroutine("TrackPointer");
+    }
+
+    //Track the mouse position
+    IEnumerator TrackPointer() {
+
+		if (ray != null && input != null && isPointerDown) {
 			while (Application.isPlaying) {
-				if (isPointerDown) {
-					Vector2 localPos;
+				Vector2 localPos;
 
-					//Get mouse position
-					RectTransformUtility.ScreenPointToLocalPointInRectangle(transform as RectTransform, Input.mousePosition, ray.eventCamera, out localPos);
+				//Get mouse position
+				RectTransformUtility.ScreenPointToLocalPointInRectangle(transform as RectTransform, Input.mousePosition, ray.eventCamera, out localPos);
 
-					//Calculate mouse position relative to the Start Angle
-					var theta = Mathf.Deg2Rad*StartAngle;
-					localPos = new Vector2( ((localPos.x * Mathf.Cos(theta)) - (localPos.y * Mathf.Sin(theta))), ((localPos.x * Mathf.Sin(theta)) + (localPos.y * Mathf.Cos(theta))) );
-                    localPos.y = Mathf.Clamp(localPos.y, 0, Clamp.y);
-                    //Debug.Log(localPos);
-					//Calculate the angle (from 0~1) of the slider based on mouse position
-					angle = Mathf.Clamp(((Mathf.Atan2(-localPos.y, localPos.x)*180.0f/Mathf.PI+180.0f)/360.0f), (Clamp.x/360.0f), (Clamp.y/360.0f));
+				//Calculate mouse position relative to the Start Angle
+				var theta = Mathf.Deg2Rad*StartAngle;
+				localPos = new Vector2( ((localPos.x * Mathf.Cos(theta)) - (localPos.y * Mathf.Sin(theta))), ((localPos.x * Mathf.Sin(theta)) + (localPos.y * Mathf.Cos(theta))) );
+                localPos.y = Mathf.Clamp(localPos.y, 0, Clamp.y);
+                //Debug.Log(localPos);
+				//Calculate the angle (from 0~1) of the slider based on mouse position
+				angle = Mathf.Clamp(((Mathf.Atan2(-localPos.y, localPos.x)*180.0f/Mathf.PI+180.0f)/360.0f), (Clamp.x/360.0f), (Clamp.y/360.0f));
 
-					Percentage = angle.Map((Clamp.x / 360.0f), (Clamp.y / 360.0f),0,1);
-				}
+				Percentage = angle.Map((Clamp.x / 360.0f), (Clamp.y / 360.0f),0,1);
+				
 				yield return 0;
 			}
 		}
 		else { UnityEngine.Debug.LogWarning( "Could not find GraphicRaycaster and/or StandaloneInputModule" ); }
 	}
 
-	#endregion
+    public void CaptureRaycast(PointerEventData eventData) {
+		if (ray != null && input != null) {
+			Vector2 localPos;
+            //Get mouse position
+            RectTransformUtility.ScreenPointToLocalPointInRectangle(transform as RectTransform, eventData.position, ray.eventCamera, out localPos);
+            
+            //Calculate mouse position relative to the Start Angle
+            var theta = Mathf.Deg2Rad * StartAngle;
+            localPos = new Vector2(((localPos.x * Mathf.Cos(theta)) - (localPos.y * Mathf.Sin(theta))), ((localPos.x * Mathf.Sin(theta)) + (localPos.y * Mathf.Cos(theta))));
+            localPos.y = Mathf.Clamp(localPos.y, 0, Clamp.y);
+            //Debug.Log(localPos);
+            //Calculate the angle (from 0~1) of the slider based on mouse position
+            angle = Mathf.Clamp(((Mathf.Atan2(-localPos.y, localPos.x) * 180.0f / Mathf.PI + 180.0f) / 360.0f), (Clamp.x / 360.0f), (Clamp.y / 360.0f));
+            
+            Percentage = angle.Map((Clamp.x / 360.0f), (Clamp.y / 360.0f), 0, 1);
+        }
+	}
+    public void SetPercentage(Slider p) { Percentage = p.value; }
+
+    #endregion
 }

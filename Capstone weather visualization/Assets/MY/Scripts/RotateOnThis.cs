@@ -11,9 +11,7 @@ public class RotateOnThis : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
 {
 
 	public rotateController RC;
-	void Update()
-    {
-
+	void Update()  {
         if (!RC.CanZoom) { return; }
         if (RC._isRotating)
         {
