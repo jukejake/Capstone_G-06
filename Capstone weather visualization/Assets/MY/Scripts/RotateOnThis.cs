@@ -6,10 +6,10 @@
 
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class RotateOnThis : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
-
 	public rotateController RC;
 	void Update()  {
         if (!RC.CanZoom) { return; }
@@ -37,8 +37,8 @@ public class RotateOnThis : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
         if (Input.touchCount == 2)
         {
 			RC._isRotating = false;
-            Touch touch0 = Input.GetTouch(0);
-            Touch touch1 = Input.GetTouch(1);
+            Touch touch0 = Input.touches[0];
+            Touch touch1 = Input.touches[1];
 
             Vector2 lastTouch0Pos = touch0.position - touch0.deltaPosition;
             Vector2 lastTouch1Pos = touch1.position - touch1.deltaPosition;
@@ -49,8 +49,7 @@ public class RotateOnThis : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
             float difference = currentMagnitude - previousMagnitude;
 
             RC.zoom(difference * RC.zoomSensitivity);
-        }
-        
+        }     
     }
 
 	//If a mouse clicked the UI was detected
