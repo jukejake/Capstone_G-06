@@ -48,14 +48,14 @@ public class RadialSlider: SerializedMonoBehaviour, IPointerEnterHandler, IPoint
     public float angleOffset = -0.25f;
 
     // Needed to access the camera rotation controller. Will store the controller object which contains the actual controller
-    rotateController rotationController;    // Will store the actual controller
+    //rotateController rotationController;    // Will store the actual controller
 	#endregion
 
 	#region Functions
 	void Start(){
-		if (GameObject.Find("RotateObject")) { 
-			rotationController = GameObject.Find("RotateObject").GetComponent<rotateController>();     // Get the controller from the game // Store the controller object (from the script) from the																				// camera controller object (which is stored in cameraRotController)
-		}
+		//if (GameObject.Find("RotateObject")) { 
+		//	rotationController = GameObject.Find("RotateObject").GetComponent<rotateController>();     // Get the controller from the game // Store the controller object (from the script) from the																				// camera controller object (which is stored in cameraRotController)
+		//}
 	}
 	//When the mouse is over the UI, Track it.
 	public void OnPointerEnter(PointerEventData eventData) {
@@ -114,7 +114,7 @@ public class RadialSlider: SerializedMonoBehaviour, IPointerEnterHandler, IPoint
 					if (SetText != null) { SetText.text = ((int)Value).ToString(); }
 
                     //All Marco Valdez did...
-                    rotationController.SetIsRotating(false);     // Don't allow the controller to rotate the camera if the user clicks the UI
+                    //rotationController.SetIsRotating(false);     // Don't allow the controller to rotate the camera if the user clicks the UI
 				}
 				yield return 0;
 			}

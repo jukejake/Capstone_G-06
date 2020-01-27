@@ -38,7 +38,7 @@ public class SpawnAnimation : SerializedMonoBehaviour {
     private bool CarStage;
     private float waiting = 0.0f;
 
-    private bool isOn = false;
+    private bool isOn = true;
     #endregion
 
     #region Functions
