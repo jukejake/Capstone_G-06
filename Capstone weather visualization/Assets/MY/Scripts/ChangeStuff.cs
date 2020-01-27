@@ -8,6 +8,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using Sirenix.OdinInspector;
+using TMPro;
 
 public class ChangeStuff : SerializedMonoBehaviour {
 
@@ -55,7 +56,8 @@ public class ChangeStuff : SerializedMonoBehaviour {
 	public GameObject Obj;
 	[ToggleGroup("ToggleRotation")]
 	public float RotateBy = 1.0f;
-	private bool RotateLeft = false;
+    private float RotateByHidden = 1.0f;
+    private bool RotateLeft = false;
 	private bool RotateRight = false;
 	private float RotateY = 0.0f;
 	private Vector3 Rotation;
@@ -76,11 +78,26 @@ public class ChangeStuff : SerializedMonoBehaviour {
 		//Set Rotation
 		Rotation = new Vector3(0.0f, RotateY, 0.0f);
 		Obj.transform.localRotation = Quaternion.Euler(Rotation);
-	}
-	#endregion
+    }
+    //Reset
+    public void ResetRotation() {
+        Rotation = Vector3.zero;
+        Obj.transform.localRotation = Quaternion.Euler(Rotation);
+        RotateY = 0;
+    }
+    //Stop Rotation
+    public void StopRotation() {
+        RotateByHidden = RotateBy;
+        RotateBy = 0;
+    }
+    //Allow Rotation
+    public void AllowRotation() {
+        RotateBy = RotateByHidden;
+    }
+    #endregion
 
-	#region Set Nozzle
-	[ToggleGroup("ToggleNozzle")]
+    #region Set Nozzle
+    [ToggleGroup("ToggleNozzle")]
 	public bool ToggleNozzle = false;
 
 	[BoxGroup("ToggleNozzle/Objects")]
@@ -112,8 +129,15 @@ public class ChangeStuff : SerializedMonoBehaviour {
 
 	[ToggleGroup("ToggleNozzle")]
 	public int State = 0;
-	//Function to set the state of the Nozzle based on a slider.
-	public void SetNozzle(Slider UI) {
+    //Function to set the state of the Nozzle based on a slider.
+    public void SetNozzle(TextMeshProUGUI text){
+        if (State == 2) { State = 0; }
+        else { State++; }
+        text.text = (State + 1).ToString();
+        ChangeNozzleSize();
+    }
+    //Function to set the state of the Nozzle based on a slider.
+    public void SetNozzle(Slider UI) {
 		State = (int)UI.value;
 		ChangeNozzleSize();
 	}

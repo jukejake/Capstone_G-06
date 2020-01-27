@@ -108,7 +108,10 @@ public class SpawnObjects : SerializedMonoBehaviour {
 				BackDynoCases.position = new Vector3(t.BackDynoPos.x, BackDynoCases.position.y, t.BackDynoPos.z);
 			}
 		}
-	}
+
+        //Play spawning animation
+        SpawnAnimation.Instance.Play();
+    }
 
 	//Function to clear all of the children on the Object
 	public void Clear() {

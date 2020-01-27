@@ -3,82 +3,41 @@ guid: b295b6401049aca4faf1374aad10abde
 TextureImporter:
   fileIDToRecycleName:
     21300000: Button Basic
-    21300002: Button Basic Outline
+    21300002: Button Basic Outline (x1)
     21300004: Button Rounded
-    21300006: Button Rounded Outline
-    21300008: Circle Outline (x8)
-    21300010: Red & Blue Gradient
-    21300012: Circle
-    21300014: Rounded Switch
-    21300016: Circle Outline (x1)
-    21300018: Circle Outline Big
-    21300020: Circle Big
-    21300022: Circle Outline Cut Big
-    21300024: Save
-    21300026: Fix
-    21300028: Warning
-    21300030: Info
-    21300032: Yes with Circle
-    21300034: No with Circle
-    21300036: Checkmark Thin
-    21300038: No
-    21300040: Button Basic Outline (x1)
-    21300042: Button Basic Outline (x2)
-    21300044: Button Basic Outline (x3)
-    21300046: Button Rounded Outline (x2)
-    21300048: Button Rounded Outline (x3)
-    21300050: Button Basic Outline (x6)
-    21300052: Button Rounded Outline (x1)
-    21300054: Circle Outline Big Thin
-    21300056: Circle Outline (x2)
-    21300058: Circle Outline (x3)
-    21300060: Circle Outline (x4)
-    21300062: Circle Outline (x5)
-    21300064: Chat
-    21300066: Refresh
-    21300068: User
-    21300070: Lock
-    21300072: Phone
-    21300074: Video
-    21300076: Cup
-    21300078: Heart
-    21300080: Pin
-    21300082: Checkmark Light
-    21300084: Checkmark Regular
-    21300086: Checkmark Bold
-    21300088: Circle Outline Big Light
-    21300090: Circle Outline Big Regular
-    21300092: Circle Outline Big Bold
-    21300094: Star
-    21300096: Star Filled
-    21300098: Settings
-    21300100: Lamp
-    21300102: Shield
-    21300104: Global
-    21300106: Button Basic Outline (x4)
-    21300108: Button Basic Outline (x5)
-    21300110: Button Rounded Outline (x4)
-    21300112: Button Rounded Outline (x5)
-    21300114: Button Rounded Outline (x6)
-    21300116: Button Basic Outline (x7)
-    21300118: Button Basic Outline (x8)
-    21300120: Button Basic Outline (x9)
-    21300122: Button Rounded Outline (x7)
-    21300124: Button Rounded Outline (x8)
-    21300126: Button Rounded Outline (x9)
-    21300128: Button Rounded Outline (x10)
-    21300130: Button Basic Outline (x10)
-    21300132: Label 1
-    21300134: Label 1 Outline (x1)
-    21300136: Label 1 R
-    21300138: Label 1 Outline R (x1)
-    21300140: Label 1 Cutted
-    21300142: Label 1 Cutted Outline (1x)
-    21300144: Red & Orange Gradient
-    21300146: Blue Gradient
-    21300148: Pink & Purple Gradient
+    21300006: Button Rounded Outline (x1)
+    21300008: Red & Blue Gradient
+    21300010: Rounded Switch
+    21300012: Save
+    21300014: Fix
+    21300016: Checkmark Thin
+    21300018: Button Basic Outline (x2)
+    21300020: Button Basic Outline (x3)
+    21300022: Button Rounded Outline (x2)
+    21300024: Button Rounded Outline (x3)
+    21300026: Checkmark Light
+    21300028: Checkmark Regular
+    21300030: Checkmark Bold
+    21300032: Star
+    21300034: Star Filled
+    21300036: Button Basic Outline (x4)
+    21300038: Button Basic Outline (x5)
+    21300040: Button Basic Outline (x6)
+    21300042: Button Rounded Outline (x8)
+    21300044: Button Rounded Outline (x9)
+    21300046: Button Rounded Outline (x10)
+    21300048: Button Basic Outline (x10)
+    21300050: Label 1
+    21300052: Label 1 Outline (x1)
+    21300054: Label 1 R
+    21300056: Label 1 Outline R (x1)
+    21300058: Label 1 Cutted
+    21300060: Label 1 Cutted Outline (1x)
+    21300062: Red & Orange Gradient
+    21300064: Blue Gradient
+    21300066: Pink & Purple Gradient
   externalObjects: {}
-  serializedVersion: 5
+  serializedVersion: 9
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -96,6 +55,8 @@ TextureImporter:
     heightScale: 0.25
     normalMapFilter: 0
   isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -106,7 +67,7 @@ TextureImporter:
     serializedVersion: 2
     filterMode: 2
     aniso: -1
-    mipBias: -1
+    mipBias: -100
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -1267,6 +1228,8 @@ TextureImporter:
     edges: []
     weights: []
   spritePackingTag: 
+  pSDRemoveMatte: 1
+  pSDShowRemoveMatteOption: 1
   userData: 
   assetBundleName: 
   assetBundleVariant: 

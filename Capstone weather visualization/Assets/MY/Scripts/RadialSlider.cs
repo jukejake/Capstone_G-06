@@ -44,9 +44,11 @@ public class RadialSlider: SerializedMonoBehaviour, IPointerEnterHandler, IPoint
 	public FlowData SetFunction2;
 	[HorizontalGroup("Display Options/7"), LabelWidth(90)]
 	public TextMeshProUGUI SetText;
+    [HorizontalGroup("Display Options/8"), LabelWidth(90)]
+    public float angleOffset = -0.25f;
 
-	// Needed to access the camera rotation controller. Will store the controller object which contains the actual controller
-	rotateController rotationController;    // Will store the actual controller
+    // Needed to access the camera rotation controller. Will store the controller object which contains the actual controller
+    rotateController rotationController;    // Will store the actual controller
 	#endregion
 
 	#region Functions
@@ -89,8 +91,8 @@ public class RadialSlider: SerializedMonoBehaviour, IPointerEnterHandler, IPoint
 					var theta = Mathf.Deg2Rad*StartAngle;
 					localPos = new Vector2( ((localPos.x * Mathf.Cos(theta)) - (localPos.y * Mathf.Sin(theta))), ((localPos.x * Mathf.Sin(theta)) + (localPos.y * Mathf.Cos(theta))) );
 
-					//Calculate the angle (from 0~1) of the slider based on mouse position
-					float angle = Mathf.Clamp(((Mathf.Atan2(-localPos.y, localPos.x)*180.0f/Mathf.PI+180.0f)/360.0f), (Clamp.x/360.0f), (Clamp.y/360.0f));
+                    //Calculate the angle (from 0~1) of the slider based on mouse position
+                    float angle = Mathf.Clamp(((Mathf.Atan2(-localPos.y, localPos.x) * 180.0f / Mathf.PI + 180.0f) / 360.0f), (Clamp.x/360.0f), (Clamp.y/360.0f));
 
 					//Rotate the slider by the Start Angle
 					FillArea.gameObject.transform.localRotation = Quaternion.Euler(0, 0, -StartAngle);
@@ -102,7 +104,7 @@ public class RadialSlider: SerializedMonoBehaviour, IPointerEnterHandler, IPoint
 					FillArea.color = Color.Lerp(Colour1, Colour2, ((angle*360.0f).Map(Clamp.x, Clamp.y, 0, Max)/Max) );
 
 					//Map the Value to the maximum number it could be
-					Value = (angle*Max);
+					Value = ((angle+angleOffset) *Max);
 
 					//Set the speed to the Value
 					if (SetFunction != null) { SetFunction.SetSpeed(Value); }
@@ -111,7 +113,8 @@ public class RadialSlider: SerializedMonoBehaviour, IPointerEnterHandler, IPoint
 					//Set the TextMeshPro text to the Value
 					if (SetText != null) { SetText.text = ((int)Value).ToString(); }
 
-					rotationController.SetIsRotating(false);     // Don't allow the controller to rotate the camera if the user clicks the UI
+                    //All Marco Valdez did...
+                    rotationController.SetIsRotating(false);     // Don't allow the controller to rotate the camera if the user clicks the UI
 				}
 				yield return 0;
 			}
