@@ -1,22 +1,37 @@
 ﻿/*////
 //Written by Jacob Rosengren
 //Date: 2018~2019
-//BUSI 4995U Capstone
+//Updated: January 2020
+//BUSI 4995U Capstone 
 ////*/
 
 using UnityEngine;
+using UnityEngine.UI;
+using Sirenix.OdinInspector;
 
-public class SplashScreen : MonoBehaviour {
+public class SplashScreen : SerializedMonoBehaviour {
 
-	#region Variables
-	public float CounterInMinutes = 10.0f;
-	private float Counter;
-	public float TimeLeft = 0.0f;
-	public ButtonSceneData BSD;
-	#endregion
+    #region Variables
+    public static SplashScreen instance = null;
 
-	#region Functions
-	private void Start() {
+    [BoxGroup("Timer")]
+    public float CounterInMinutes = 10.0f;
+    [BoxGroup("Timer")]
+    private float Counter;
+    [BoxGroup("Timer")]
+    public float TimeLeft = 0.0f;
+    [BoxGroup("Timer")]
+    public ChangeScene BSD;
+    
+    #endregion
+
+    #region Functions
+
+    private void Awake() {
+        instance = this;
+    }
+
+    private void Start() {
 		Counter = CounterInMinutes * 60;
 		TimeLeft = Counter;
 		//Switch to splash screen
@@ -39,8 +54,6 @@ public class SplashScreen : MonoBehaviour {
 
 	private void OnBecameVisible() {
 		TimeLeft = Counter;
-	}
-
-
-	#endregion
+    }
+    #endregion
 }

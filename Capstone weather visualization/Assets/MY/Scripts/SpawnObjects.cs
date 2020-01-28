@@ -11,8 +11,9 @@ using Sirenix.Serialization;
 
 public class SpawnObjects : SerializedMonoBehaviour {
 
-	#region Variables
-	[OdinSerialize]
+    #region Variables
+    public static SpawnObjects instance = null;
+    [OdinSerialize]
 	//A dictionary that has all the names and Gameobjects of the cars
 	public Dictionary<string, GameObject> IDTable = new Dictionary<string, GameObject>();
 	public Dictionary<string, SpawnItem> ShowTable = new Dictionary<string, SpawnItem>();
@@ -21,10 +22,13 @@ public class SpawnObjects : SerializedMonoBehaviour {
 	public Transform BackDynoCases;
 	[InfoBox("True for Destroy | False for Hide")]
 	public bool DestroyOrHide = true;
-	#endregion
+    #endregion
 
-	#region Functions
-	private void Start() {
+    #region Functions
+    private void Awake() {
+        instance = this;
+    }
+    private void Start() {
 		if (!DestroyOrHide) { SpawnAll(); }
 		//Invoke("HideAll", 0.50f);
 	}
@@ -69,6 +73,9 @@ public class SpawnObjects : SerializedMonoBehaviour {
 
 	//Function to show a specific vehicle.
 	public void ShowVehicle(string key) {
+
+        //Only spawn 1 at a time.
+        if (SpawnAnimation.instance.stage != 0) { return; }
 		//Instantiate Destroy Method
 		if (DestroyOrHide) {
 			GameObject t;
@@ -110,7 +117,7 @@ public class SpawnObjects : SerializedMonoBehaviour {
 		}
 
         //Play spawning animation
-        SpawnAnimation.Instance.Play();
+        SpawnAnimation.instance.Play();
     }
 
 	//Function to clear all of the children on the Object

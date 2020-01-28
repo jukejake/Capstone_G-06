@@ -11,8 +11,11 @@ using TMPro;
 
 public class WheelController : SerializedMonoBehaviour {
 
-	#region Variables
-	[Range(0,250)]
+    #region Variables
+
+    public static WheelController instance = null;
+
+    [Range(0,250)]
 	public int Speed;
 	private int OldSpeed;
 	private float WheelSize = 0.6884924f; //27.106 inches to meters
@@ -33,14 +36,15 @@ public class WheelController : SerializedMonoBehaviour {
 	#region Setup
 	//Used for initialization.
 	private void Awake() {
+        instance = this;
+
 		RotateAmount = (Speed / (WheelSize*Mathf.PI));
 		if (UseTreadmill != false) { InvokeRepeating("TreadmillUpdate", 1.0f, 0.01f); }
 	}
 	//Create a Treadmill Update.
 	void TreadmillUpdate() {
         float val = Time.deltaTime * RotateAmount * TreadmillSpeed;
-
-        Debug.Log(offset);
+        
         if (val > 0.05) {
             offset += val; //
             Treadmill.material.SetTextureOffset("_MainTex", new Vector2(0, -offset));

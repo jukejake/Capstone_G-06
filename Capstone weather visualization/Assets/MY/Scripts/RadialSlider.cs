@@ -3,13 +3,6 @@
 //Date: 2018~2019
 //BUSI 4995U Capstone
 ////*/
-///
-
-// =============================
-// Edited by Marco Valdez
-// Added: support for blocking camera
-// movement if using the slider
-// =============================
 
 using UnityEngine;
 using System.Collections;
@@ -38,25 +31,16 @@ public class RadialSlider: SerializedMonoBehaviour, IPointerEnterHandler, IPoint
 	public Color Colour1 = Color.green;
 	[HorizontalGroup("Display Options/4"), LabelWidth(70)]
 	public Color Colour2 = Color.red;
-	[HorizontalGroup("Display Options/5"), LabelWidth(90)]
-	public WheelController SetFunction;
-	[HorizontalGroup("Display Options/6"), LabelWidth(90)]
-	public FlowData SetFunction2;
 	[HorizontalGroup("Display Options/7"), LabelWidth(90)]
 	public TextMeshProUGUI SetText;
     [HorizontalGroup("Display Options/8"), LabelWidth(90)]
     public float angleOffset = -0.25f;
 
-    // Needed to access the camera rotation controller. Will store the controller object which contains the actual controller
-    //rotateController rotationController;    // Will store the actual controller
+
 	#endregion
 
 	#region Functions
-	void Start(){
-		//if (GameObject.Find("RotateObject")) { 
-		//	rotationController = GameObject.Find("RotateObject").GetComponent<rotateController>();     // Get the controller from the game // Store the controller object (from the script) from the																				// camera controller object (which is stored in cameraRotController)
-		//}
-	}
+
 	//When the mouse is over the UI, Track it.
 	public void OnPointerEnter(PointerEventData eventData) {
 		StartCoroutine("TrackPointer");
@@ -107,14 +91,11 @@ public class RadialSlider: SerializedMonoBehaviour, IPointerEnterHandler, IPoint
 					Value = ((angle+angleOffset) *Max);
 
 					//Set the speed to the Value
-					if (SetFunction != null) { SetFunction.SetSpeed(Value); }
+                    WheelController.instance.SetSpeed(Value);
 					//Set the speed to the Value
-					if (SetFunction2 != null) { SetFunction2.SetSpeed(Value); }
-					//Set the TextMeshPro text to the Value
-					if (SetText != null) { SetText.text = ((int)Value).ToString(); }
-
-                    //All Marco Valdez did...
-                    //rotationController.SetIsRotating(false);     // Don't allow the controller to rotate the camera if the user clicks the UI
+                    FlowData.instance.SetSpeed(Value);
+                    //Set the TextMeshPro text to the Value
+                    if (SetText != null) { SetText.text = ((int)Value).ToString(); }
 				}
 				yield return 0;
 			}
@@ -122,6 +103,9 @@ public class RadialSlider: SerializedMonoBehaviour, IPointerEnterHandler, IPoint
 		else { UnityEngine.Debug.LogWarning( "Could not find GraphicRaycaster and/or StandaloneInputModule" ); }
 	}
 
-
+    public void ResetSlider() {
+        Value = 0;
+        FillArea.fillAmount = 0;
+	}
 	#endregion
 }

@@ -1,28 +1,30 @@
 ﻿/*////
 //Written by Jacob Rosengren
 //Date: 2018~2019
+//Updated: January 2020
 //BUSI 4995U Capstone
 ////*/
 
-using System.Collections.Generic;
 using UnityEngine;
 using Sirenix.OdinInspector;
 
 
 public class FlowData : SerializedMonoBehaviour {
 
-	#region General Variables
-	//General Variables
-	[BoxGroup("General")]
+    #region General Variables
+    public static FlowData instance = null;
+
+    //General Variables
+    [BoxGroup("General")]
 	[HorizontalGroup("General/Start"), Range(0.5f, 20.0f), LabelWidth(60)]
-	public float LifeTime = 5.0f; //Life time of particales.
+	public float LifeTime = 5.0f; //Life time of particles.
 	[HorizontalGroup("General/Start"), Range(0.01f, 0.2f), LabelWidth(70)]
-	public float StartSize = 0.1f; //Start size of particales.
-	[HorizontalGroup("General/Rate", Width = 0.15f), LabelWidth(30)]
-	public int MaxP = 500; //Max amount of particales.
-	[HorizontalGroup("General/Rate"), Range(0, 200), LabelWidth(40)]
-	public int Rate = 5; //Flow rate of particales.
-	[HorizontalGroup("General/Speed", Width = 0.25f), LabelWidth(100)]
+	public float StartSize = 0.1f; //Start size of particles.
+    [HorizontalGroup("General/Rate", Width = 0.15f), LabelWidth(30)]
+	public int MaxP = 500; //Max amount of particles.
+    [HorizontalGroup("General/Rate"), Range(0, 200), LabelWidth(40)]
+	public int Rate = 5; //Flow rate of particles.
+    [HorizontalGroup("General/Speed", Width = 0.25f), LabelWidth(100)]
 	public bool BasedOnSpeed = false; //Turn on speed based on a UI slider.
 	[HorizontalGroup("General/Speed"), Range(0.1f, 20.0f), LabelWidth(70)]
 	public float AirSpeed = 0.0f; //Speed based on a UI slider.
@@ -44,10 +46,10 @@ public class FlowData : SerializedMonoBehaviour {
 	
 
 	[BoxGroup("Small Flows"), Range(0.1f, 5.0f)]
-	public float XScale = 0.3f; //X Size of particale emiter.
-	[BoxGroup("Small Flows"), Range(0.1f, 5.0f)]
-	public float YScale = 0.3f; //Y Size of particale emiter.
-	[BoxGroup("Small Flows")]
+	public float XScale = 0.3f; //X Size of particle emitter.
+    [BoxGroup("Small Flows"), Range(0.1f, 5.0f)]
+	public float YScale = 0.3f; //Y Size of particle emitter.
+    [BoxGroup("Small Flows")]
 	public bool SmallFlowsOn = true;
 	[BoxGroup("Small Flows")]
 	public GameObject[] SmallSmokeFlows;
@@ -60,6 +62,10 @@ public class FlowData : SerializedMonoBehaviour {
 	#region Functions
 
 	private bool SwitchOn = true;
+
+    private void Awake() {
+        instance = this;
+    }
 
 	private void Start() {
 		//AirSpeed = 0;

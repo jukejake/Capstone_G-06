@@ -1,18 +1,20 @@
 ﻿/*////
 //Written by Jacob Rosengren
 //Date: 2018~2019
+//Updated: January 2020
 //BUSI 4995U Capstone
 ////*/
 
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Sirenix.OdinInspector;
 
 public class MovableLightingArray : SerializedMonoBehaviour {
 
-	#region Variables
-	public float MoveSpeed = 1.0f;
+    #region Variables
+    public static MovableLightingArray instance = null;
+
+    public float MoveSpeed = 1.0f;
 	public float RotSpeed = 10.0f;
 	[InfoBox("Needs to reload after switching to the menu.")]
 	public GameObject ConnectersPrefab;
@@ -24,9 +26,13 @@ public class MovableLightingArray : SerializedMonoBehaviour {
 
 	private int Moving = 0;
 	private int Rotating = 0;
-	#endregion
+    #endregion
 
-	#region Public Functions 
+    #region Public Functions 
+
+    private void Awake() {
+        instance = this;
+    }
 
 	private void Update() {
 		if (Moving != 0) {
@@ -46,7 +52,9 @@ public class MovableLightingArray : SerializedMonoBehaviour {
 		}
 	}
 
+    //Move All SELECTED Lights 
 	public void Move_All_Lights(int _d)		 { Moving = _d; } //4 = Up, 1 = Down, 2 = Inward, 3 = Outward.
+    //Rotate All SELECTED Lights 
 	public void Rotate_All_Lights(int _r)	 { Rotating = _r; } //1 = Inwards, 2 = Outwards.
 
 	public void ReloadConnecters() {
@@ -59,6 +67,38 @@ public class MovableLightingArray : SerializedMonoBehaviour {
 		temp.CR = this.transform.GetChild(4).Find("Cube.Right").transform;
 		temp.CB = this.transform.GetChild(5).Find("Cube.Back").transform;
 	}
+
+    
+    public void ResetLights() {
+        //Go through all the lights.
+        foreach (var light in LightingTable) {
+            light.Value.Light.transform.localPosition = light.Value.OGpos;
+            light.Value.Light.transform.GetChild(0).localRotation = Quaternion.Euler(Vector3.zero);
+        }
+        //F*** this shit! Why can't it be put in a loop?!?
+        LightingState t;
+        if (LightingTable.TryGetValue("Left", out t)) {
+			if (t.Selected) { t.Selected = false; }
+			LightingTable["Left"] = t;
+		}
+        if (LightingTable.TryGetValue("Right", out t)) {
+			if (t.Selected) { t.Selected = false; }
+			LightingTable["Right"] = t;
+		}
+        if (LightingTable.TryGetValue("Front", out t)) {
+			if (t.Selected) { t.Selected = false; }
+			LightingTable["Front"] = t;
+		}
+        if (LightingTable.TryGetValue("Back", out t)) {
+			if (t.Selected) { t.Selected = false; }
+			LightingTable["Back"] = t;
+		}
+        if (LightingTable.TryGetValue("Middle", out t)) {
+			if (t.Selected) { t.Selected = false; }
+			LightingTable["Middle"] = t;
+		}
+        ReloadConnecters();
+    }
 	#endregion
 
 	#region Private Functions
@@ -282,5 +322,6 @@ public class MovableLightingArray : SerializedMonoBehaviour {
 		[LabelWidth(50)]
 		public Vector3 OGpos;
 	}
+
 	#endregion
 }

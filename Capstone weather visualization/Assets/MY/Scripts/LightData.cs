@@ -10,8 +10,10 @@ using Sirenix.OdinInspector;
 
 public class LightData : SerializedMonoBehaviour {
 
-	#region Variables
-	public float Range = 15.0f; //The range of the lights.
+    #region Variables
+    public static LightData instance = null;
+
+    public float Range = 15.0f; //The range of the lights.
 	public float SpotAngle = 60.0f; //The spot angle of the lights.
 	public float Intensity = 1.0f; //The intensity of the lights.
 	public float IntensityMuliplier = 1.0f; //The intensity muliplier of the lights.
@@ -23,6 +25,11 @@ public class LightData : SerializedMonoBehaviour {
 	#endregion
 
 	#region Functions
+
+    private void Awake() {
+        instance = this;
+    }
+
 	private void Start() {
 		c = LightMaterial.color;
 		//LightMaterial.shader = Shader.Find("_EmissionColor");

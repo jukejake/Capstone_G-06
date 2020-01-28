@@ -1,6 +1,7 @@
 ﻿/*////
 //Written by Jacob Rosengren
 //Date: 2018~2019
+//Updated: January 2020
 //BUSI 4995U Capstone
 ////*/
 
@@ -60,7 +61,7 @@ public class ShowButton : SerializedMonoBehaviour {
 			Done = true;
 		}
 	}
-	//Srink the UI from 1 to 0.
+	//Shrink the UI from 1 to 0.
 	private void DecreaseScale() {
 		//Rescale over time
 		if (RectSize.x > 0.0f) {
@@ -76,5 +77,13 @@ public class ShowButton : SerializedMonoBehaviour {
 			Done = true;
 		}
 	}
+
+    public void ResetButton() {
+        RT.localScale = Vector3.zero;
+        ToggleObject.SetActive(false);
+        Done = true;
+        Open = false;
+        WaitTime = 0.0f;
+    }
 	#endregion
 }
