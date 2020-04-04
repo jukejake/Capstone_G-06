@@ -6,6 +6,7 @@
 /*////
 //Updated by Jacob Rosengren
 //Date: 2018~2019
+//Date: 2020
 //BUSI 4995U Capstone
 ////*/
 
@@ -49,18 +50,14 @@ public class rotateController : MonoBehaviour
     //The update function has been moved to RotateOnThis script
     //  that way we can use a UI element to more the camera around.
 
-    void OnMouseDown()
-    {
-        if ((Input.touchCount == 1) || Input.GetMouseButton(0))
-            // rotating flag
-            _isRotating = true;
+    void OnMouseDown() {
+        if ((Input.touchCount == 1) || Input.GetMouseButton(0)) { _isRotating = true; }
 
         // store mouse position
         _mouseReference = Input.mousePosition;
     }
 
-    void OnMouseUp()
-    {
+    void OnMouseUp() {
         // rotating flag
         _isRotating = false;
     }
@@ -68,60 +65,29 @@ public class rotateController : MonoBehaviour
     public void SwitchZoom() {
         CanZoom = !CanZoom;
     }
-
-    public void zoom(float increment)
-    {
-
-        zoomCurrent += increment * zoomSensitivity;
-        zoomCurrent = Mathf.Clamp(zoomCurrent, zoomOutMin, zoomOutMax);
-
-        Vector3 temp = new Vector3(0, 0, increment * zoomSensitivity);
-        //Vector3 temp = new Vector3(0, 0, zoomCurrent);
-        //Camera.main.transform.Translate(temp);
-        Camera.main.transform.localPosition += temp;
-
-        Camera.main.transform.localPosition = new Vector3(Camera.main.transform.localPosition.x, 
-            Camera.main.transform.localPosition.y, 
-            Mathf.Clamp(Camera.main.transform.localPosition.z, zoomOutMin, zoomOutMax));
-        //if (Camera.main.transform.position.z < -zoomOutMax)
-        //{
-        //    //Camera.main.transform.position = new Vector3(Camera.main.transform.position.x, Camera.main.transform.position.y, -zoomOutMax);
-        //      Camera.main.transform.Translate(-temp);
-       
-        //}
-
-        //if (Camera.main.transform.position.z > -zoomOutMin)
-        //{
-        //    //Camera.main.transform.position = new Vector3(Camera.main.transform.position.x, Camera.main.transform.position.y, -zoomOutMin);
-        //    Camera.main.transform.Translate(-temp);
-        //}
-        //Camera.main.transform.position = Vector3.zero - temp;
+    public void SwitchZoom(bool state) {
+        CanZoom = state;
     }
 
-    public void SetIsRotating(bool doesRotate)
-    {
+    public void zoom(float increment) {
+
+        //zoomCurrent += increment * zoomSensitivity;
+        //zoomCurrent = Mathf.Clamp(zoomCurrent, zoomOutMin, zoomOutMax);
+        //Vector3 temp = new Vector3(0, 0, zoomCurrent);
+        //Camera.main.transform.Translate(temp);
+
+        Vector3 temp = new Vector3(0, 0, increment * zoomSensitivity);
+        Camera.main.transform.localPosition += temp;
+
+        Camera.main.transform.localPosition = new Vector3(Camera.main.transform.localPosition.x, Camera.main.transform.localPosition.y, Mathf.Clamp(Camera.main.transform.localPosition.z, zoomOutMin, zoomOutMax));
+    }
+
+    public void SetIsRotating(bool doesRotate) {
       _isRotating = doesRotate;
     }
 
-    public void ResetCamera()
-    {
+    public void ResetCamera() {
         transform.localEulerAngles = new Vector3(0.0f, 0.0f, 0.0f);
     }
-
-   // private void OnEnable()
-   // {
-   //     TwoFingerMoveGesture.Transformed += twoFingerTransformHandler;
-   // }
-   //
-   // private void OnDisable()
-   // {
-   //     TwoFingerMoveGesture.Transformed -= twoFingerTransformHandler;
-   // }
-   //
-   // private void twoFingerTransformHandler(object sender, System.EventArgs e)
-   // {
-   //     Camera.main.transform.localPosition += Vector3.forward * (TwoFingerMoveGesture.DeltaScale - 1f);
-   //     Camera.main.transform.localPosition = new Vector3(Camera.main.transform.localPosition.x, Camera.main.transform.localPosition.y, Mathf.Clamp(Camera.main.transform.localPosition.z, -0.4f, -0.3f));
-   // }
 
 }

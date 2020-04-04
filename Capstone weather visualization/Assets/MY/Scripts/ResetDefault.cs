@@ -19,13 +19,13 @@ public class ResetDefault : SerializedMonoBehaviour {
     [BoxGroup("Reset")]
     public Slider lightsSlider;
     [BoxGroup("Reset")]
-    public GameObject[] Toggles;
+    public GameObject[] lightToggles;
+    [BoxGroup("Reset")]
+    public ShowButton solarToggle;
     [BoxGroup("Reset")]
     public ShowButton cameraToggle;
     [BoxGroup("Reset")]
     public SwitchOn cameraSwitch;
-    [BoxGroup("Reset")]
-    public ShowButton solarToggle;
 
     #endregion
 
@@ -71,7 +71,7 @@ public class ResetDefault : SerializedMonoBehaviour {
         lightsSlider.value = 1;
 
         //Reset toggles UI
-        foreach (var item in Toggles) {
+        foreach (var item in lightToggles) {
             if (item.transform.GetChild(0).GetChild(0).gameObject.activeSelf) {
                 item.transform.GetChild(0).GetChild(0).GetComponent<SwitchOn>().Switch();
             }

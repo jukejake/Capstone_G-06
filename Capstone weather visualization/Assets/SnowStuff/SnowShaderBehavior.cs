@@ -10,8 +10,8 @@ public class SnowShaderBehavior : MonoBehaviour
 {
     public int snowSize = 1;
 
-    private const int textureHeight = 256;
-    private const int textureWidth = 256;
+    private const int textureHeight = 512;//256
+    private const int textureWidth = 512;//256
     private Color c_color = new Color(0, 0, 0, 0);
 
     private Material m_material;
@@ -21,45 +21,22 @@ public class SnowShaderBehavior : MonoBehaviour
     // private Snow snow;
 
 
-
-    private void Awake()
-    {
-        //snow = GameObject.FindGameObjectWithTag("SnowParticle").GetComponent<Snow>();
-    }
-
-    void Start()
-    {
-        if (GetComponent<Renderer>())
-        {
+    void Start() {
+        if (GetComponent<Renderer>()) {
             Renderer renderer = GetComponent<Renderer>();
-            foreach (Material material in renderer.materials)
-            {
-                if (material.shader.name == "Custom/SnowShader")
-                {
-                    m_material = material;
-                    break;
-                }
-                else if (material.shader.name == "Custom/SnowShaderTransparent")
-                {
-                    m_material = material;
-                    break;
-                }
-                else if (material.shader.name == "Tessellation")
-                {
+            foreach (Material material in renderer.materials) {
+                if (material.shader.name == "Custom/SnowShader" || material.shader.name == "Custom/SnowShaderTransparent" || material.shader.name == "Tessellation") {
                     m_material = material;
                     break;
                 }
             }
 
-            if (null != m_material)
-            {
+            if (m_material != null) {
                 m_texture = new Texture2D(textureWidth, textureHeight);
                 m_displacementTexture = new Texture2D(textureWidth, textureHeight);
                 Graphics.CopyTexture(m_texture, m_displacementTexture);
-                for (int x = 0; x < textureWidth; ++x)
-                {
-                    for (int y = 0; y < textureHeight; ++y)
-                    {
+                for (int x = 0; x < textureWidth; ++x) {
+                    for (int y = 0; y < textureHeight; ++y) {
                         m_texture.SetPixel(x, y, c_color);
                         m_displacementTexture.SetPixel(x, y, new Color(0, 0, 0, 0));
                     }
@@ -70,8 +47,7 @@ public class SnowShaderBehavior : MonoBehaviour
 
                 m_material.SetTexture("_DrawingTex", m_texture);
 
-                if (m_material.shader.name == "Tessellation")
-                {
+                if (m_material.shader.name == "Tessellation") {
                     m_material.SetTexture("_DispTex", m_displacementTexture);
                 }
 

@@ -44,6 +44,8 @@ public class ChangeNozzle : SerializedMonoBehaviour {
     public GameObject SnowFlow;
     [BoxGroup("ToggleNozzle/Flows")]
     public GameObject FlowPlane;
+    [BoxGroup("ToggleNozzle/Flows")]
+    public GameObject[] SmokeFlows;
 
     [HideInInspector]
     public int State = 0;
@@ -90,9 +92,12 @@ public class ChangeNozzle : SerializedMonoBehaviour {
 	//Will rotate on DelayedUpdate, if ToggleNozzle.
 	private void ChangeNozzleSize() {
 
-		//Set the position of the walls, and flow.
-		//Change the scale of the flow.
-		var _pss1 = SmokeFlow.GetComponent<ParticleSystem>().shape;
+
+        FlowData.instance.ExtraSmoke(false);
+
+        //Set the position of the walls, and flow.
+        //Change the scale of the flow.
+        var _pss1 = SmokeFlow.GetComponent<ParticleSystem>().shape;
 		var _pss2 =  RainFlow.GetComponent<ParticleSystem>().shape;
 		var _pss3 =  SnowFlow.GetComponent<ParticleSystem>().shape;
 
@@ -139,7 +144,9 @@ public class ChangeNozzle : SerializedMonoBehaviour {
 
 			FlowPlane.transform.localPosition = new Vector3(0, 2.16f, 0);
 			FlowPlane.transform.localScale = new Vector3(0.475f, 1, 0.425f);
-		}
+
+            FlowData.instance.ExtraSmoke(true);
+        }
 	}
 
     #endregion

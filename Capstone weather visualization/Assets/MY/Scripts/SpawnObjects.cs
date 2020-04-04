@@ -74,6 +74,9 @@ public class SpawnObjects : SerializedMonoBehaviour {
 	//Function to show a specific vehicle.
 	public void ShowVehicle(string key) {
 
+        //Reset the scene to default
+        ResetDefault.instance.ResetToDefault();
+
         //Only spawn 1 at a time.
         if (SpawnAnimation.instance.stage != 0) { return; }
 		//Instantiate Destroy Method
@@ -82,8 +85,10 @@ public class SpawnObjects : SerializedMonoBehaviour {
 			if (IDTable.TryGetValue(key, out t)) {
 				//Remove the previous car.
 				Remove();
-				//Spawn the new car.
-				GameObject temp = Instantiate(t, this.transform.position, this.transform.rotation, this.transform);
+                //Make sure it spawns in the center to the spawnpoint
+                this.transform.localPosition = new Vector3(0.0f, 0.1f, 0.0f);
+                //Spawn the new car.
+                GameObject temp = Instantiate(t, this.transform.position, this.transform.rotation, this.transform);
 				temp.name = t.name;
 				//Set position of front Dynos.
 				var Cpos = temp.transform.position;
@@ -115,7 +120,7 @@ public class SpawnObjects : SerializedMonoBehaviour {
 				BackDynoCases.position = new Vector3(t.BackDynoPos.x, BackDynoCases.position.y, t.BackDynoPos.z);
 			}
 		}
-
+        
         //Play spawning animation
         SpawnAnimation.instance.Play();
     }

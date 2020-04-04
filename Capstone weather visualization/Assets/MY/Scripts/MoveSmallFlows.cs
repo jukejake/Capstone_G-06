@@ -15,7 +15,7 @@ public class MoveSmallFlows : MonoBehaviour {
     #endregion
 
     #region Functions
-    void Update() {
+    void FixedUpdate() {
         flows.transform.localPosition = new Vector3(0, 0, slider.value);
     }
 

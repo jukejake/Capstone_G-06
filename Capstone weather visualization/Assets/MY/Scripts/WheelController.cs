@@ -31,11 +31,13 @@ public class WheelController : SerializedMonoBehaviour {
 	private float offset = 0.0f;
 	[HideIf("UseTreadmill")]
 	public GameObject Dynos;
-	#endregion
 
-	#region Setup
-	//Used for initialization.
-	private void Awake() {
+    public Transform Spawnpoint;
+    #endregion
+
+    #region Functions
+    //Used for initialization.
+    private void Awake() {
         instance = this;
 
 		RotateAmount = (Speed / (WheelSize*Mathf.PI));
@@ -82,13 +84,18 @@ public class WheelController : SerializedMonoBehaviour {
 			Treadmill.gameObject.SetActive(true);
 			UseTreadmill = true;
 			InvokeRepeating("TreadmillUpdate", 1.0f, 0.01f);
-		}
+            Spawnpoint.localPosition = new Vector3(1.0f, 0.1f, 0.0f);
+            SpawnAnimation.instance.RegularPosition = new Vector3(1.0f, 0.1f, 0.0f);
+
+        }
 		else {
 			Dynos.SetActive(true);
 			Treadmill.gameObject.SetActive(false);
 			UseTreadmill = false;
 			CancelInvoke("TreadmillUpdate");
-		}
+            Spawnpoint.localPosition = new Vector3(0.0f, 0.1f, 0.0f);
+            SpawnAnimation.instance.RegularPosition = new Vector3(0.0f, 0.1f, 0.0f);
+        }
 	}
 	
 	#endregion

@@ -18,6 +18,8 @@ public class SpawnAnimation : SerializedMonoBehaviour {
     public Transform exhaust;
     [HorizontalGroup("Objects/2")]
     public Transform spawnPoint;
+    [HorizontalGroup("Objects/2")]
+    public Vector3 RegularPosition = new Vector3(0.0f,0.1f,0.0f);
     [HorizontalGroup("Objects/3")]
     public Transform platform;
 
@@ -105,13 +107,13 @@ public class SpawnAnimation : SerializedMonoBehaviour {
     public void CarAnimation() {
 
         //Move to standard position
-        if (CarStage && spawnPoint.localPosition.x > 0) {
+        if (CarStage && spawnPoint.localPosition.x > RegularPosition.x) {
             Vector3 newSpeed = new Vector3((-carSpeed * carInvokeEvery), 0, 0);
             spawnPoint.Translate(newSpeed);
         }
         else {
             //Set position to zero (in case of overshooting)
-            spawnPoint.localPosition = new Vector3(0.0f, 0.1f, 0.0f);
+            spawnPoint.localPosition = RegularPosition;
             //Cancel Invoke
             CancelInvoke("CarAnimation");
             //Allow Rotation

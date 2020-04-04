@@ -34,8 +34,10 @@ public class FlowData : SerializedMonoBehaviour {
 	public MegaFlow _MegaFlow;
 	[BoxGroup("General")]
 	public int ActiveFlow; //0 = Smoke, 1 = Rain, 2 = Snow
+    [HideInInspector]
+    public bool ExtraSmokeFlows = false;
 
-	[BoxGroup("BigFlows")]
+    [BoxGroup("BigFlows")]
 	public bool BigFlowsOn = true;
 	[BoxGroup("BigFlows")]
 	public GameObject BigSmokeFlow;
@@ -53,7 +55,9 @@ public class FlowData : SerializedMonoBehaviour {
 	public bool SmallFlowsOn = true;
 	[BoxGroup("Small Flows")]
 	public GameObject[] SmallSmokeFlows;
-	[BoxGroup("Small Flows")]
+    [BoxGroup("Small Flows")]
+    public GameObject[] ExtraSmallSmokeFlows;
+    [BoxGroup("Small Flows")]
 	public GameObject[] SmallRainFlows;
 	[BoxGroup("Small Flows")]
 	public GameObject[] SmallSnowFlows;
@@ -66,16 +70,14 @@ public class FlowData : SerializedMonoBehaviour {
     private void Awake() {
         instance = this;
     }
-
-	private void Start() {
-		//AirSpeed = 0;
-		//SwitchOn = true;
-		//SetSpeed(0);
-	}
+    
 
 	private void SwitchWeather(bool state) {
 		if (SmallFlowsOn) {
-				 if (ActiveFlow == 0) { foreach (var item in SmallSmokeFlows){ item.SetActive(state); } }
+			if (ActiveFlow == 0) {
+                foreach (var item in SmallSmokeFlows){ item.SetActive(state); };
+                if (ExtraSmokeFlows) { foreach (var item in ExtraSmallSmokeFlows) { item.SetActive(state); } }
+            }
 			else if (ActiveFlow == 1) { foreach (var item in SmallRainFlows) { item.SetActive(state); } }
 			else if (ActiveFlow == 2) { foreach (var item in SmallSnowFlows) { item.SetActive(state); } }
 		}
@@ -85,6 +87,13 @@ public class FlowData : SerializedMonoBehaviour {
 			else if (ActiveFlow == 2) { BigSnowFlow.SetActive(state); }
 		}
 	}
+
+    public void ExtraSmoke(bool state) {
+        ExtraSmokeFlows = state;
+        if (state && AirSpeed > 0.1f && ActiveFlow == 0) { foreach (var item in ExtraSmallSmokeFlows) { item.SetActive(true); } }
+        else { foreach (var item in ExtraSmallSmokeFlows) { item.SetActive(false); } }
+        
+    }
 
 	public void SetSpeed(float value) {
 		
@@ -212,7 +221,10 @@ public class FlowData : SerializedMonoBehaviour {
         var B_psm3 = BigSmokeFlow.GetComponent<ParticleSystem>().main;
         B_psm3.startLifetime = rate;
 	}
-	[Button]
+    #endregion
+
+    #region Set Flow Sizes
+    [Button]
 	public void SetSmallSmokeFlows() {
 		_MegaFlow.Scale = AirSpeed;
 		foreach (var item in SmallSmokeFlows)  {

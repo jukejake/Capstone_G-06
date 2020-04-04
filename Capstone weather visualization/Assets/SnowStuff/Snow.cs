@@ -17,7 +17,9 @@ public class Snow : MonoBehaviour {
     public ParticleSystem part;
     public List<ParticleCollisionEvent> collisionEvents;
     public Texture2D splashTexture;
+    //public GameObject snowball;
 
+    private SnowShaderBehavior script;
     private RaycastHit hit;
 
     void Awake() {
@@ -29,15 +31,16 @@ public class Snow : MonoBehaviour {
     private void OnParticleCollision(GameObject other) {
         int numCollisionEvents = part.GetCollisionEvents(other, collisionEvents);
 
-        SnowShaderBehavior script;
+        
         if (other.GetComponent<SnowShaderBehavior>()) {
             script = other.GetComponent<SnowShaderBehavior>();
-            int i = 0;
-            while (i < numCollisionEvents) {
+            int i = numCollisionEvents-1;
+            while (i > 0) {
                 if (Physics.Raycast(collisionEvents[i].intersection, Vector3.right, out hit)) {
                     script.PaintOn(hit.textureCoord, splashTexture);
+                    //Instantiate(snowball, hit.point, Quaternion.Euler(hit.normal), hit.transform);
                 }
-                i++;
+                i--;
             }
         }
     }

@@ -20,24 +20,28 @@ public class SwitchCamera : MonoBehaviour {
 	public int CameraStat = 0;
     public Transform MainC;
     public Transform SecondC;
-	#endregion
 
-	#region Functions
-	private void Awake () {
+    public rotateController rC;
+    #endregion
+
+    #region Functions
+    private void Awake () {
         instance = this;
         ImageView = GetComponent<RawImage>();
 
     }
 	//Function to switch the cameras view.
 	public void Switch() {
+        rC.ResetCamera();
 		switch (CameraStat) {
 			//Switching from main camera to the second camera
 			case 0:
-				CameraStat += 1;
+				CameraStat = 1;
 				ImageView.texture = MainCamera;
                 Camera.main.gameObject.transform.position = SecondC.position;
 				Camera.main.gameObject.transform.rotation = SecondC.rotation;
                 Camera.main.fieldOfView = SecondC.GetComponent<Camera>().fieldOfView;
+                rC.SwitchZoom(false);
 				break;
 			//Switching from second camera to the main camera
 			case 1:
@@ -46,6 +50,7 @@ public class SwitchCamera : MonoBehaviour {
 				Camera.main.gameObject.transform.position = MainC.position;
                 Camera.main.gameObject.transform.rotation = MainC.rotation;
                 Camera.main.fieldOfView = MainC.GetComponent<Camera>().fieldOfView;
+                rC.SwitchZoom(true);
                 break;
 			default:
 				break;
