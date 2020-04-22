@@ -2,6 +2,7 @@
 //Written by Jacob Rosengren
 //Date: January 2020
 //BUSI 4995U Capstone 
+//Updated: April 2020
 ////*/
 
 using UnityEngine;

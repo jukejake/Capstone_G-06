@@ -8,6 +8,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Sirenix.OdinInspector;
+using TMPro;
 
 public class ChangeDyno : SerializedMonoBehaviour {
 
@@ -25,12 +26,19 @@ public class ChangeDyno : SerializedMonoBehaviour {
     private float RotateY = 0.0f;
     private Vector3 Rotation;
 
+    public bool Display = false;
+    [ShowIf(memberName: "Display")]
+    public TextMeshProUGUI DisplayText;
+
     #endregion
 
     #region Functions
 
     private void Awake() {
         instance = this;
+    }
+    private void Start() {
+        RotateByHidden = RotateBy;
     }
 
     private void FixedUpdate() {
@@ -43,6 +51,14 @@ public class ChangeDyno : SerializedMonoBehaviour {
         //Set Rotation
         Rotation = new Vector3(0.0f, RotateY, 0.0f);
         Obj.transform.localRotation = Quaternion.Euler(Rotation);
+        //Set text to the rotation amount.
+        if (DisplayText) {         
+            //Make sure that 'RotateY' is between 0 and 360
+            //this is only to make puting it into text easier
+            if (RotateY < 0) { RotateY += 360; }
+            if (RotateY > 359) { RotateY -= 360; }
+            DisplayText.text = RotateY.ToString();
+        }
     }
     //Public function to switch the object to rotate.
     public void SetObjToRot(GameObject obj) { Obj = obj; }
@@ -55,6 +71,7 @@ public class ChangeDyno : SerializedMonoBehaviour {
         Rotation = Vector3.zero;
         Obj.transform.localRotation = Quaternion.Euler(Rotation);
         RotateY = 0;
+        if (DisplayText) { DisplayText.text = RotateY.ToString(); }
     }
     //Stop Rotation
     public void StopRotation() {

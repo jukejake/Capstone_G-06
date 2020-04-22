@@ -5,9 +5,9 @@
 // =============================
 /*////
 //Updated by Jacob Rosengren
-//Date: 2018~2019
-//Date: 2020
+//Updated: 2018~2019
 //BUSI 4995U Capstone
+//Updated: April 2020
 ////*/
 
 using UnityEngine;

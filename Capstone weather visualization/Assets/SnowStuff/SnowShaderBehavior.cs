@@ -2,6 +2,10 @@
     Written by Aaron Macaulay for:
     UOIT Capston: BUSI 4995
 */
+/*////
+//Updated by Jacob Rosengren
+//Updated: April 2020
+////*/
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

@@ -2,6 +2,7 @@
 //Written by Jacob Rosengren
 //Date: 2018~2019
 //BUSI 4995U Capstone
+//Updated April 2020
 ////*/
 
 using System.Collections.Generic;

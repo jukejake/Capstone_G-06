@@ -48,6 +48,33 @@ ModelImporter:
     100084: Fins.006
     100086: Blades
     100088: Fan
+    100090: Antannae Black
+    100092: Antannae Box Black
+    100094: BezierCurve
+    100096: Bolt
+    100098: Bolt.001
+    100100: Bracket Black
+    100102: Bracket Silver
+    100104: Cone
+    100106: Connector
+    100108: Cube Left
+    100110: Cube Right
+    100112: Cylinder Clear Light
+    100114: Cylinder Stand
+    100116: Cylinder White
+    100118: Door Handle
+    100120: Hidden Walls
+    100122: Holder Left
+    100124: Inner Walls
+    100126: Lock Holder Left
+    100128: Lock Holder Right
+    100130: Lock Stopper
+    100132: Lock Stopper Right
+    100134: Plane Mount Black
+    100136: Vehicle Door Left
+    100138: Vehicle Door Right
+    100140: Wire
+    100142: Antannae Black.001
     400000: Board
     400002: Box.000
     400004: Box.001
@@ -93,8 +120,36 @@ ModelImporter:
     400084: Fins.006
     400086: Blades
     400088: Fan
+    400090: Antannae Black
+    400092: Antannae Box Black
+    400094: BezierCurve
+    400096: Bolt
+    400098: Bolt.001
+    400100: Bracket Black
+    400102: Bracket Silver
+    400104: Cone
+    400106: Connector
+    400108: Cube Left
+    400110: Cube Right
+    400112: Cylinder Clear Light
+    400114: Cylinder Stand
+    400116: Cylinder White
+    400118: Door Handle
+    400120: Hidden Walls
+    400122: Holder Left
+    400124: Inner Walls
+    400126: Lock Holder Left
+    400128: Lock Holder Right
+    400130: Lock Stopper
+    400132: Lock Stopper Right
+    400134: Plane Mount Black
+    400136: Vehicle Door Left
+    400138: Vehicle Door Right
+    400140: Wire
+    400142: Antannae Black.001
     2100000: WallTexture
     2100002: No Name
+    2100004: Material.001
     2300000: Board
     2300002: Box.000
     2300004: Box.001
@@ -139,6 +194,33 @@ ModelImporter:
     2300082: Fins.006
     2300084: Blades
     2300086: Fan
+    2300088: Antannae Black
+    2300090: Antannae Box Black
+    2300092: BezierCurve
+    2300094: Bolt
+    2300096: Bolt.001
+    2300098: Bracket Black
+    2300100: Bracket Silver
+    2300102: Cone
+    2300104: Connector
+    2300106: Cube Left
+    2300108: Cube Right
+    2300110: Cylinder Clear Light
+    2300112: Cylinder Stand
+    2300114: Cylinder White
+    2300116: Door Handle
+    2300118: Hidden Walls
+    2300120: Holder Left
+    2300122: Inner Walls
+    2300124: Lock Holder Left
+    2300126: Lock Holder Right
+    2300128: Lock Stopper
+    2300130: Lock Stopper Right
+    2300132: Plane Mount Black
+    2300134: Vehicle Door Left
+    2300136: Vehicle Door Right
+    2300138: Wire
+    2300140: Antannae Black.001
     3300000: Board
     3300002: Box.000
     3300004: Box.001
@@ -183,6 +265,33 @@ ModelImporter:
     3300082: Fins.006
     3300084: Blades
     3300086: Fan
+    3300088: Antannae Black
+    3300090: Antannae Box Black
+    3300092: BezierCurve
+    3300094: Bolt
+    3300096: Bolt.001
+    3300098: Bracket Black
+    3300100: Bracket Silver
+    3300102: Cone
+    3300104: Connector
+    3300106: Cube Left
+    3300108: Cube Right
+    3300110: Cylinder Clear Light
+    3300112: Cylinder Stand
+    3300114: Cylinder White
+    3300116: Door Handle
+    3300118: Hidden Walls
+    3300120: Holder Left
+    3300122: Inner Walls
+    3300124: Lock Holder Left
+    3300126: Lock Holder Right
+    3300128: Lock Stopper
+    3300130: Lock Stopper Right
+    3300132: Plane Mount Black
+    3300134: Vehicle Door Left
+    3300136: Vehicle Door Right
+    3300138: Wire
+    3300140: Antannae Black.001
     4300000: Walls
     4300002: Dyno Platform
     4300004: Floor
@@ -224,6 +333,34 @@ ModelImporter:
     4300076: Outer Walls
     4300078: Fan
     4300080: Blades
+    4300082: Hidden Walls
+    4300084: Inner Walls
+    4300086: Fins.004
+    4300088: Cylinder White
+    4300090: Bracket Silver
+    4300092: Bracket Black
+    4300094: Bolt.001
+    4300096: Bolt
+    4300098: Antannae Box Black
+    4300100: Antannae Black
+    4300102: Plane Mount Black
+    4300104: Cylinder Stand
+    4300106: Cylinder Clear Light
+    4300108: BezierCurve
+    4300110: Wire
+    4300112: Connector
+    4300114: Vehicle Door Left
+    4300116: Vehicle Door Right
+    4300118: Cube Left
+    4300120: Cube Right
+    4300122: Door Handle
+    4300124: Holder Left
+    4300126: Lock Holder Left
+    4300128: Lock Stopper
+    4300130: Lock Holder Right
+    4300132: Lock Stopper Right
+    4300134: Cone
+    4300136: Antannae Black.001
   externalObjects: {}
   materials:
     importMaterials: 1

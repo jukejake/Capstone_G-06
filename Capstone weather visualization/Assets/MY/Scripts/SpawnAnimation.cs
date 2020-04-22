@@ -18,10 +18,12 @@ public class SpawnAnimation : SerializedMonoBehaviour {
     public Transform exhaust;
     [HorizontalGroup("Objects/2")]
     public Transform spawnPoint;
-    [HorizontalGroup("Objects/2")]
-    public Vector3 RegularPosition = new Vector3(0.0f,0.1f,0.0f);
     [HorizontalGroup("Objects/3")]
+    public Vector3 RegularPosition = new Vector3(0.0f,0.1f,0.0f);
+    [HorizontalGroup("Objects/4")]
     public Transform platform;
+    [HorizontalGroup("Objects/5")]
+    public GameObject lasers;
 
     [BoxGroup("Settings")]
     [HorizontalGroup("Settings/1")]
@@ -61,6 +63,9 @@ public class SpawnAnimation : SerializedMonoBehaviour {
 
             //Set car behind exhaust
             spawnPoint.localPosition = new Vector3(20.0f,0.1f,0.0f);
+
+            //Unhide the positioning lasers
+            lasers.SetActive(true);
         }
     }
 
@@ -102,6 +107,8 @@ public class SpawnAnimation : SerializedMonoBehaviour {
             exhaust.localPosition = Vector3.zero;
             //Cancel Invoke
             CancelInvoke("Animation");
+            //Hide the positioning lasers
+            lasers.SetActive(false);
         }
     }
     public void CarAnimation() {
