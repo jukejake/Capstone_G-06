@@ -2,6 +2,7 @@
 //Written by Jacob Rosengren
 //Date: 2018~2019
 //BUSI 4995U Capstone
+//Updated May 2020
 ////*/
 
 using UnityEngine;
@@ -33,6 +34,7 @@ public class WheelController : SerializedMonoBehaviour {
 	public GameObject Dynos;
 
     public Transform Spawnpoint;
+	public SwitchText switchTextScript;
     #endregion
 
     #region Functions
@@ -79,6 +81,11 @@ public class WheelController : SerializedMonoBehaviour {
 
 	[Button]
 	public void SwitchRollers() {
+
+		//Do NOT switch while in an animation.
+		if (SpawnAnimation.instance.stage != 0) { return; }
+		switchTextScript.Switch();
+
 		if (!UseTreadmill) {
 			Dynos.SetActive(false);
 			Treadmill.gameObject.SetActive(true);

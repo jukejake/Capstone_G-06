@@ -1,8 +1,9 @@
 ﻿/*////
 //Written by Jacob Rosengren
 //Date: 2018~2019
-//Updated: January 2020
 //BUSI 4995U Capstone
+//Updated: January 2020
+//Updated: May 2020
 ////*/
 
 using System.Collections.Generic;
@@ -23,14 +24,16 @@ public class MovableLightingArray : SerializedMonoBehaviour {
 	[InfoBox("Might need to ONLY have one Rotation active at a time.")]
 	[InfoBox("Movement Cap Y is expected to be negative.")]
 	public Dictionary<string, LightingState> LightingTable = new Dictionary<string, LightingState>();
+	public GameObject[] uiLightToggles;
 
 	private int Moving = 0;
 	private int Rotating = 0;
-    #endregion
+	private bool ToggleState = false;
+	#endregion
 
-    #region Public Functions 
+	#region Public Functions 
 
-    private void Awake() {
+	private void Awake() {
         instance = this;
     }
 
@@ -98,6 +101,44 @@ public class MovableLightingArray : SerializedMonoBehaviour {
 			LightingTable["Middle"] = t;
 		}
         ReloadConnecters();
+		//Reset toggles UI
+        foreach (var item in uiLightToggles) {
+            if (item.transform.GetChild(0).GetChild(0).gameObject.activeSelf) {
+                item.transform.GetChild(0).GetChild(0).GetComponent<SwitchOn>().Switch();
+            }
+        }
+    }
+	public void ToggleLights() {
+		ToggleState = !ToggleState;
+		//Go through all the lights.
+		//F*** this shit! Why can't it be put in a loop?!?
+		LightingState t;
+        if (LightingTable.TryGetValue("Left", out t)) {
+			t.Selected = ToggleState;
+			LightingTable["Left"] = t;
+		}
+        if (LightingTable.TryGetValue("Right", out t)) {
+			t.Selected = ToggleState;
+			LightingTable["Right"] = t;
+		}
+        if (LightingTable.TryGetValue("Front", out t)) {
+			t.Selected = ToggleState;
+			LightingTable["Front"] = t;
+		}
+        if (LightingTable.TryGetValue("Back", out t)) {
+			t.Selected = ToggleState;
+			LightingTable["Back"] = t;
+		}
+        if (LightingTable.TryGetValue("Middle", out t)) {
+			t.Selected = ToggleState;
+			LightingTable["Middle"] = t;
+		}
+		//Toggles UI
+        foreach (var item in uiLightToggles) {
+            if (item.transform.GetChild(0).GetChild(0).gameObject.activeSelf != ToggleState) {
+                item.transform.GetChild(0).GetChild(0).GetComponent<SwitchOn>().Switch();
+            }
+        }
     }
 	#endregion
 

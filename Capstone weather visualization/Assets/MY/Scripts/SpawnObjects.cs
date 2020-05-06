@@ -3,6 +3,7 @@
 //Date: 2018~2019
 //BUSI 4995U Capstone
 //Updated April 2020
+//Updated May 2020
 ////*/
 
 using System.Collections.Generic;
@@ -75,11 +76,13 @@ public class SpawnObjects : SerializedMonoBehaviour {
 	//Function to show a specific vehicle.
 	public void ShowVehicle(string key) {
 
-        //Reset the scene to default
-        ResetDefault.instance.ResetToDefault();
+		//Only spawn 1 at a time.
+		//Do NOT switch while in an animation.
+		if (SpawnAnimation.instance.stage != 0) { return; }
 
-        //Only spawn 1 at a time.
-        if (SpawnAnimation.instance.stage != 0) { return; }
+		//Reset the scene to default
+		ResetDefault.instance.ResetToDefault();
+
 		//Instantiate Destroy Method
 		if (DestroyOrHide) {
 			GameObject t;
@@ -128,6 +131,10 @@ public class SpawnObjects : SerializedMonoBehaviour {
 
 	//Function to clear all of the children on the Object
 	public void Clear() {
+
+		//Do NOT clear while in an animation.
+		if (SpawnAnimation.instance.stage != 0) { return; }
+
 		if (!DestroyOrHide) { HideAll(); }
 		else { Remove(); }
 	}

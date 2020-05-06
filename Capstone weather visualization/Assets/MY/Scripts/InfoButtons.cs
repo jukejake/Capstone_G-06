@@ -1,8 +1,9 @@
 ﻿/*////
 //Written by Jacob Rosengren
 //Date: 2018~2019
-//Updated: January 2020
 //BUSI 4995U Capstone
+//Updated: January 2020
+//Updated May 2020
 ////*/
 
 using UnityEngine;
@@ -22,7 +23,7 @@ public class InfoButtons : SerializedMonoBehaviour, IPointerClickHandler, IPoint
 	[HorizontalGroup("Display Options/4")]
 	public GameObject InfoBox;
 	private RectTransform RT;
-	private Vector3 RectSize = Vector3.zero;
+	private Vector3 CloasedSize = new Vector3(0,0,1);
 	[HorizontalGroup("Display Options/5")]
 	public float ScaleTime = 0.50f;
 
@@ -58,7 +59,7 @@ public class InfoButtons : SerializedMonoBehaviour, IPointerClickHandler, IPoint
         if (Open) {
             Open = false;
             //Rescale over time
-            LeanTween.scale(RT.gameObject, Vector3.zero, ScaleTime).setOnComplete(SetDone);
+            LeanTween.scale(RT.gameObject, CloasedSize, ScaleTime).setOnComplete(SetDone);
         }
         //When opening, increase size.
         else {
@@ -75,7 +76,7 @@ public class InfoButtons : SerializedMonoBehaviour, IPointerClickHandler, IPoint
             Done = false;
             Open = false;
             //Rescale over time
-            LeanTween.scale(RT.gameObject, Vector3.zero, ScaleTime).setOnComplete(SetDone);
+            LeanTween.scale(RT.gameObject, CloasedSize, ScaleTime).setOnComplete(SetDone);
         }
     }
     private void SetDone() {
